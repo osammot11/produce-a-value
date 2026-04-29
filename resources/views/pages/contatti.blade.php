@@ -1,0 +1,66 @@
+@extends('layouts.app')
+
+@section('title', 'Contatti | Produce a Value')
+
+@section('content')
+    <main class="page-brutal">
+        <section class="contact-brutal">
+            <div class="contact-brutal-intro">
+                <p class="page-brutal-kicker">Contatti</p>
+                <h1 class="page-brutal-title">Hai un progetto che deve spingere di più?</h1>
+                <p class="page-brutal-text">
+                    Questa pagina resta per richieste generiche. Se vuoi una diagnosi concreta su funnel,
+                    traffico e conversioni, passa dall'audit.
+                </p>
+
+                <div class="hero-brutal-actions">
+                    <a href="{{ route('audit') }}" class="brutal-button hero-brutal-cta-primary">Richiedi audit</a>
+                    <a href="{{ route('risorsa') }}" class="hero-brutal-cta-secondary">Scarica risorsa</a>
+                </div>
+
+                <div class="contact-brutal-direct">
+                    <span>Email</span>
+                    <a href="mailto:hello@produceavalue.com">hello@produceavalue.com</a>
+                </div>
+            </div>
+
+            <form class="contact-brutal-form" action="{{ route('contatti.store') }}" method="post">
+                @csrf
+
+                @if (session('status'))
+                    <div class="audit-error-brutal contact-success-brutal">
+                        <strong>Messaggio ricevuto.</strong>
+                        <p>{{ session('status') }}</p>
+                    </div>
+                @endif
+
+                <label>
+                    Nome
+                    <input type="text" name="name" value="{{ old('name') }}" placeholder="Il tuo nome" required>
+                </label>
+
+                <label>
+                    Email
+                    <input type="email" name="email" value="{{ old('email') }}" placeholder="nome@email.com" required>
+                </label>
+
+                <label>
+                    Budget indicativo
+                    <select name="budget">
+                        <option value="">Seleziona range</option>
+                        <option value="under-5k" @selected(old('budget') === 'under-5k')>Sotto 5K</option>
+                        <option value="5k-10k" @selected(old('budget') === '5k-10k')>5K - 10K</option>
+                        <option value="10k-plus" @selected(old('budget') === '10k-plus')>10K+</option>
+                    </select>
+                </label>
+
+                <label>
+                    Progetto
+                    <textarea name="message" rows="6" placeholder="Brand, pagina, sito, funnel, campagna..." required>{{ old('message') }}</textarea>
+                </label>
+
+                <button class="brutal-button contact-brutal-submit" type="submit">Invia richiesta</button>
+            </form>
+        </section>
+    </main>
+@endsection
