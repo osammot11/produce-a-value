@@ -11,7 +11,7 @@
                 <p class="page-brutal-text">{{ $caseStudy->summary }}</p>
                 <div class="hero-brutal-actions">
                     <a href="{{ route('audit') }}" class="brutal-button hero-brutal-cta-primary">Richiedi audit</a>
-                    <a href="{{ route('work') }}" class="hero-brutal-cta-secondary">Torna al work</a>
+                    <a href="{{ route('work') }}" class="hero-brutal-cta-secondary">Torna alla lista</a>
                 </div>
             </div>
 
@@ -61,14 +61,12 @@
 
         <section class="case-before-after-brutal">
             <article>
-                <span>Before</span>
-                <h2>Prima</h2>
+                <h2>Before</h2>
                 <p>{{ $caseStudy->before_state ?: $caseStudy->challenge }}</p>
             </article>
 
             <article>
-                <span>After</span>
-                <h2>Dopo</h2>
+                <h2>After</h2>
                 <p>{{ $caseStudy->after_state ?: $caseStudy->result }}</p>
             </article>
         </section>
@@ -91,24 +89,24 @@
         <section class="manifesto-brutal-list">
             <article>
                 <span>01</span>
-                <h2>Challenge</h2>
+                <h2>La sfida</h2>
                 <p>{{ $caseStudy->challenge }}</p>
             </article>
 
             <article>
                 <span>02</span>
-                <h2>Solution</h2>
+                <h2>Soluzione</h2>
                 <p>{{ $caseStudy->solution }}</p>
             </article>
 
             <article>
                 <span>03</span>
-                <h2>Result</h2>
+                <h2>Risultati</h2>
                 <p>{{ $caseStudy->result }}</p>
             </article>
 
             <article>
-                <span>Next</span>
+                <span>Il prossimo passo</span>
                 <h2>Vuoi trovare le perdite nel tuo funnel?</h2>
                 <p>Richiedi un audit e portaci numeri, traffico, problema e obiettivo dei prossimi 90 giorni.</p>
                 <a href="{{ route('audit') }}" class="service-brutal-link">Richiedi audit</a>

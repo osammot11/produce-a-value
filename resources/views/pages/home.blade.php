@@ -109,12 +109,9 @@
             <div class="faq-brutal-shell">
 
                 <div class="faq-brutal-heading">
-                    <p class="faq-brutal-kicker">Frequently asked questions</p>
-                    <h2 class="faq-brutal-title">Questions,<br>answers,<br>no fluff.</h2>
-                    <p class="faq-brutal-text">
-                        Everything you need to know before starting a project, booking a call
-                        or deciding whether we are the right fit.
-                    </p>
+                    <p class="faq-brutal-kicker">Domande frequenti</p>
+                    <h2 class="faq-brutal-title">Domande,<br>risposte,<br>zero fuffa.</h2>
+                    <p class="faq-brutal-text">Tutto ciò che ti serve sapere prima iniziare il tuo progetto con noi, prenotare una chiamata o decidere se siamo la soluzione che fa al caso tuo.</p>
                 </div>
 
                 <div class="faq-brutal-list">

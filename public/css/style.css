@@ -2014,7 +2014,7 @@ button {
 
     .page-brutal-title,
     .legal-brutal-heading h1 {
-        font-size: clamp(2.3rem, 12vw, 4.4rem);
+        font-size: clamp(1.8rem, 10vw, 3.5rem);
     }
 
     .service-brutal-grid,
