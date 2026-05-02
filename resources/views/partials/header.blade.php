@@ -2,7 +2,6 @@
     <div class="brutal-navbar">
 
         <a href="{{ url('/') }}" class="brutal-brand">
-            <span class="brutal-brand-small">creative performance studio</span>
             <span class="brutal-brand-main">PAV.</span>
         </a>
 
