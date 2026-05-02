@@ -30,19 +30,35 @@ Route::get('/work/{caseStudy:slug}', function (CaseStudy $caseStudy) {
     ]);
 })->name('case-studies.show');
 Route::view('/manifesto', 'pages.manifesto')->name('manifesto');
-Route::view('/contatti', 'pages.contatti')->name('contatti');
+Route::get('/contatti', function (Request $request) {
+    $request->session()->put('contact_form_started_at', now()->timestamp);
+
+    return view('pages.contatti');
+})->name('contatti');
 Route::post('/contatti', function (Request $request) {
+    $startedAt = (int) $request->session()->get('contact_form_started_at', 0);
+    $submittedTooFast = $startedAt === 0 || now()->timestamp - $startedAt < 3;
+    $honeypotFilled = filled($request->input('company_website'));
+
+    if ($submittedTooFast || $honeypotFilled) {
+        return redirect()->route('contatti')->with('status', 'Richiesta inviata. Ti ricontatteremo se c\'è fit.');
+    }
+
     $validated = $request->validate([
         'name' => ['required', 'string', 'max:120'],
         'email' => ['required', 'email', 'max:160'],
         'budget' => ['nullable', 'string', 'max:80'],
-        'message' => ['required', 'string', 'max:1000'],
+        'message' => ['required', 'string', 'min:20', 'max:1000'],
     ]);
 
+    $validated['ip_address'] = $request->ip();
+    $validated['user_agent'] = mb_substr((string) $request->userAgent(), 0, 1000);
+
     ContactSubmission::create($validated);
+    $request->session()->forget('contact_form_started_at');
 
     return redirect()->route('contatti')->with('status', 'Richiesta inviata. Ti ricontatteremo se c\'è fit.');
-})->name('contatti.store');
+})->middleware('throttle:4,1')->name('contatti.store');
 Route::view('/audit', 'pages.audit')->name('audit');
 Route::post('/audit', function (Request $request) {
     $validated = $request->validate([

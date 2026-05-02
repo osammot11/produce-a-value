@@ -85,18 +85,61 @@ class FunnelPagesTest extends TestCase
 
     public function test_contact_submission_is_validated_and_stored(): void
     {
-        $response = $this->post('/contatti', [
-            'name' => 'Giulia',
-            'email' => 'giulia@example.com',
-            'budget' => '10k-plus',
-            'message' => 'Vorrei parlare di una landing per ecommerce.',
-        ]);
+        $response = $this
+            ->withSession(['contact_form_started_at' => now()->subSeconds(10)->timestamp])
+            ->withServerVariables([
+                'REMOTE_ADDR' => '203.0.113.10',
+                'HTTP_USER_AGENT' => 'PAV Test Browser',
+            ])
+            ->post('/contatti', [
+                'name' => 'Giulia',
+                'email' => 'giulia@example.com',
+                'budget' => '10k-plus',
+                'message' => 'Vorrei parlare di una landing per ecommerce.',
+            ]);
 
         $response->assertRedirect('/contatti');
 
         $this->assertDatabaseHas('contact_submissions', [
             'email' => 'giulia@example.com',
             'budget' => '10k-plus',
+            'ip_address' => '203.0.113.10',
+            'user_agent' => 'PAV Test Browser',
+        ]);
+    }
+
+    public function test_contact_honeypot_submission_is_accepted_but_not_stored(): void
+    {
+        $response = $this
+            ->withSession(['contact_form_started_at' => now()->subSeconds(10)->timestamp])
+            ->post('/contatti', [
+                'name' => 'Bot',
+                'email' => 'bot@example.com',
+                'budget' => '10k-plus',
+                'message' => 'Questo messaggio sembra valido ma arriva da un bot.',
+                'company_website' => 'https://spam.example',
+            ]);
+
+        $response->assertRedirect('/contatti');
+
+        $this->assertDatabaseMissing('contact_submissions', [
+            'email' => 'bot@example.com',
+        ]);
+    }
+
+    public function test_contact_submission_without_form_timing_is_accepted_but_not_stored(): void
+    {
+        $response = $this->post('/contatti', [
+            'name' => 'Fast Bot',
+            'email' => 'fast@example.com',
+            'budget' => '10k-plus',
+            'message' => 'Questo invio arriva senza prima caricare la pagina contatti.',
+        ]);
+
+        $response->assertRedirect('/contatti');
+
+        $this->assertDatabaseMissing('contact_submissions', [
+            'email' => 'fast@example.com',
         ]);
     }
 

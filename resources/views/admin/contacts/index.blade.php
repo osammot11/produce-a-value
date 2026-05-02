@@ -16,6 +16,10 @@
                     <strong>{{ $contact->name }}</strong>
                     <p><a href="mailto:{{ $contact->email }}">{{ $contact->email }}</a> · {{ $contact->budget ?: 'Budget non indicato' }}</p>
                     <em>{{ $contact->message }}</em>
+                    <span class="admin-note-flag">{{ $contact->ip_address ?: 'IP non disponibile' }}</span>
+                    @if ($contact->user_agent)
+                        <small class="admin-tech-meta">{{ \Illuminate\Support\Str::limit($contact->user_agent, 180) }}</small>
+                    @endif
                 </article>
             @empty
                 <p class="admin-empty-brutal">Nessun contatto.</p>

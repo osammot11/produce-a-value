@@ -500,6 +500,15 @@ a.admin-record-card:hover {
     letter-spacing: 0.08em;
 }
 
+.admin-tech-meta {
+    display: block;
+    margin-top: 8px;
+    color: var(--admin-muted);
+    font-size: 0.76rem;
+    line-height: 1.45;
+    word-break: break-word;
+}
+
 .admin-filter-actions {
     display: flex;
     gap: 8px;

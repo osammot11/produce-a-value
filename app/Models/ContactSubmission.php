@@ -11,5 +11,7 @@ class ContactSubmission extends Model
         'email',
         'budget',
         'message',
+        'ip_address',
+        'user_agent',
     ];
 }

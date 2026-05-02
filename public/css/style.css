@@ -1355,6 +1355,14 @@ button {
     margin-top: 8px;
 }
 
+.form-honeypot {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
 .legal-brutal-shell {
     display: grid;
     grid-template-columns: 0.8fr 1.2fr;

@@ -27,6 +27,13 @@
             <form class="contact-brutal-form" action="{{ route('contatti.store') }}" method="post">
                 @csrf
 
+                <div class="form-honeypot" aria-hidden="true">
+                    <label>
+                        Sito aziendale
+                        <input type="text" name="company_website" tabindex="-1" autocomplete="off">
+                    </label>
+                </div>
+
                 @if (session('status'))
                     <div class="audit-error-brutal contact-success-brutal">
                         <strong>Messaggio ricevuto.</strong>
