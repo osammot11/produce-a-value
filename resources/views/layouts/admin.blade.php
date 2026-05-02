@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@yield('title', 'Admin | Produce a Value')</title>
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon.png') }}">
 </head>
 
 <body class="admin-brutal-body">
