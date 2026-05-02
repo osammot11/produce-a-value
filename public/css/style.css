@@ -550,7 +550,7 @@ button {
 }
 
 .faq-brutal-item.active {
-    background: #ffe600;
+    background: #ff5a36;
 }
 
 .faq-brutal-question {
@@ -1889,7 +1889,6 @@ button {
 }
 
 .brutal-button {
-    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
