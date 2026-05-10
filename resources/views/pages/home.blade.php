@@ -10,7 +10,7 @@
             <div class="hero-brutal-grid">
 
                 <div class="hero-brutal-main">
-                    <p class="hero-brutal-kicker">Funnel growth system</p>
+                    <p class="hero-brutal-kicker">Performance Marketing Agency</p>
 
                     <h1 class="hero-brutal-title">
                         Stop leaking<br>
@@ -53,31 +53,28 @@
             <div class="stats-brutal-shell">
 
                 <div class="stats-brutal-intro">
-                    <p class="stats-brutal-kicker">Funnel problems</p>
-                    <h2 class="stats-brutal-title">Leaks,<br>not vibes.</h2>
-                    <p class="stats-brutal-text">
-                        Se paghi traffico, pubblichi creatività e mandi persone su pagine deboli,
-                        il problema non è fare più rumore. È chiudere le perdite.
-                    </p>
+                    <p class="stats-brutal-kicker">Il nostro approccio</p>
+                    <h2 class="stats-brutal-title">Risultati,<br>niente chiacchiere.</h2>
+                    <p class="stats-brutal-text">Lavoriamo per portare solo ed esclusivamente risultati economici concreti e tangibili ai nostri clienti. Con la formula del Revenue Share, non guadagni, non ci paghi.</p>
                 </div>
 
                 <div class="stats-brutal-grid">
                     <article class="stats-brutal-card stats-brutal-card-dark">
-                        <span class="stats-brutal-label">Above the fold</span>
-                        <strong class="stats-brutal-value">03s</strong>
-                        <p class="stats-brutal-note">Hai pochi secondi per far capire valore, differenza e prossima azione.</p>
+                        <span class="stats-brutal-label">Clienti</span>
+                        <strong class="stats-brutal-value">127</strong>
+                        <p class="stats-brutal-note">Aziende che si sono affidate a PAV negli ultimi 5 anni.</p>
                     </article>
 
                     <article class="stats-brutal-card stats-brutal-card-yellow">
                         <span class="stats-brutal-label">Paid traffic</span>
-                        <strong class="stats-brutal-value">€</strong>
-                        <p class="stats-brutal-note">Ogni click mandato su una pagina confusa diventa costo nascosto.</p>
+                        <strong class="stats-brutal-value">28.7 mln€</strong>
+                        <p class="stats-brutal-note">Budget ADV gestito per i nostri clienti.</p>
                     </article>
 
                     <article class="stats-brutal-card stats-brutal-card-violet">
-                        <span class="stats-brutal-label">Creative testing</span>
-                        <strong class="stats-brutal-value">10x</strong>
-                        <p class="stats-brutal-note">Più asset non bastano se angle, promessa e pagina non parlano insieme.</p>
+                        <span class="stats-brutal-label">Campaigns management</span>
+                        <strong class="stats-brutal-value">8,43X</strong>
+                        <p class="stats-brutal-note">ROAS medio delle nostre campagne ADV.</p>
                     </article>
 
                     <article class="stats-brutal-card stats-brutal-card-orange">
