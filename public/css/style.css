@@ -9,6 +9,8 @@ body {
     color: #111111;
 }
 
+
+
 a {
     color: inherit;
     text-decoration: none;
@@ -1911,6 +1913,54 @@ button {
     background: #fff06a;
 }
 
+.container {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* margini */
+.top-margin {
+    margin-top: 56px;
+}
+
+.top-margin-small {
+    margin-top: 6px;
+}
+
+.top-margin-mid {
+    margin-top: 12px;
+}
+
+.top-margin-large {
+    margin-top: 24px;
+}
+
+.top-margin-xl {
+    margin-top: 36px;
+}
+
+/* STACK SYSTEM */
+.stack-small>*+* {
+    margin-top: 0.5rem;
+}
+
+.stack-mid>*+* {
+    margin-top: 1rem;
+}
+
+.stack-large>*+* {
+    margin-top: 1.5rem;
+}
+
+.stack-xl>*+* {
+    margin-top: 2.5rem;
+}
+
+.stack-xxl>*+* {
+    margin-top: 4rem;
+}
+
 /* RESPONSIVE */
 
 @media (max-width: 1020px) {
@@ -1936,6 +1986,11 @@ button {
 }
 
 @media (max-width: 980px) {
+
+    .mobile-fullwidth {
+        width: 100%;
+        box-sizing: border-box;
+    }
 
     .hero-brutal-grid,
     .stats-brutal-shell,

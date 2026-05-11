@@ -13,36 +13,34 @@
                     <p class="hero-brutal-kicker">Performance Marketing Agency</p>
 
                     <h1 class="hero-brutal-title">
-                        Stop leaking<br>
-                        traffic, sales<br>
-                        and attention.
+                        Migliora i tuoi<br>
+                        risultati o non ci<br>
+                        paghi un centesimo.
                     </h1>
 
                     <p class="hero-brutal-text">
-                        Audit, landing pages and creative performance for ecommerce and startups that need
-                        stronger funnels, not prettier excuses.
+                        Fai una prova di 90 giorni con Produce a Value, se non raggiungiamo i risultati prestabiliti, ti restituiamo tutto, fino all'ultimo centesimo.
                     </p>
 
                     <div class="hero-brutal-actions">
-                        <a href="{{ route('audit') }}" class="brutal-button hero-brutal-cta-primary">Richiedi audit</a>
-                        <a href="{{ route('risorsa') }}" class="hero-brutal-cta-secondary">Scarica risorsa</a>
+                        <a href="{{ route('audit') }}" class="brutal-button hero-brutal-cta-primary mobile-fullwidth">Richiedi audit</a>
                     </div>
                 </div>
 
                 <div class="hero-brutal-side">
                     <div class="hero-brutal-card hero-brutal-card-top">
-                        <span class="hero-brutal-card-label">Audit</span>
-                        <span class="hero-brutal-card-value">Find the leaks</span>
+                        <span class="hero-brutal-card-label">Step 01</span>
+                        <span class="hero-brutal-card-value">Offerta irrinunciabile</span>
                     </div>
 
                     <div class="hero-brutal-card hero-brutal-card-middle">
-                        <span class="hero-brutal-card-label">Landing</span>
-                        <span class="hero-brutal-card-value">Turn clicks into intent</span>
+                        <span class="hero-brutal-card-label">Step 02</span>
+                        <span class="hero-brutal-card-value">Funneling perfetto</span>
                     </div>
 
                     <div class="hero-brutal-card hero-brutal-card-bottom">
-                        <span class="hero-brutal-card-label">Creative</span>
-                        <span class="hero-brutal-card-value">Make tests worth running</span>
+                        <span class="hero-brutal-card-label">Step 03</span>
+                        <span class="hero-brutal-card-value">Campagne da urlo</span>
                     </div>
                 </div>
 
@@ -87,19 +85,13 @@
             </div>
         </section>
 
-        <section class="home-funnel-brutal">
-            <div class="home-funnel-main">
-                <p class="page-brutal-kicker">Free diagnostic</p>
-                <h2>Prima capiamo dove perde. Poi decidiamo cosa costruire.</h2>
-                <p>
-                    Il percorso migliore parte dall'audit: raccogliamo dati su business, traffico, numeri,
-                    problemi e urgenza. Se non sei pronto, scarica la checklist e fai una prima autodiagnosi.
-                </p>
-            </div>
-            <div class="home-funnel-actions">
-                <a href="{{ route('audit') }}" class="brutal-button">Richiedi audit</a>
-                <a href="{{ route('risorsa') }}">Scarica risorsa</a>
-            </div>
+        <section class="stats-brutal container">
+            <div class="home-funnel-main stack-large">
+                <p class="hero-brutal-kicker">Diagnosi gratuita</p>
+                <h2 class="top-margin-mid">Trasforma i dati nella tua roadmap grazie al nostro Free Audit</h2>
+                <p>Analizzeremo insieme ogni singolo dettaglio del tuo store/funnel, passeremo sotto la lente d'ingrandimento le tue ads e renderemo le tue offerte da standard ad indimenticabili.
+                    <br>Siamo così sicuri dei nostri metodi, che se non ottieni risultati, non ci paghi.</p>
+                <a href="{{ route('audit') }}" class="brutal-button mobile-fullwidth top-margin-large">Richiedi il tuo audit</a>
         </section>
 
         <section class="faq-brutal">
