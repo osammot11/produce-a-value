@@ -373,6 +373,10 @@ button {
     padding: 22px;
 }
 
+.callout {
+    margin-top: 32px;
+}
+
 .card-feature {
     min-height: 300px;
     padding: 24px;
@@ -423,6 +427,7 @@ button {
 }
 
 .card-title {
+    display: block;
     font-size: clamp(1.4rem, 3vw, 2.2rem);
     font-weight: 900;
     line-height: 0.95;
@@ -1382,14 +1387,12 @@ button {
     box-shadow: 5px 5px 0 currentColor;
 }
 
-/* AUDIT */
+/* FUNNEL FORMS */
 
-.audit-brutal,
 .resource-brutal {
     padding: 36px 18px 72px;
 }
 
-.audit-brutal-shell,
 .resource-brutal-shell {
     max-width: 1400px;
     margin: 0 auto;
@@ -1399,7 +1402,6 @@ button {
     align-items: start;
 }
 
-.audit-brutal-intro,
 .resource-brutal-main {
     position: sticky;
     top: 24px;
@@ -1410,7 +1412,6 @@ button {
     box-shadow: 10px 10px 0 #ff5a36;
 }
 
-.audit-brutal-proof,
 .resource-brutal-list {
     margin-top: 32px;
     padding: 20px;
@@ -1420,7 +1421,6 @@ button {
     box-shadow: 6px 6px 0 #f5efe4;
 }
 
-.audit-brutal-proof span,
 .resource-brutal-list span {
     display: block;
     margin-bottom: 12px;
@@ -1430,16 +1430,7 @@ button {
     letter-spacing: 0.16em;
 }
 
-.audit-brutal-proof strong {
-    display: block;
-    font-size: clamp(1.3rem, 3vw, 2.2rem);
-    line-height: 0.95;
-    font-weight: 900;
-    letter-spacing: -0.05em;
-    text-transform: uppercase;
-}
-
-.audit-form-brutal,
+.form-panel,
 .resource-form-brutal {
     padding: 26px;
     background: #f5efe4;
@@ -1447,6 +1438,7 @@ button {
     box-shadow: 10px 10px 0 #111111;
 }
 
+.form-error,
 .audit-error-brutal {
     margin-bottom: 20px;
     padding: 18px;
@@ -1455,11 +1447,14 @@ button {
     box-shadow: 5px 5px 0 #111111;
 }
 
+.form-error strong,
+.form-error p,
 .audit-error-brutal strong,
 .audit-error-brutal p {
     margin: 0;
 }
 
+.form-error strong,
 .audit-error-brutal strong {
     display: block;
     font-size: 1rem;
@@ -1467,6 +1462,7 @@ button {
     text-transform: uppercase;
 }
 
+.form-error p,
 .audit-error-brutal p {
     margin-top: 8px;
     font-weight: 700;
@@ -1476,11 +1472,11 @@ button {
     background: #8b7cff;
 }
 
-.audit-progress-brutal {
+.progress {
     margin-bottom: 24px;
 }
 
-.audit-progress-brutal span {
+.progress span {
     display: block;
     margin-bottom: 10px;
     font-size: 0.78rem;
@@ -1489,14 +1485,14 @@ button {
     letter-spacing: 0.14em;
 }
 
-.audit-progress-brutal div {
+.progress div {
     height: 18px;
     background: #efe8dc;
     border: 2px solid #111111;
     box-shadow: 4px 4px 0 #111111;
 }
 
-.audit-progress-brutal i {
+.progress i {
     display: block;
     width: 12.5%;
     height: 100%;
@@ -1504,15 +1500,15 @@ button {
     transition: width 0.18s ease;
 }
 
-.audit-step-brutal {
+.step {
     display: none;
 }
 
-.audit-step-brutal.is-active {
+.step.is-active {
     display: block;
 }
 
-.audit-step-index {
+.step-index {
     display: inline-block;
     margin-bottom: 18px;
     font-size: 0.74rem;
@@ -1521,7 +1517,7 @@ button {
     letter-spacing: 0.16em;
 }
 
-.audit-step-brutal h2 {
+.step h2 {
     margin: 0 0 24px;
     max-width: 760px;
     font-size: clamp(2rem, 4vw, 3.7rem);
@@ -1531,15 +1527,15 @@ button {
     text-transform: uppercase;
 }
 
-.audit-field-grid {
+.field-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 18px;
 }
 
-.audit-form-brutal label,
+.form-panel label,
 .resource-form-brutal label,
-.audit-wide-field {
+.wide-field {
     display: grid;
     gap: 8px;
     font-size: 0.78rem;
@@ -1548,9 +1544,9 @@ button {
     letter-spacing: 0.14em;
 }
 
-.audit-form-brutal input,
-.audit-form-brutal select,
-.audit-form-brutal textarea,
+.form-panel input,
+.form-panel select,
+.form-panel textarea,
 .resource-form-brutal input,
 .resource-form-brutal select {
     width: 100%;
@@ -1566,22 +1562,22 @@ button {
     box-shadow: 4px 4px 0 #111111;
 }
 
-.audit-form-brutal textarea {
+.form-panel textarea {
     resize: vertical;
 }
 
-.audit-wide-field {
+.wide-field {
     margin-top: 18px;
 }
 
-.audit-check-grid {
+.check-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 14px;
 }
 
-.audit-check-grid label,
-.audit-privacy-brutal {
+.check-grid label,
+.privacy-check {
     display: flex;
     align-items: flex-start;
     gap: 12px;
@@ -1592,21 +1588,21 @@ button {
     cursor: pointer;
 }
 
-.audit-check-grid input,
-.audit-privacy-brutal input {
+.check-grid input,
+.privacy-check input {
     width: auto;
     margin-top: 3px;
     box-shadow: none;
     accent-color: #8b7cff;
 }
 
-.audit-review-brutal {
+.review-list {
     margin-top: 20px;
     display: grid;
     gap: 10px;
 }
 
-.audit-review-brutal div {
+.review-list div {
     display: grid;
     grid-template-columns: 0.45fr 1fr;
     gap: 12px;
@@ -1615,32 +1611,32 @@ button {
     border: 2px solid #111111;
 }
 
-.audit-review-brutal span {
+.review-list span {
     font-size: 0.72rem;
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 0.12em;
 }
 
-.audit-review-brutal strong {
+.review-list strong {
     font-size: 0.95rem;
     line-height: 1.4;
 }
 
-.audit-actions-brutal {
+.form-actions {
     display: flex;
     justify-content: space-between;
     gap: 14px;
     margin-top: 28px;
 }
 
-.audit-prev-brutal {
+.button-prev {
     background: #f5efe4;
     box-shadow: 5px 5px 0 #111111;
 }
 
-.audit-submit-brutal,
-.audit-next-brutal {
+.button-submit,
+.button-next {
     margin-left: auto;
 }
 
@@ -1843,7 +1839,6 @@ button {
     .process-brutal,
     .contact-brutal,
     .legal-brutal-shell,
-    .audit-brutal-shell,
     .resource-brutal-shell,
     .case-proof-snapshot,
     .case-before-after-brutal,
@@ -1917,9 +1912,9 @@ button {
     .work-proof-strip,
     .manifesto-brutal-list,
     .process-brutal-list,
-    .audit-field-grid,
+    .field-grid,
     .case-study-metrics-brutal,
-    .audit-check-grid {
+    .check-grid {
         grid-template-columns: 1fr;
     }
 
@@ -1935,29 +1930,28 @@ button {
         min-height: 220px;
     }
 
-    .audit-brutal-intro,
     .resource-brutal-main {
         position: static;
         box-shadow: 8px 8px 0 #ff5a36;
     }
 
-    .audit-form-brutal,
+    .form-panel,
     .resource-form-brutal {
         box-shadow: 8px 8px 0 #111111;
     }
 
-    .audit-actions-brutal {
+    .form-actions {
         flex-direction: column;
     }
 
-    .audit-prev-brutal,
-    .audit-next-brutal,
-    .audit-submit-brutal {
+    .button-prev,
+    .button-next,
+    .button-submit {
         width: 100%;
         margin-left: 0;
     }
 
-    .audit-review-brutal div {
+    .review-list div {
         grid-template-columns: 1fr;
     }
 
