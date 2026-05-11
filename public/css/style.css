@@ -341,6 +341,10 @@ button {
     grid-template-columns: repeat(4, 1fr);
 }
 
+.card-grid-three {
+    grid-template-columns: repeat(3, 1fr);
+}
+
 .step-grid {
     display: grid;
     grid-template-rows: repeat(3, 1fr);
@@ -474,6 +478,10 @@ button {
 
 .fullwidth {
     width: 100%;
+}
+
+.span-all {
+    grid-column: 1 / -1;
 }
 
 .centered-link {
@@ -711,7 +719,6 @@ button {
 }
 
 .service-brutal-grid,
-.work-brutal-grid,
 .manifesto-brutal-list,
 .process-brutal {
     max-width: 1400px;
@@ -725,7 +732,6 @@ button {
 }
 
 .service-card,
-.work-card,
 .manifesto-brutal-list article {
     padding: 24px;
     border: 2px solid #111111;
@@ -740,7 +746,6 @@ button {
 }
 
 .service-card h2,
-.work-card h2,
 .manifesto-brutal-list h2,
 .process-brutal-heading h2 {
     margin: 0;
@@ -752,7 +757,6 @@ button {
 }
 
 .service-card p,
-.work-card p,
 .manifesto-brutal-list p,
 .process-brutal-list p {
     margin: 20px 0 0;
@@ -762,7 +766,6 @@ button {
 }
 
 .service-brutal-index,
-.work-brutal-tag,
 .manifesto-brutal-list span,
 .process-brutal-list span {
     display: inline-block;
@@ -773,13 +776,11 @@ button {
     letter-spacing: 0.16em;
 }
 
-.service-card-yellow,
-.work-card-yellow {
+.service-card-yellow {
     background: #ffe600;
 }
 
-.service-card-violet,
-.work-card-violet {
+.service-card-violet {
     background: #8b7cff;
 }
 
@@ -824,13 +825,6 @@ button {
     box-shadow: 8px 8px 0 #111111;
 }
 
-.work-brutal-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-}
-
-.work-proof-strip,
 .case-proof-snapshot,
 .case-before-after-brutal,
 .case-problems-brutal,
@@ -839,49 +833,22 @@ button {
     margin: 42px auto 0;
 }
 
-.work-proof-strip {
+.proof-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 18px;
 }
 
-.work-proof-strip article {
-    min-height: 180px;
-    padding: 22px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background: #f5efe4;
-    border: 2px solid #111111;
-    box-shadow: 8px 8px 0 #111111;
-}
-
-.work-proof-strip article:nth-child(2) {
-    background: #ffe600;
-}
-
-.work-proof-strip article:nth-child(3) {
-    background: #8b7cff;
-}
-
-.work-proof-strip span,
 .case-before-after-brutal span,
 .case-problems-brutal li,
-.case-visual-top span {
+.proof-visual-top span {
     font-size: 0.74rem;
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 0.14em;
 }
 
-.work-proof-strip strong {
-    font-size: clamp(3rem, 6vw, 5.4rem);
-    line-height: 0.88;
-    font-weight: 900;
-    letter-spacing: -0.09em;
-}
-
-.work-proof-card {
+.proof-card {
     display: grid;
     grid-template-rows: auto 1fr;
     min-height: 620px;
@@ -891,12 +858,12 @@ button {
     transition: transform 0.16s ease, box-shadow 0.16s ease;
 }
 
-.work-proof-card:hover {
+.proof-card:hover {
     transform: translate(-4px, -4px);
     box-shadow: 12px 12px 0 #8b7cff;
 }
 
-.case-visual-mockup {
+.proof-visual {
     min-height: 260px;
     padding: 18px;
     display: grid;
@@ -906,7 +873,7 @@ button {
     border-bottom: 2px solid #111111;
 }
 
-.case-visual-mockup img {
+.proof-visual img {
     width: 100%;
     height: 100%;
     min-height: 260px;
@@ -914,7 +881,7 @@ button {
     border: 2px solid #111111;
 }
 
-.case-visual-top {
+.proof-visual-top {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -926,42 +893,42 @@ button {
     box-shadow: 5px 5px 0 #ff5a36;
 }
 
-.case-visual-top strong {
+.proof-visual-top strong {
     font-size: clamp(1.8rem, 4vw, 3.4rem);
     line-height: 0.86;
     font-weight: 900;
     letter-spacing: -0.08em;
 }
 
-.case-visual-bars {
+.proof-visual-bars {
     display: grid;
     gap: 10px;
 }
 
-.case-visual-bars i {
+.proof-visual-bars i {
     display: block;
     height: 24px;
     background: #8b7cff;
     border: 2px solid #111111;
 }
 
-.case-visual-bars i:nth-child(2) {
+.proof-visual-bars i:nth-child(2) {
     width: 72%;
     background: #ffe600;
 }
 
-.case-visual-bars i:nth-child(3) {
+.proof-visual-bars i:nth-child(3) {
     width: 88%;
     background: #ff5a36;
 }
 
-.case-visual-cards {
+.proof-visual-cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
 }
 
-.case-visual-cards b {
+.proof-visual-cards b {
     min-height: 82px;
     padding: 14px;
     display: flex;
@@ -975,14 +942,15 @@ button {
     letter-spacing: -0.07em;
 }
 
-.work-proof-content {
+.proof-content {
     padding: 22px;
     display: flex;
     flex-direction: column;
 }
 
-.work-proof-content h2 {
+.proof-content h2 {
     margin: 0;
+    margin-top: 20px;
     font-size: clamp(1.7rem, 3vw, 2.7rem);
     line-height: 0.95;
     font-weight: 900;
@@ -990,14 +958,14 @@ button {
     text-transform: uppercase;
 }
 
-.work-proof-content p {
+.proof-content p {
     margin: 18px 0 0;
     font-size: 1rem;
     line-height: 1.6;
     color: rgba(17, 17, 17, 0.78);
 }
 
-.work-proof-metrics {
+.proof-metrics {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
@@ -1005,47 +973,30 @@ button {
     padding-top: 24px;
 }
 
-.work-proof-metrics div {
+.proof-metrics div {
     padding: 12px;
     background: #efe8dc;
     border: 2px solid #111111;
 }
 
-.work-proof-metrics strong,
-.work-proof-metrics span {
+.proof-metrics strong,
+.proof-metrics span {
     display: block;
 }
 
-.work-proof-metrics strong {
+.proof-metrics strong {
     font-size: clamp(1.4rem, 3vw, 2.3rem);
     line-height: 0.9;
     font-weight: 900;
     letter-spacing: -0.07em;
 }
 
-.work-proof-metrics span {
+.proof-metrics span {
     margin-top: 8px;
     font-size: 0.68rem;
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-}
-
-.work-card {
-    min-height: 360px;
-    display: flex;
-    flex-direction: column;
-    background: #f5efe4;
-}
-
-.work-card strong {
-    display: block;
-    margin-top: auto;
-    font-size: clamp(2rem, 4vw, 4rem);
-    line-height: 0.9;
-    font-weight: 900;
-    letter-spacing: -0.08em;
-    text-transform: uppercase;
 }
 
 .manifesto-brutal-list {
@@ -1819,6 +1770,11 @@ button {
         grid-template-columns: 1fr;
     }
 
+    .card-grid-three,
+    .proof-grid {
+        grid-template-columns: 1fr;
+    }
+
     .card-metric {
         min-height: 220px;
     }
@@ -1857,8 +1813,6 @@ button {
     }
 
     .service-brutal-grid,
-    .work-brutal-grid,
-    .work-proof-strip,
     .manifesto-brutal-list,
     .process-brutal-list,
     .field-grid,
@@ -1867,14 +1821,13 @@ button {
         grid-template-columns: 1fr;
     }
 
-    .work-proof-metrics,
-    .case-visual-cards {
+    .proof-metrics,
+    .proof-visual-cards {
         grid-template-columns: 1fr;
     }
 
     .page-hero-brutal-side,
     .service-card,
-    .work-card,
     .manifesto-brutal-list article {
         min-height: 220px;
     }
