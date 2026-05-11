@@ -465,6 +465,22 @@ button {
     color: rgba(245, 239, 228, 0.78);
 }
 
+.check-list {
+    margin: 0;
+    padding-left: 18px;
+    font-weight: 800;
+    line-height: 1.55;
+}
+
+.fullwidth {
+    width: 100%;
+}
+
+.centered-link {
+    display: block;
+    text-align: center;
+}
+
 /* SHARED CTA */
 
 .actions {
@@ -1389,57 +1405,19 @@ button {
 
 /* FUNNEL FORMS */
 
-.resource-brutal {
-    padding: 36px 18px 72px;
-}
-
-.resource-brutal-shell {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 0.85fr 1.15fr;
-    gap: 24px;
-    align-items: start;
-}
-
-.resource-brutal-main {
-    position: sticky;
-    top: 24px;
-    padding: 28px;
-    background: #111111;
-    color: #f5efe4;
-    border: 2px solid #111111;
-    box-shadow: 10px 10px 0 #ff5a36;
-}
-
-.resource-brutal-list {
-    margin-top: 32px;
-    padding: 20px;
-    background: #ffe600;
-    color: #111111;
-    border: 2px solid #111111;
-    box-shadow: 6px 6px 0 #f5efe4;
-}
-
-.resource-brutal-list span {
-    display: block;
-    margin-bottom: 12px;
-    font-size: 0.74rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-}
-
-.form-panel,
-.resource-form-brutal {
+.form-panel {
     padding: 26px;
     background: #f5efe4;
     border: 2px solid #111111;
     box-shadow: 10px 10px 0 #111111;
 }
 
-.form-error,
-.audit-error-brutal {
+.form-stack {
+    display: grid;
+    gap: 18px;
+}
+
+.form-error {
     margin-bottom: 20px;
     padding: 18px;
     background: #ff5a36;
@@ -1448,22 +1426,18 @@ button {
 }
 
 .form-error strong,
-.form-error p,
-.audit-error-brutal strong,
-.audit-error-brutal p {
+.form-error p {
     margin: 0;
 }
 
-.form-error strong,
-.audit-error-brutal strong {
+.form-error strong {
     display: block;
     font-size: 1rem;
     font-weight: 900;
     text-transform: uppercase;
 }
 
-.form-error p,
-.audit-error-brutal p {
+.form-error p {
     margin-top: 8px;
     font-weight: 700;
 }
@@ -1534,7 +1508,6 @@ button {
 }
 
 .form-panel label,
-.resource-form-brutal label,
 .wide-field {
     display: grid;
     gap: 8px;
@@ -1546,9 +1519,7 @@ button {
 
 .form-panel input,
 .form-panel select,
-.form-panel textarea,
-.resource-form-brutal input,
-.resource-form-brutal select {
+.form-panel textarea {
     width: 100%;
     border: 2px solid #111111;
     background: #efe8dc;
@@ -1638,27 +1609,6 @@ button {
 .button-submit,
 .button-next {
     margin-left: auto;
-}
-
-.resource-brutal-list ul {
-    margin: 0;
-    padding-left: 18px;
-    font-weight: 800;
-    line-height: 1.55;
-}
-
-.resource-form-brutal {
-    display: grid;
-    gap: 18px;
-}
-
-.resource-audit-link {
-    display: inline-block;
-    text-align: center;
-    font-size: 0.82rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
 }
 
 /* FOOTER */
@@ -1839,7 +1789,6 @@ button {
     .process-brutal,
     .contact-brutal,
     .legal-brutal-shell,
-    .resource-brutal-shell,
     .case-proof-snapshot,
     .case-before-after-brutal,
     .case-problems-brutal {
@@ -1930,13 +1879,7 @@ button {
         min-height: 220px;
     }
 
-    .resource-brutal-main {
-        position: static;
-        box-shadow: 8px 8px 0 #ff5a36;
-    }
-
-    .form-panel,
-    .resource-form-brutal {
+    .form-panel {
         box-shadow: 8px 8px 0 #111111;
     }
 
