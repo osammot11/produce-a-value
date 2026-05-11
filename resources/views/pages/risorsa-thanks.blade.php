@@ -12,9 +12,9 @@
                     Abbiamo registrato la richiesta. Se vuoi una diagnosi costruita sui tuoi numeri reali,
                     compila l'audit e facci vedere dove il funnel perde forza.
                 </p>
-                <div class="hero-brutal-actions">
-                    <a href="{{ route('audit') }}" class="brutal-button hero-brutal-cta-primary">Richiedi audit</a>
-                    <a href="{{ route('servizi') }}" class="hero-brutal-cta-secondary">Vedi servizi</a>
+                <div class="actions">
+                    <a href="{{ route('audit') }}" class="button">Richiedi audit</a>
+                    <a href="{{ route('servizi') }}" class="button-secondary">Vedi servizi</a>
                 </div>
             </div>
 

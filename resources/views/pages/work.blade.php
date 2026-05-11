@@ -12,9 +12,9 @@
                     Qui non mostriamo “cose belle”. Mostriamo problemi risolti, before/after, metriche,
                     scelte fatte e segnali che un funnel può lavorare meglio.
                 </p>
-                <div class="hero-brutal-actions">
-                    <a href="{{ route('audit') }}" class="brutal-button hero-brutal-cta-primary">Richiedi audit</a>
-                    <a href="{{ route('risorsa') }}" class="hero-brutal-cta-secondary">Scarica risorsa</a>
+                <div class="actions">
+                    <a href="{{ route('audit') }}" class="button">Richiedi audit</a>
+                    <a href="{{ route('risorsa') }}" class="button-secondary">Scarica risorsa</a>
                 </div>
             </div>
 

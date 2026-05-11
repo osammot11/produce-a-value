@@ -209,9 +209,9 @@
                 </section>
 
                 <div class="audit-actions-brutal">
-                    <button class="brutal-button audit-prev-brutal" type="button" data-prev-step>Indietro</button>
-                    <button class="brutal-button audit-next-brutal" type="button" data-next-step>Avanti</button>
-                    <button class="brutal-button audit-submit-brutal" type="submit" data-submit-step>Richiedi audit</button>
+                    <button class="button audit-prev-brutal" type="button" data-prev-step>Indietro</button>
+                    <button class="button audit-next-brutal" type="button" data-next-step>Avanti</button>
+                    <button class="button audit-submit-brutal" type="submit" data-submit-step>Richiedi audit</button>
                 </div>
             </form>
         </section>

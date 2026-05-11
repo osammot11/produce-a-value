@@ -13,7 +13,7 @@
         </nav>
 
         <div class="brutal-actions">
-            <a href="{{ route('audit') }}" class="brutal-button brutal-cta">Richiedi audit</a>
+            <a href="{{ route('audit') }}" class="button brutal-cta">Richiedi audit</a>
 
             <button class="brutal-toggle" type="button" aria-label="Apri menu" aria-expanded="false">
                 <span></span>
@@ -38,7 +38,7 @@
                 <a href="{{ route('risorsa') }}"><span>04</span> Risorsa</a>
             </nav>
 
-            <a href="{{ route('audit') }}" class="brutal-button brutal-mobile-cta">Richiedi audit</a>
+            <a href="{{ route('audit') }}" class="button brutal-mobile-cta">Richiedi audit</a>
 
         </div>
     </div>

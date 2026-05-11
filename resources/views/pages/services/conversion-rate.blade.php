@@ -12,9 +12,9 @@
                     Analizziamo pagina, funnel, copy, UX, proof e numeri per individuare le perdite di conversione
                     e trasformarle in priorità operative.
                 </p>
-                <div class="hero-brutal-actions">
-                    <a href="{{ route('audit') }}" class="brutal-button hero-brutal-cta-primary">Richiedi audit</a>
-                    <a href="{{ route('work') }}" class="hero-brutal-cta-secondary">Vedi work</a>
+                <div class="actions">
+                    <a href="{{ route('audit') }}" class="button">Richiedi audit</a>
+                    <a href="{{ route('work') }}" class="button-secondary">Vedi work</a>
                 </div>
             </div>
 

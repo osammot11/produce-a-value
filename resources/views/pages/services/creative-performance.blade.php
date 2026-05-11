@@ -12,9 +12,9 @@
                     Costruiamo angle, asset e pagine con una logica testabile: attenzione, promessa, prova,
                     obiezione e azione.
                 </p>
-                <div class="hero-brutal-actions">
-                    <a href="{{ route('audit') }}" class="brutal-button hero-brutal-cta-primary">Richiedi audit</a>
-                    <a href="{{ route('risorsa') }}" class="hero-brutal-cta-secondary">Scarica risorsa</a>
+                <div class="actions">
+                    <a href="{{ route('audit') }}" class="button">Richiedi audit</a>
+                    <a href="{{ route('risorsa') }}" class="button-secondary">Scarica risorsa</a>
                 </div>
             </div>
 

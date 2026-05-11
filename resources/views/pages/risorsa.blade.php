@@ -56,7 +56,7 @@
                     <span>Accetto il trattamento dei dati secondo la <a href="{{ route('privacy-policy') }}">Privacy Policy</a>.</span>
                 </label>
 
-                <button class="brutal-button contact-brutal-submit" type="submit">Scarica risorsa</button>
+                <button class="button contact-brutal-submit" type="submit">Scarica risorsa</button>
                 <a href="{{ route('audit') }}" class="resource-audit-link">Vuoi saltare la checklist? Richiedi audit.</a>
             </form>
         </section>

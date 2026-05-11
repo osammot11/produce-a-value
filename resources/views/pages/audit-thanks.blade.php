@@ -12,9 +12,9 @@
                     La richiesta è stata salvata. Se c'è fit, ti ricontatteremo per trasformare i dati in una
                     direzione operativa chiara.
                 </p>
-                <div class="hero-brutal-actions">
-                    <a href="{{ route('work') }}" class="brutal-button hero-brutal-cta-primary">Vedi il work</a>
-                    <a href="{{ route('risorsa') }}" class="hero-brutal-cta-secondary">Scarica risorsa</a>
+                <div class="actions">
+                    <a href="{{ route('work') }}" class="button">Vedi il work</a>
+                    <a href="{{ route('risorsa') }}" class="button-secondary">Scarica risorsa</a>
                 </div>
             </div>
 

@@ -24,7 +24,7 @@
         <div class="brutal-footer-panel brutal-footer-contact">
             <span class="brutal-footer-label">Audit</span>
             <p>Hai traffico, vendite o creatività che dovrebbero lavorare meglio?</p>
-            <a href="{{ route('audit') }}" class="brutal-button brutal-footer-cta">Richiedi audit</a>
+            <a href="{{ route('audit') }}" class="button brutal-footer-cta">Richiedi audit</a>
         </div>
 
         <div class="brutal-footer-bottom">

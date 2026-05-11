@@ -227,35 +227,35 @@ button {
     margin-top: auto;
 }
 
-/* BRUTAL PRIMITIVES */
+/* GLOBAL PRIMITIVES */
 
-.brutal-section {
+.section {
     padding: 48px 18px 72px;
 }
 
-.brutal-section-hero {
+.section-hero {
     padding-top: 36px;
     padding-bottom: 60px;
 }
 
-.brutal-shell {
+.shell {
     max-width: 1400px;
     margin: 0 auto;
 }
 
-.brutal-split {
+.split {
     display: grid;
     grid-template-columns: 0.8fr 1.2fr;
     gap: 24px;
     align-items: start;
 }
 
-.brutal-split-hero {
+.split-hero {
     grid-template-columns: 1.3fr 0.8fr;
     align-items: stretch;
 }
 
-.brutal-panel-dark {
+.panel-dark {
     padding: 26px;
     background: #111111;
     color: #f5efe4;
@@ -263,16 +263,16 @@ button {
     box-shadow: 10px 10px 0 #ff5a36;
 }
 
-.brutal-panel-dark-large {
+.panel-dark-large {
     padding: 28px;
 }
 
-.brutal-sticky {
+.sticky-panel {
     position: sticky;
     top: 24px;
 }
 
-.brutal-kicker {
+.kicker {
     margin: 0 0 18px;
     font-size: 0.76rem;
     font-weight: 900;
@@ -281,13 +281,13 @@ button {
     opacity: 0.72;
 }
 
-.brutal-kicker-large {
+.kicker-large {
     font-size: 0.78rem;
 }
 
-.brutal-heading-hero,
-.brutal-heading-section,
-.brutal-heading-funnel {
+.heading-hero,
+.heading-section,
+.heading-funnel {
     margin: 0;
     line-height: 0.9;
     font-weight: 900;
@@ -295,27 +295,27 @@ button {
     text-transform: uppercase;
 }
 
-.brutal-heading-hero {
+.heading-hero {
     font-size: clamp(3rem, 8vw, 7rem);
 }
 
-.brutal-heading-section {
+.heading-section {
     font-size: clamp(2.6rem, 6vw, 5.4rem);
 }
 
-.brutal-heading-funnel {
+.heading-funnel {
     max-width: 860px;
     font-size: clamp(2.4rem, 6vw, 5.4rem);
 }
 
-.brutal-copy-light {
+.copy-light {
     margin: 22px 0 0;
     font-size: 1rem;
     line-height: 1.65;
     color: rgba(245, 239, 228, 0.78);
 }
 
-.brutal-copy-hero {
+.copy-hero {
     max-width: 720px;
     margin-top: 26px;
     font-size: 1.1rem;
@@ -323,98 +323,98 @@ button {
     color: rgba(245, 239, 228, 0.8);
 }
 
-.brutal-copy-narrow {
+.copy-narrow {
     max-width: 460px;
 }
 
-.brutal-copy-wide {
+.copy-wide {
     max-width: 720px;
 }
 
-.brutal-card-grid {
+.card-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 18px;
 }
 
-.brutal-card-grid-four {
+.card-grid-four {
     grid-template-columns: repeat(4, 1fr);
 }
 
-.brutal-step-grid {
+.step-grid {
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     gap: 18px;
 }
 
-.brutal-card {
+.card {
     border: 2px solid #111111;
     box-shadow: 8px 8px 0 #111111;
 }
 
-.brutal-card-stack {
+.card-stack {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.brutal-card-step {
+.card-step {
     min-height: 160px;
     padding: 22px;
 }
 
-.brutal-card-service {
+.card-service {
     min-height: 330px;
     padding: 24px;
 }
 
-.brutal-card-process {
+.card-process {
     min-height: 190px;
     padding: 22px;
 }
 
-.brutal-card-feature {
+.card-feature {
     min-height: 300px;
     padding: 24px;
 }
 
-.brutal-card-metric {
+.card-metric {
     min-height: 260px;
     padding: 22px;
     transition: transform 0.16s ease, box-shadow 0.16s ease;
 }
 
-.brutal-card-metric:hover {
+.card-metric:hover {
     transform: translate(-4px, -4px);
     box-shadow: 12px 12px 0 #111111;
 }
 
-.brutal-card-cream {
+.card-cream {
     background: #f5efe4;
     color: #111111;
 }
 
-.brutal-card-yellow {
+.card-yellow {
     background: #ffe600;
     color: #111111;
 }
 
-.brutal-card-violet {
+.card-violet {
     background: #8b7cff;
     color: #111111;
 }
 
-.brutal-card-orange {
+.card-orange {
     background: #ff5a36;
     color: #111111;
 }
 
-.brutal-card-dark {
+.card-dark {
     background: #111111;
     color: #f5efe4;
 }
 
-.brutal-label {
+.label {
     display: inline-block;
     font-size: 0.74rem;
     font-weight: 900;
@@ -422,7 +422,7 @@ button {
     letter-spacing: 0.14em;
 }
 
-.brutal-card-title {
+.card-title {
     font-size: clamp(1.4rem, 3vw, 2.2rem);
     font-weight: 900;
     line-height: 0.95;
@@ -430,16 +430,16 @@ button {
     text-transform: uppercase;
 }
 
-.brutal-card-title-large {
+.card-title-large {
     font-size: clamp(1.7rem, 3vw, 2.7rem);
 }
 
-.brutal-card-feature .brutal-card-title {
+.card-feature .card-title {
     font-size: clamp(2rem, 4vw, 3.8rem);
     letter-spacing: -0.07em;
 }
 
-.brutal-metric-value {
+.metric-value {
     display: block;
     margin: 10px 0 0;
     font-size: clamp(3rem, 6vw, 5.4rem);
@@ -448,7 +448,7 @@ button {
     text-transform: uppercase;
 }
 
-.brutal-card-copy {
+.card-copy {
     margin: 22px 0 0;
     max-width: 320px;
     font-size: 0.98rem;
@@ -456,21 +456,20 @@ button {
     color: rgba(17, 17, 17, 0.78);
 }
 
-.brutal-card-dark .brutal-card-copy {
+.card-dark .card-copy {
     color: rgba(245, 239, 228, 0.78);
 }
 
 /* SHARED CTA */
 
-.hero-brutal-actions {
+.actions {
     display: flex;
     flex-wrap: wrap;
     gap: 14px;
     margin-top: 30px;
 }
 
-.hero-brutal-cta-primary,
-.hero-brutal-cta-secondary {
+.button-secondary {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -484,24 +483,13 @@ button {
     transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
 }
 
-.hero-brutal-cta-primary {
-    background: #ffe600;
-    color: #111111;
-    box-shadow: 5px 5px 0 #f5efe4;
-}
-
-.hero-brutal-cta-primary:hover {
-    transform: translate(-3px, -3px);
-    box-shadow: 8px 8px 0 #ff5a36;
-}
-
-.hero-brutal-cta-secondary {
+.button-secondary {
     background: transparent;
     color: #f5efe4;
     border-color: #f5efe4;
 }
 
-.hero-brutal-cta-secondary:hover {
+.button-secondary:hover {
     background: #f5efe4;
     color: #111111;
     transform: translate(-3px, -3px);
@@ -639,7 +627,7 @@ button {
     box-shadow: 10px 10px 0 #ff5a36;
 }
 
-.page-brutal-kicker {
+.page-kicker {
     margin: 0 0 18px;
     font-size: 0.78rem;
     font-weight: 900;
@@ -715,23 +703,23 @@ button {
     gap: 18px;
 }
 
-.service-brutal-card,
-.work-brutal-card,
+.service-card,
+.work-card,
 .manifesto-brutal-list article {
     padding: 24px;
     border: 2px solid #111111;
     box-shadow: 8px 8px 0 #111111;
 }
 
-.service-brutal-card {
+.service-card {
     min-height: 330px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.service-brutal-card h2,
-.work-brutal-card h2,
+.service-card h2,
+.work-card h2,
 .manifesto-brutal-list h2,
 .process-brutal-heading h2 {
     margin: 0;
@@ -742,8 +730,8 @@ button {
     text-transform: uppercase;
 }
 
-.service-brutal-card p,
-.work-brutal-card p,
+.service-card p,
+.work-card p,
 .manifesto-brutal-list p,
 .process-brutal-list p {
     margin: 20px 0 0;
@@ -764,26 +752,26 @@ button {
     letter-spacing: 0.16em;
 }
 
-.service-brutal-card-yellow,
-.work-brutal-card-yellow {
+.service-card-yellow,
+.work-card-yellow {
     background: #ffe600;
 }
 
-.service-brutal-card-violet,
-.work-brutal-card-violet {
+.service-card-violet,
+.work-card-violet {
     background: #8b7cff;
 }
 
-.service-brutal-card-orange {
+.service-card-orange {
     background: #ff5a36;
 }
 
-.service-brutal-card-dark {
+.service-card-dark {
     background: #111111;
     color: #f5efe4;
 }
 
-.service-brutal-card-dark p {
+.service-card-dark p {
     color: rgba(245, 239, 228, 0.78);
 }
 
@@ -1022,14 +1010,14 @@ button {
     letter-spacing: 0.1em;
 }
 
-.work-brutal-card {
+.work-card {
     min-height: 360px;
     display: flex;
     flex-direction: column;
     background: #f5efe4;
 }
 
-.work-brutal-card strong {
+.work-card strong {
     display: block;
     margin-top: auto;
     font-size: clamp(2rem, 4vw, 4rem);
@@ -1374,7 +1362,7 @@ button {
     color: rgba(17, 17, 17, 0.82);
 }
 
-.service-brutal-link {
+.link-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1389,7 +1377,7 @@ button {
     transition: transform 0.16s ease, box-shadow 0.16s ease;
 }
 
-.service-brutal-link:hover {
+.link-button:hover {
     transform: translate(-3px, -3px);
     box-shadow: 5px 5px 0 currentColor;
 }
@@ -1795,7 +1783,7 @@ button {
     letter-spacing: 0.08em;
 }
 
-.brutal-button {
+.button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1812,7 +1800,7 @@ button {
     transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
 }
 
-.brutal-button:hover {
+.button:hover {
     transform: translate(-3px, -3px);
     box-shadow: 8px 8px 0 #ff5a36;
     background: #fff06a;
@@ -1849,8 +1837,8 @@ button {
         box-sizing: border-box;
     }
 
-    .brutal-split,
-    .brutal-split-hero,
+    .split,
+    .split-hero,
     .page-hero-brutal,
     .process-brutal,
     .contact-brutal,
@@ -1863,39 +1851,39 @@ button {
         grid-template-columns: 1fr;
     }
 
-    .brutal-panel-dark {
+    .panel-dark {
         box-shadow: 8px 8px 0 #ff5a36;
     }
 
-    .brutal-heading-hero {
+    .heading-hero {
         font-size: clamp(2.4rem, 12vw, 4.4rem);
     }
 
-    .brutal-copy-hero {
+    .copy-hero {
         font-size: 1rem;
     }
 
-    .brutal-step-grid {
+    .step-grid {
         grid-template-rows: auto;
     }
 
-    .brutal-card-step {
+    .card-step {
         min-height: 140px;
     }
 
-    .brutal-card-grid {
+    .card-grid {
         grid-template-columns: 1fr;
     }
 
-    .brutal-card-metric {
+    .card-metric {
         min-height: 220px;
     }
 
-    .brutal-heading-section {
+    .heading-section {
         font-size: clamp(2.2rem, 12vw, 4rem);
     }
 
-    .brutal-sticky {
+    .sticky-panel {
         position: static;
     }
 
@@ -1941,8 +1929,8 @@ button {
     }
 
     .page-hero-brutal-side,
-    .service-brutal-card,
-    .work-brutal-card,
+    .service-card,
+    .work-card,
     .manifesto-brutal-list article {
         min-height: 220px;
     }

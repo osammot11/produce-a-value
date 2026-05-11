@@ -9,9 +9,9 @@
                 <p class="page-brutal-kicker">{{ $caseStudy->service }} / {{ $caseStudy->client_name }}</p>
                 <h1 class="page-brutal-title">{{ $caseStudy->title }}</h1>
                 <p class="page-brutal-text">{{ $caseStudy->summary }}</p>
-                <div class="hero-brutal-actions">
-                    <a href="{{ route('audit') }}" class="brutal-button hero-brutal-cta-primary">Richiedi audit</a>
-                    <a href="{{ route('work') }}" class="hero-brutal-cta-secondary">Torna alla lista</a>
+                <div class="actions">
+                    <a href="{{ route('audit') }}" class="button">Richiedi audit</a>
+                    <a href="{{ route('work') }}" class="button-secondary">Torna alla lista</a>
                 </div>
             </div>
 
@@ -109,7 +109,7 @@
                 <span>Il prossimo passo</span>
                 <h2>Vuoi trovare le perdite nel tuo funnel?</h2>
                 <p>Richiedi un audit e portaci numeri, traffico, problema e obiettivo dei prossimi 90 giorni.</p>
-                <a href="{{ route('audit') }}" class="service-brutal-link">Richiedi audit</a>
+                <a href="{{ route('audit') }}" class="link-button">Richiedi audit</a>
             </article>
         </section>
 

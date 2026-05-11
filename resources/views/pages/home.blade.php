@@ -6,108 +6,108 @@
 
     <main>
 
-        <section class="brutal-section brutal-section-hero">
-            <div class="brutal-shell brutal-split brutal-split-hero">
+        <section class="section section-hero">
+            <div class="shell split split-hero">
 
-                <div class="brutal-panel-dark brutal-panel-dark-large">
-                    <p class="brutal-kicker brutal-kicker-large">Performance Marketing Agency</p>
+                <div class="panel-dark panel-dark-large">
+                    <p class="kicker kicker-large">Performance Marketing Agency</p>
 
-                    <h1 class="brutal-heading-hero">
+                    <h1 class="heading-hero">
                         Migliora i tuoi<br>
                         risultati o non ci<br>
                         paghi un centesimo.
                     </h1>
 
-                    <p class="brutal-copy-light brutal-copy-hero">
+                    <p class="copy-light copy-hero">
                         Fai una prova di 90 giorni con Produce a Value, se non raggiungiamo i risultati prestabiliti, ti restituiamo tutto, fino all'ultimo centesimo.
                     </p>
 
-                    <div class="hero-brutal-actions">
-                        <a href="{{ route('audit') }}" class="brutal-button mobile-fullwidth">Richiedi audit</a>
+                    <div class="actions">
+                        <a href="{{ route('audit') }}" class="button mobile-fullwidth">Richiedi audit</a>
                     </div>
                 </div>
 
-                <div class="brutal-step-grid">
-                    <div class="brutal-card brutal-card-stack brutal-card-step brutal-card-cream">
-                        <span class="brutal-label">Step 01</span>
-                        <span class="brutal-card-title">Offerta irrinunciabile</span>
+                <div class="step-grid">
+                    <div class="card card-stack card-step card-cream">
+                        <span class="label">Step 01</span>
+                        <span class="card-title">Offerta irrinunciabile</span>
                     </div>
 
-                    <div class="brutal-card brutal-card-stack brutal-card-step brutal-card-violet">
-                        <span class="brutal-label">Step 02</span>
-                        <span class="brutal-card-title">Funneling perfetto</span>
+                    <div class="card card-stack card-step card-violet">
+                        <span class="label">Step 02</span>
+                        <span class="card-title">Funneling perfetto</span>
                     </div>
 
-                    <div class="brutal-card brutal-card-stack brutal-card-step brutal-card-orange">
-                        <span class="brutal-label">Step 03</span>
-                        <span class="brutal-card-title">Campagne da urlo</span>
+                    <div class="card card-stack card-step card-orange">
+                        <span class="label">Step 03</span>
+                        <span class="card-title">Campagne da urlo</span>
                     </div>
                 </div>
 
             </div>
         </section>
 
-        <section class="brutal-section">
-            <div class="brutal-shell brutal-split">
+        <section class="section">
+            <div class="shell split">
 
-                <div class="brutal-panel-dark">
-                    <p class="brutal-kicker">Il nostro approccio</p>
-                    <h2 class="brutal-heading-section">Risultati,<br>niente chiacchiere.</h2>
-                    <p class="brutal-copy-light brutal-copy-narrow">Lavoriamo per portare solo ed esclusivamente risultati economici concreti e tangibili ai nostri clienti. Con la formula del Revenue Share, non guadagni, non ci paghi.</p>
+                <div class="panel-dark">
+                    <p class="kicker">Il nostro approccio</p>
+                    <h2 class="heading-section">Risultati,<br>niente chiacchiere.</h2>
+                    <p class="copy-light copy-narrow">Lavoriamo per portare solo ed esclusivamente risultati economici concreti e tangibili ai nostri clienti. Con la formula del Revenue Share, non guadagni, non ci paghi.</p>
                 </div>
 
-                <div class="brutal-card-grid">
-                    <article class="brutal-card brutal-card-stack brutal-card-metric brutal-card-cream">
-                        <span class="brutal-label">Clienti</span>
-                        <strong class="brutal-metric-value">127</strong>
-                        <p class="brutal-card-copy">Aziende che si sono affidate a PAV negli ultimi 5 anni.</p>
+                <div class="card-grid">
+                    <article class="card card-stack card-metric card-cream">
+                        <span class="label">Clienti</span>
+                        <strong class="metric-value">127</strong>
+                        <p class="card-copy">Aziende che si sono affidate a PAV negli ultimi 5 anni.</p>
                     </article>
 
-                    <article class="brutal-card brutal-card-stack brutal-card-metric brutal-card-yellow">
-                        <span class="brutal-label">Paid traffic</span>
-                        <strong class="brutal-metric-value">28.7 mln€</strong>
-                        <p class="brutal-card-copy">Budget ADV gestito per i nostri clienti.</p>
+                    <article class="card card-stack card-metric card-yellow">
+                        <span class="label">Paid traffic</span>
+                        <strong class="metric-value">28.7 mln€</strong>
+                        <p class="card-copy">Budget ADV gestito per i nostri clienti.</p>
                     </article>
 
-                    <article class="brutal-card brutal-card-stack brutal-card-metric brutal-card-violet">
-                        <span class="brutal-label">Campaigns management</span>
-                        <strong class="brutal-metric-value">8,43X</strong>
-                        <p class="brutal-card-copy">ROAS medio delle nostre campagne ADV.</p>
+                    <article class="card card-stack card-metric card-violet">
+                        <span class="label">Campaigns management</span>
+                        <strong class="metric-value">8,43X</strong>
+                        <p class="card-copy">ROAS medio delle nostre campagne ADV.</p>
                     </article>
 
-                    <article class="brutal-card brutal-card-stack brutal-card-metric brutal-card-orange">
-                        <span class="brutal-label">Next move</span>
-                        <strong class="brutal-metric-value">90d</strong>
-                        <p class="brutal-card-copy">L'audit serve a decidere cosa può muovere i numeri nei prossimi 90 giorni.</p>
+                    <article class="card card-stack card-metric card-orange">
+                        <span class="label">Next move</span>
+                        <strong class="metric-value">90d</strong>
+                        <p class="card-copy">L'audit serve a decidere cosa può muovere i numeri nei prossimi 90 giorni.</p>
                     </article>
                 </div>
 
             </div>
         </section>
 
-        <section class="brutal-section">
-            <div class="brutal-shell">
-                <div class="brutal-panel-dark">
-                    <p class="brutal-kicker">Diagnosi gratuita</p>
-                    <h2 class="brutal-heading-funnel">Trasforma i dati nella tua roadmap grazie al nostro Free Audit</h2>
-                    <p class="brutal-copy-light brutal-copy-wide">
+        <section class="section">
+            <div class="shell">
+                <div class="panel-dark">
+                    <p class="kicker">Diagnosi gratuita</p>
+                    <h2 class="heading-funnel">Trasforma i dati nella tua roadmap grazie al nostro Free Audit</h2>
+                    <p class="copy-light copy-wide">
                         Analizzeremo insieme ogni singolo dettaglio del tuo store/funnel, passeremo sotto la lente d'ingrandimento le tue ads e renderemo le tue offerte da standard ad indimenticabili.
                         <br>Siamo così sicuri dei nostri metodi, che se non ottieni risultati, non ci paghi.
                     </p>
-                    <div class="hero-brutal-actions">
-                        <a href="{{ route('audit') }}" class="brutal-button mobile-fullwidth">Richiedi il tuo audit</a>
+                    <div class="actions">
+                        <a href="{{ route('audit') }}" class="button mobile-fullwidth">Richiedi il tuo audit</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="brutal-section">
-            <div class="brutal-shell brutal-split">
+        <section class="section">
+            <div class="shell split">
 
-                <div class="brutal-panel-dark brutal-sticky">
-                    <p class="brutal-kicker">Domande frequenti</p>
-                    <h2 class="brutal-heading-section">Domande,<br>risposte,<br>zero fuffa.</h2>
-                    <p class="brutal-copy-light brutal-copy-narrow">Tutto ciò che ti serve sapere prima iniziare il tuo progetto con noi, prenotare una chiamata o decidere se siamo la soluzione che fa al caso tuo.</p>
+                <div class="panel-dark sticky-panel">
+                    <p class="kicker">Domande frequenti</p>
+                    <h2 class="heading-section">Domande,<br>risposte,<br>zero fuffa.</h2>
+                    <p class="copy-light copy-narrow">Tutto ciò che ti serve sapere prima iniziare il tuo progetto con noi, prenotare una chiamata o decidere se siamo la soluzione che fa al caso tuo.</p>
                 </div>
 
                 <div class="faq-brutal-list">

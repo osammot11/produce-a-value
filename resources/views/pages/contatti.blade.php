@@ -13,9 +13,9 @@
                     traffico e conversioni, passa dall'audit.
                 </p>
 
-                <div class="hero-brutal-actions">
-                    <a href="{{ route('audit') }}" class="brutal-button hero-brutal-cta-primary">Richiedi audit</a>
-                    <a href="{{ route('risorsa') }}" class="hero-brutal-cta-secondary">Scarica risorsa</a>
+                <div class="actions">
+                    <a href="{{ route('audit') }}" class="button">Richiedi audit</a>
+                    <a href="{{ route('risorsa') }}" class="button-secondary">Scarica risorsa</a>
                 </div>
 
                 <div class="contact-brutal-direct">
@@ -66,7 +66,7 @@
                     <textarea name="message" rows="6" placeholder="Brand, pagina, sito, funnel, campagna..." required>{{ old('message') }}</textarea>
                 </label>
 
-                <button class="brutal-button contact-brutal-submit" type="submit">Invia richiesta</button>
+                <button class="button contact-brutal-submit" type="submit">Invia richiesta</button>
             </form>
         </section>
     </main>

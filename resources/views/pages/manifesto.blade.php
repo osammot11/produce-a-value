@@ -12,9 +12,9 @@
                     Produce a Value nasce per costruire esperienze digitali che non cercano approvazione
                     generica: cercano attenzione, fiducia e movimento.
                 </p>
-                <div class="hero-brutal-actions">
-                    <a href="{{ route('audit') }}" class="brutal-button hero-brutal-cta-primary">Richiedi audit</a>
-                    <a href="{{ route('servizi') }}" class="hero-brutal-cta-secondary">Vedi servizi</a>
+                <div class="actions">
+                    <a href="{{ route('audit') }}" class="button">Richiedi audit</a>
+                    <a href="{{ route('servizi') }}" class="button-secondary">Vedi servizi</a>
                 </div>
             </div>
 
