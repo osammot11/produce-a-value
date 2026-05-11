@@ -3,48 +3,52 @@
 @section('title', 'Creative Performance | Produce a Value')
 
 @section('content')
-    <main class="page-brutal">
-        <section class="page-hero-brutal">
-            <div class="page-hero-brutal-main">
-                <p class="page-brutal-kicker">Creative performance</p>
-                <h1 class="page-brutal-title">Creatività che non si ferma al bello.</h1>
-                <p class="page-brutal-text">
-                    Costruiamo angle, asset e pagine con una logica testabile: attenzione, promessa, prova,
-                    obiezione e azione.
-                </p>
-                <div class="actions">
-                    <a href="{{ route('audit') }}" class="button">Richiedi audit</a>
-                    <a href="{{ route('risorsa') }}" class="button-secondary">Scarica risorsa</a>
+    <main>
+        <section class="section section-hero">
+            <div class="shell split split-hero">
+                <div class="panel-dark panel-dark-large">
+                    <p class="kicker kicker-large">Creative performance</p>
+                    <h1 class="heading-hero">Creatività che non si ferma al bello.</h1>
+                    <p class="copy-light copy-hero">
+                        Costruiamo angle, asset e pagine con una logica testabile: attenzione, promessa, prova,
+                        obiezione e azione.
+                    </p>
+                    <div class="actions">
+                        <a href="{{ route('audit') }}" class="button mobile-fullwidth">Richiedi audit</a>
+                        <a href="{{ route('risorsa') }}" class="button-secondary mobile-fullwidth">Scarica risorsa</a>
+                    </div>
                 </div>
-            </div>
 
-            <aside class="page-hero-brutal-side page-hero-brutal-side-orange">
-                <span>Service 03</span>
-                <strong>Make ads worth clicking.</strong>
-            </aside>
+                <aside class="card card-stack card-feature card-orange">
+                    <span class="label">Service 03</span>
+                    <strong class="card-title">Make ads worth clicking.</strong>
+                </aside>
+            </div>
         </section>
 
-        <section class="service-brutal-grid">
-            <article class="service-brutal-card service-brutal-card-yellow">
-                <span class="service-brutal-index">01</span>
-                <h2>Angles</h2>
-                <p>Nuovi modi di raccontare valore, urgenza, desiderio e differenza.</p>
-            </article>
-            <article class="service-brutal-card service-brutal-card-violet">
-                <span class="service-brutal-index">02</span>
-                <h2>Assets</h2>
-                <p>Creatività statiche e direzioni video pensate per testing e iterazione.</p>
-            </article>
-            <article class="service-brutal-card service-brutal-card-orange">
-                <span class="service-brutal-index">03</span>
-                <h2>Landing match</h2>
-                <p>Allineiamo ad, promessa e pagina per evitare frizione post-click.</p>
-            </article>
-            <article class="service-brutal-card service-brutal-card-dark">
-                <span class="service-brutal-index">04</span>
-                <h2>Learning loop</h2>
-                <p>Trasformiamo risultati e segnali deboli in nuove ipotesi creative.</p>
-            </article>
+        <section class="section">
+            <div class="shell card-grid card-grid-four">
+                <article class="card card-stack card-service card-yellow">
+                    <span class="label">01</span>
+                    <h2 class="card-title card-title-large">Angles</h2>
+                    <p class="card-copy">Nuovi modi di raccontare valore, urgenza, desiderio e differenza.</p>
+                </article>
+                <article class="card card-stack card-service card-violet">
+                    <span class="label">02</span>
+                    <h2 class="card-title card-title-large">Assets</h2>
+                    <p class="card-copy">Creatività statiche e direzioni video pensate per testing e iterazione.</p>
+                </article>
+                <article class="card card-stack card-service card-orange">
+                    <span class="label">03</span>
+                    <h2 class="card-title card-title-large">Landing match</h2>
+                    <p class="card-copy">Allineiamo ad, promessa e pagina per evitare frizione post-click.</p>
+                </article>
+                <article class="card card-stack card-service card-dark">
+                    <span class="label">04</span>
+                    <h2 class="card-title card-title-large">Learning loop</h2>
+                    <p class="card-copy">Trasformiamo risultati e segnali deboli in nuove ipotesi creative.</p>
+                </article>
+            </div>
         </section>
     </main>
 @endsection
