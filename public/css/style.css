@@ -337,6 +337,10 @@ button {
     gap: 18px;
 }
 
+.brutal-card-grid-four {
+    grid-template-columns: repeat(4, 1fr);
+}
+
 .brutal-step-grid {
     display: grid;
     grid-template-rows: repeat(3, 1fr);
@@ -357,6 +361,21 @@ button {
 .brutal-card-step {
     min-height: 160px;
     padding: 22px;
+}
+
+.brutal-card-service {
+    min-height: 330px;
+    padding: 24px;
+}
+
+.brutal-card-process {
+    min-height: 190px;
+    padding: 22px;
+}
+
+.brutal-card-feature {
+    min-height: 300px;
+    padding: 24px;
 }
 
 .brutal-card-metric {
@@ -390,6 +409,11 @@ button {
     color: #111111;
 }
 
+.brutal-card-dark {
+    background: #111111;
+    color: #f5efe4;
+}
+
 .brutal-label {
     display: inline-block;
     font-size: 0.74rem;
@@ -404,6 +428,15 @@ button {
     line-height: 0.95;
     letter-spacing: -0.05em;
     text-transform: uppercase;
+}
+
+.brutal-card-title-large {
+    font-size: clamp(1.7rem, 3vw, 2.7rem);
+}
+
+.brutal-card-feature .brutal-card-title {
+    font-size: clamp(2rem, 4vw, 3.8rem);
+    letter-spacing: -0.07em;
 }
 
 .brutal-metric-value {
@@ -421,6 +454,10 @@ button {
     font-size: 0.98rem;
     line-height: 1.6;
     color: rgba(17, 17, 17, 0.78);
+}
+
+.brutal-card-dark .brutal-card-copy {
+    color: rgba(245, 239, 228, 0.78);
 }
 
 /* SHARED CTA */
