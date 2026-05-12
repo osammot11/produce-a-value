@@ -41,10 +41,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // ===== FAQ =====
-    const items = document.querySelectorAll(".faq-brutal-item");
+    const items = document.querySelectorAll(".faq-item");
 
     items.forEach(function (item) {
-        const button = item.querySelector(".faq-brutal-question");
+        const button = item.querySelector(".faq-question");
 
         if (!button) return;
 
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             items.forEach(function (otherItem) {
                 otherItem.classList.remove("active");
-                const otherButton = otherItem.querySelector(".faq-brutal-question");
+                const otherButton = otherItem.querySelector(".faq-question");
                 if (otherButton) {
                     otherButton.setAttribute("aria-expanded", "false");
                 }

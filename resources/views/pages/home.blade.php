@@ -110,14 +110,14 @@
                     <p class="copy-light copy-narrow">Tutto ciò che ti serve sapere prima iniziare il tuo progetto con noi, prenotare una chiamata o decidere se siamo la soluzione che fa al caso tuo.</p>
                 </div>
 
-                <div class="faq-brutal-list">
+                <div class="faq-list">
 
-                    <div class="faq-brutal-item active">
-                        <button class="faq-brutal-question" type="button" aria-expanded="true">
+                    <div class="faq-item active">
+                        <button class="faq-question" type="button" aria-expanded="true">
                             <span>What kind of projects do you usually take on?</span>
-                            <span class="faq-brutal-icon"></span>
+                            <span class="faq-icon"></span>
                         </button>
-                        <div class="faq-brutal-answer">
+                        <div class="faq-answer">
                             <p>
                                 We usually work on high-impact landing pages, agency websites,
                                 conversion-focused redesigns and digital experiences where brand
@@ -126,12 +126,12 @@
                         </div>
                     </div>
 
-                    <div class="faq-brutal-item">
-                        <button class="faq-brutal-question" type="button" aria-expanded="false">
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" aria-expanded="false">
                             <span>Do you only handle design, or also development?</span>
-                            <span class="faq-brutal-icon"></span>
+                            <span class="faq-icon"></span>
                         </button>
-                        <div class="faq-brutal-answer">
+                        <div class="faq-answer">
                             <p>
                                 Both. Strategy, interface design and front-end execution can all be
                                 part of the same process.
@@ -139,12 +139,12 @@
                         </div>
                     </div>
 
-                    <div class="faq-brutal-item">
-                        <button class="faq-brutal-question" type="button" aria-expanded="false">
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" aria-expanded="false">
                             <span>Can you work on an existing brand without rebuilding everything?</span>
-                            <span class="faq-brutal-icon"></span>
+                            <span class="faq-icon"></span>
                         </button>
-                        <div class="faq-brutal-answer">
+                        <div class="faq-answer">
                             <p>
                                 Yes. Sometimes the right move is not a full reset but a sharper
                                 structure, better hierarchy and stronger conversion logic.
@@ -152,12 +152,12 @@
                         </div>
                     </div>
 
-                    <div class="faq-brutal-item">
-                        <button class="faq-brutal-question" type="button" aria-expanded="false">
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" aria-expanded="false">
                             <span>How fast can a project realistically move?</span>
-                            <span class="faq-brutal-icon"></span>
+                            <span class="faq-icon"></span>
                         </button>
-                        <div class="faq-brutal-answer">
+                        <div class="faq-answer">
                             <p>
                                 It depends on scope, but focused pages can move very quickly.
                                 The biggest variable is usually decision speed.
@@ -165,12 +165,12 @@
                         </div>
                     </div>
 
-                    <div class="faq-brutal-item">
-                        <button class="faq-brutal-question" type="button" aria-expanded="false">
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" aria-expanded="false">
                             <span>Are you a good fit for every type of client?</span>
-                            <span class="faq-brutal-icon"></span>
+                            <span class="faq-icon"></span>
                         </button>
-                        <div class="faq-brutal-answer">
+                        <div class="faq-answer">
                             <p>
                                 No. This style works best for brands that want strong positioning,
                                 clear direction and real character.
