@@ -3,7 +3,10 @@
 namespace Tests\Feature;
 
 use App\Models\CaseStudy;
+use App\Mail\AuditSubmissionReceived;
+use App\Mail\ContactSubmissionReceived;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Mail;
 use Tests\TestCase;
 
 class FunnelPagesTest extends TestCase
@@ -32,6 +35,9 @@ class FunnelPagesTest extends TestCase
 
     public function test_audit_submission_is_validated_and_stored(): void
     {
+        Mail::fake();
+        config(['lead-notifications.email' => 'giovannonicommerciale@gmail.com']);
+
         $response = $this->post('/audit', [
             'name' => 'Mario Rossi',
             'email' => 'mario@example.com',
@@ -64,6 +70,11 @@ class FunnelPagesTest extends TestCase
             'company' => 'Rossi Commerce',
             'main_problem' => 'Conversion rate basso',
         ]);
+
+        Mail::assertSent(AuditSubmissionReceived::class, function (AuditSubmissionReceived $mail) {
+            return $mail->hasTo('giovannonicommerciale@gmail.com')
+                && $mail->audit->email === 'mario@example.com';
+        });
     }
 
     public function test_resource_lead_is_validated_and_stored(): void
@@ -85,6 +96,9 @@ class FunnelPagesTest extends TestCase
 
     public function test_contact_submission_is_validated_and_stored(): void
     {
+        Mail::fake();
+        config(['lead-notifications.email' => 'giovannonicommerciale@gmail.com']);
+
         $response = $this
             ->withSession(['contact_form_started_at' => now()->subSeconds(10)->timestamp])
             ->withServerVariables([
@@ -106,6 +120,11 @@ class FunnelPagesTest extends TestCase
             'ip_address' => '203.0.113.10',
             'user_agent' => 'PAV Test Browser',
         ]);
+
+        Mail::assertSent(ContactSubmissionReceived::class, function (ContactSubmissionReceived $mail) {
+            return $mail->hasTo('giovannonicommerciale@gmail.com')
+                && $mail->contact->email === 'giulia@example.com';
+        });
     }
 
     public function test_contact_honeypot_submission_is_accepted_but_not_stored(): void

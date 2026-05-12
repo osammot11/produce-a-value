@@ -6,7 +6,11 @@ use App\Models\ContactSubmission;
 use App\Models\ResourceLead;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminCaseStudyController;
+use App\Mail\AuditSubmissionReceived;
+use App\Mail\ContactSubmissionReceived;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -54,8 +58,19 @@ Route::post('/contatti', function (Request $request) {
     $validated['ip_address'] = $request->ip();
     $validated['user_agent'] = mb_substr((string) $request->userAgent(), 0, 1000);
 
-    ContactSubmission::create($validated);
+    $contact = ContactSubmission::create($validated);
     $request->session()->forget('contact_form_started_at');
+
+    if ($recipient = config('lead-notifications.email')) {
+        try {
+            Mail::to($recipient)->send(new ContactSubmissionReceived($contact));
+        } catch (Throwable $exception) {
+            Log::warning('Contact notification email failed.', [
+                'contact_submission_id' => $contact->id,
+                'error' => $exception->getMessage(),
+            ]);
+        }
+    }
 
     return redirect()->route('contatti')->with('status', 'Richiesta inviata. Ti ricontatteremo se c\'è fit.');
 })->middleware('throttle:4,1')->name('contatti.store');
@@ -89,7 +104,18 @@ Route::post('/audit', function (Request $request) {
 
     unset($validated['privacy_consent']);
 
-    AuditSubmission::create($validated);
+    $audit = AuditSubmission::create($validated);
+
+    if ($recipient = config('lead-notifications.email')) {
+        try {
+            Mail::to($recipient)->send(new AuditSubmissionReceived($audit));
+        } catch (Throwable $exception) {
+            Log::warning('Audit notification email failed.', [
+                'audit_submission_id' => $audit->id,
+                'error' => $exception->getMessage(),
+            ]);
+        }
+    }
 
     return redirect()->route('audit.thanks');
 })->name('audit.store');
