@@ -825,22 +825,12 @@ button {
     box-shadow: 8px 8px 0 #111111;
 }
 
-.case-proof-snapshot,
-.case-before-after-brutal,
-.case-problems-brutal,
-.case-testimonial-brutal {
-    max-width: 1400px;
-    margin: 42px auto 0;
-}
-
 .proof-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 18px;
 }
 
-.case-before-after-brutal span,
-.case-problems-brutal li,
 .proof-visual-top span {
     font-size: 0.74rem;
     font-weight: 900;
@@ -1020,200 +1010,6 @@ button {
 
 .manifesto-brutal-list article:nth-child(4) {
     background: #ff5a36;
-}
-
-.case-study-metrics-brutal {
-    max-width: 1400px;
-    margin: 42px auto 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-}
-
-.case-proof-snapshot {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    align-items: stretch;
-}
-
-.case-proof-snapshot-main,
-.case-proof-snapshot-meta {
-    padding: 26px;
-    border: 2px solid #111111;
-}
-
-.case-proof-snapshot-main {
-    background: #111111;
-    color: #f5efe4;
-    box-shadow: 10px 10px 0 #ff5a36;
-}
-
-.case-proof-snapshot-main h2,
-.case-before-after-brutal h2,
-.case-problems-brutal h2 {
-    margin: 0;
-    font-size: clamp(2rem, 4vw, 3.8rem);
-    line-height: 0.9;
-    font-weight: 900;
-    letter-spacing: -0.07em;
-    text-transform: uppercase;
-}
-
-.case-proof-snapshot-main p,
-.case-before-after-brutal p {
-    margin: 22px 0 0;
-    font-size: 1rem;
-    line-height: 1.65;
-    color: rgba(245, 239, 228, 0.78);
-}
-
-.case-proof-snapshot-meta {
-    display: grid;
-    gap: 14px;
-    background: #f5efe4;
-    box-shadow: 10px 10px 0 #111111;
-}
-
-.case-proof-snapshot-meta div {
-    padding: 16px;
-    background: #efe8dc;
-    border: 2px solid #111111;
-}
-
-.case-proof-snapshot-meta span,
-.case-proof-snapshot-meta strong {
-    display: block;
-}
-
-.case-proof-snapshot-meta span {
-    margin-bottom: 8px;
-    font-size: 0.72rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-}
-
-.case-proof-snapshot-meta strong {
-    font-size: clamp(1.4rem, 3vw, 2.5rem);
-    line-height: 0.9;
-    font-weight: 900;
-    letter-spacing: -0.06em;
-    text-transform: uppercase;
-}
-
-.case-before-after-brutal {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
-}
-
-.case-before-after-brutal article {
-    min-height: 300px;
-    padding: 24px;
-    background: #f5efe4;
-    border: 2px solid #111111;
-    box-shadow: 8px 8px 0 #111111;
-}
-
-.case-before-after-brutal article:nth-child(2) {
-    background: #ffe600;
-}
-
-.case-before-after-brutal p {
-    color: rgba(17, 17, 17, 0.78);
-}
-
-.case-problems-brutal {
-    display: grid;
-    grid-template-columns: 0.85fr 1.15fr;
-    gap: 24px;
-    padding: 26px;
-    background: #111111;
-    color: #f5efe4;
-    border: 2px solid #111111;
-    box-shadow: 10px 10px 0 #ff5a36;
-}
-
-.case-problems-brutal ul {
-    display: grid;
-    gap: 12px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.case-problems-brutal li {
-    padding: 16px;
-    background: #f5efe4;
-    color: #111111;
-    border: 2px solid #111111;
-    box-shadow: 5px 5px 0 #8b7cff;
-}
-
-.case-testimonial-brutal {
-    padding: 28px;
-    background: #8b7cff;
-    border: 2px solid #111111;
-    box-shadow: 10px 10px 0 #111111;
-}
-
-.case-testimonial-brutal blockquote {
-    max-width: 1040px;
-    margin: 0;
-    font-size: clamp(2rem, 5vw, 4.6rem);
-    line-height: 0.95;
-    font-weight: 900;
-    letter-spacing: -0.07em;
-    text-transform: uppercase;
-}
-
-.case-testimonial-brutal p {
-    margin: 24px 0 0;
-    font-size: 1rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-}
-
-.case-testimonial-brutal span {
-    display: block;
-    margin-top: 6px;
-    color: rgba(17, 17, 17, 0.68);
-}
-
-.case-study-metrics-brutal article {
-    min-height: 190px;
-    padding: 22px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background: #ffe600;
-    border: 2px solid #111111;
-    box-shadow: 8px 8px 0 #111111;
-}
-
-.case-study-metrics-brutal article:nth-child(2) {
-    background: #8b7cff;
-}
-
-.case-study-metrics-brutal article:nth-child(3) {
-    background: #ff5a36;
-}
-
-.case-study-metrics-brutal span {
-    font-size: 0.74rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-}
-
-.case-study-metrics-brutal strong {
-    font-size: clamp(3rem, 6vw, 5.4rem);
-    line-height: 0.88;
-    font-weight: 900;
-    letter-spacing: -0.09em;
-    text-transform: uppercase;
 }
 
 .contact-brutal {
@@ -1739,10 +1535,7 @@ button {
     .page-hero-brutal,
     .process-brutal,
     .contact-brutal,
-    .legal-brutal-shell,
-    .case-proof-snapshot,
-    .case-before-after-brutal,
-    .case-problems-brutal {
+    .legal-brutal-shell {
         grid-template-columns: 1fr;
     }
 
@@ -1816,7 +1609,6 @@ button {
     .manifesto-brutal-list,
     .process-brutal-list,
     .field-grid,
-    .case-study-metrics-brutal,
     .check-grid {
         grid-template-columns: 1fr;
     }
