@@ -1,18 +1,18 @@
-<footer class="brutal-footer">
-    <div class="brutal-footer-shell">
+<footer class="site-footer">
+    <div class="footer-shell">
 
-        <div class="brutal-footer-brand">
-            <span class="brutal-footer-kicker">Produce a Value</span>
-            <strong class="brutal-footer-title">PAV.</strong>
+        <div class="footer-brand">
+            <span class="footer-kicker">Produce a Value</span>
+            <strong class="footer-title">PAV.</strong>
             <p>
                 Creative performance studio for brands that need stronger positioning,
                 sharper pages and systems built to convert.
             </p>
         </div>
 
-        <div class="brutal-footer-panel brutal-footer-nav-panel">
-            <span class="brutal-footer-label">Explore</span>
-            <nav class="brutal-footer-nav" aria-label="Navigazione footer">
+        <div class="footer-panel">
+            <span class="footer-label">Explore</span>
+            <nav class="footer-nav" aria-label="Navigazione footer">
                 <a href="{{ route('servizi') }}">Servizi</a>
                 <a href="{{ route('work') }}">Work</a>
                 <a href="{{ route('manifesto') }}">Manifesto</a>
@@ -21,13 +21,13 @@
             </nav>
         </div>
 
-        <div class="brutal-footer-panel brutal-footer-contact">
-            <span class="brutal-footer-label">Audit</span>
+        <div class="footer-panel footer-contact">
+            <span class="footer-label">Audit</span>
             <p>Hai traffico, vendite o creatività che dovrebbero lavorare meglio?</p>
-            <a href="{{ route('audit') }}" class="button brutal-footer-cta">Richiedi audit</a>
+            <a href="{{ route('audit') }}" class="button footer-cta">Richiedi audit</a>
         </div>
 
-        <div class="brutal-footer-bottom">
+        <div class="footer-bottom">
             <span>© {{ date('Y') }} Produce a Value</span>
             <span>
                 <a href="{{ route('privacy-policy') }}">Privacy</a>

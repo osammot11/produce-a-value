@@ -22,13 +22,13 @@ button {
 
 /* HEADER */
 
-.brutal-header {
+.site-header {
     top: 0;
     z-index: 1000;
     padding: 18px;
 }
 
-.brutal-navbar {
+.navbar {
     max-width: 1400px;
     margin: 0 auto;
     min-height: 110px;
@@ -42,7 +42,7 @@ button {
     box-shadow: 8px 8px 0 #ff5a36;
 }
 
-.brutal-brand {
+.brand {
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
@@ -50,23 +50,14 @@ button {
     line-height: 1;
 }
 
-.brutal-brand-small {
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-    color: #f3efe6;
-    opacity: 0.72;
-}
-
-.brutal-brand-main {
+.brand-main {
     font-size: clamp(2.4rem, 5vw, 4.8rem);
     font-weight: 900;
     letter-spacing: -0.09em;
     color: #f3efe6;
 }
 
-.brutal-nav {
+.nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -75,7 +66,7 @@ button {
     padding-top: 8px;
 }
 
-.brutal-nav a {
+.nav a {
     position: relative;
     display: inline-block;
     padding: 10px 14px;
@@ -88,14 +79,14 @@ button {
     transition: transform 0.16s ease, background 0.16s ease, color 0.16s ease;
 }
 
-.brutal-nav a:hover {
+.nav a:hover {
     background: #f3efe6;
     color: #111111;
     transform: translate(-4px, -4px);
     box-shadow: 4px 4px 0 #8b7cff;
 }
 
-.brutal-actions {
+.header-actions {
     display: flex;
     align-items: flex-start;
     gap: 14px;
@@ -105,7 +96,7 @@ button {
 
 /* MOBILE MENU */
 
-.brutal-toggle {
+.menu-toggle {
     display: none;
     width: 58px;
     height: 58px;
@@ -117,7 +108,7 @@ button {
     box-shadow: 4px 4px 0 #f3efe6;
 }
 
-.brutal-toggle span {
+.menu-toggle span {
     position: absolute;
     left: 50%;
     width: 22px;
@@ -127,25 +118,25 @@ button {
     transition: top 0.2s ease, transform 0.2s ease;
 }
 
-.brutal-toggle span:first-child {
+.menu-toggle span:first-child {
     top: 22px;
 }
 
-.brutal-toggle span:last-child {
+.menu-toggle span:last-child {
     top: 32px;
 }
 
-.brutal-toggle.is-active span:first-child {
+.menu-toggle.is-active span:first-child {
     top: 27px;
     transform: translateX(-50%) rotate(45deg);
 }
 
-.brutal-toggle.is-active span:last-child {
+.menu-toggle.is-active span:last-child {
     top: 27px;
     transform: translateX(-50%) rotate(-45deg);
 }
 
-.brutal-mobile-wrap {
+.mobile-menu {
     position: fixed;
     inset: 0;
     background: rgba(17, 17, 17, 0.6);
@@ -155,13 +146,13 @@ button {
     transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
-.brutal-mobile-wrap.is-open {
+.mobile-menu.is-open {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
 }
 
-.brutal-mobile-panel {
+.mobile-menu-panel {
     position: absolute;
     inset: 18px;
     background: #f3efe6;
@@ -172,33 +163,33 @@ button {
     flex-direction: column;
 }
 
-.brutal-mobile-top {
+.mobile-menu-top {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     margin-bottom: 26px;
 }
 
-.brutal-mobile-kicker {
+.mobile-menu-kicker {
     font-size: 0.72rem;
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 0.18em;
 }
 
-.brutal-mobile-index {
+.mobile-menu-index {
     font-size: 1.1rem;
     font-weight: 900;
 }
 
-.brutal-mobile-nav {
+.mobile-nav {
     display: flex;
     flex-direction: column;
     gap: 0;
     margin-bottom: 24px;
 }
 
-.brutal-mobile-nav a {
+.mobile-nav a {
     display: flex;
     align-items: baseline;
     gap: 14px;
@@ -210,11 +201,11 @@ button {
     transition: transform 0.16s ease;
 }
 
-.brutal-mobile-nav a:hover {
+.mobile-nav a:hover {
     transform: translateX(8px);
 }
 
-.brutal-mobile-nav a span {
+.mobile-nav a span {
     min-width: 30px;
     font-size: 0.8rem;
     font-weight: 900;
@@ -222,7 +213,7 @@ button {
     text-transform: uppercase;
 }
 
-.brutal-mobile-cta {
+.mobile-cta {
     width: 100%;
     margin-top: auto;
 }
@@ -1259,11 +1250,11 @@ button {
 
 /* FOOTER */
 
-.brutal-footer {
+.site-footer {
     padding: 48px 18px 28px;
 }
 
-.brutal-footer-shell {
+.footer-shell {
     max-width: 1400px;
     margin: 0 auto;
     display: grid;
@@ -1272,22 +1263,22 @@ button {
     align-items: stretch;
 }
 
-.brutal-footer-brand,
-.brutal-footer-panel,
-.brutal-footer-bottom {
+.footer-brand,
+.footer-panel,
+.footer-bottom {
     border: 2px solid #111111;
     box-shadow: 8px 8px 0 #111111;
 }
 
-.brutal-footer-brand {
+.footer-brand {
     padding: 26px;
     background: #111111;
     color: #f5efe4;
     box-shadow: 10px 10px 0 #ff5a36;
 }
 
-.brutal-footer-kicker,
-.brutal-footer-label {
+.footer-kicker,
+.footer-label {
     display: inline-block;
     font-size: 0.74rem;
     font-weight: 900;
@@ -1295,11 +1286,11 @@ button {
     letter-spacing: 0.16em;
 }
 
-.brutal-footer-kicker {
+.footer-kicker {
     color: rgba(245, 239, 228, 0.72);
 }
 
-.brutal-footer-title {
+.footer-title {
     display: block;
     margin-top: 14px;
     font-size: clamp(3rem, 7vw, 6.2rem);
@@ -1308,30 +1299,30 @@ button {
     letter-spacing: -0.09em;
 }
 
-.brutal-footer-brand p,
-.brutal-footer-contact p {
+.footer-brand p,
+.footer-contact p {
     margin: 22px 0 0;
     max-width: 520px;
     font-size: 1rem;
     line-height: 1.65;
 }
 
-.brutal-footer-brand p {
+.footer-brand p {
     color: rgba(245, 239, 228, 0.78);
 }
 
-.brutal-footer-panel {
+.footer-panel {
     padding: 24px;
     background: #f5efe4;
 }
 
-.brutal-footer-nav {
+.footer-nav {
     display: flex;
     flex-direction: column;
     margin-top: 22px;
 }
 
-.brutal-footer-nav a {
+.footer-nav a {
     padding: 14px 0;
     border-bottom: 2px solid #111111;
     font-size: clamp(1.35rem, 3vw, 2.1rem);
@@ -1342,27 +1333,27 @@ button {
     transition: transform 0.16s ease, color 0.16s ease;
 }
 
-.brutal-footer-nav a:hover {
+.footer-nav a:hover {
     color: #ff5a36;
     transform: translateX(8px);
 }
 
-.brutal-footer-contact {
+.footer-contact {
     display: flex;
     flex-direction: column;
     background: #8b7cff;
 }
 
-.brutal-footer-contact p {
+.footer-contact p {
     color: rgba(17, 17, 17, 0.82);
 }
 
-.brutal-footer-cta {
+.footer-cta {
     width: 100%;
     margin-top: auto;
 }
 
-.brutal-footer-bottom {
+.footer-bottom {
     grid-column: 1 / -1;
     display: flex;
     justify-content: space-between;
@@ -1401,23 +1392,23 @@ button {
 /* RESPONSIVE */
 
 @media (max-width: 1020px) {
-    .brutal-navbar {
+    .navbar {
         grid-template-columns: 1fr auto;
         align-items: center;
         min-height: 84px;
         box-shadow: 6px 6px 0 #ff5a36;
     }
 
-    .brutal-nav,
-    .brutal-cta {
+    .nav,
+    .nav-cta {
         display: none;
     }
 
-    .brutal-brand-main {
+    .brand-main {
         font-size: 2.4rem;
     }
 
-    .brutal-toggle {
+    .menu-toggle {
         display: inline-block;
     }
 }
@@ -1535,21 +1526,21 @@ button {
         grid-template-columns: 1fr;
     }
 
-    .brutal-footer-shell {
+    .footer-shell {
         grid-template-columns: 1fr;
     }
 
-    .brutal-footer-brand,
-    .brutal-footer-panel,
-    .brutal-footer-bottom {
+    .footer-brand,
+    .footer-panel,
+    .footer-bottom {
         box-shadow: 8px 8px 0 #111111;
     }
 
-    .brutal-footer-brand {
+    .footer-brand {
         box-shadow: 8px 8px 0 #ff5a36;
     }
 
-    .brutal-footer-bottom {
+    .footer-bottom {
         flex-direction: column;
     }
 

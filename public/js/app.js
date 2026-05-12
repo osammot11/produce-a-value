@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     // ===== MENU MOBILE =====
-    const toggle = document.querySelector(".brutal-toggle");
-    const mobileWrap = document.querySelector(".brutal-mobile-wrap");
-    const mobileLinks = document.querySelectorAll(".brutal-mobile-nav a");
+    const toggle = document.querySelector(".menu-toggle");
+    const mobileWrap = document.querySelector(".mobile-menu");
+    const mobileLinks = document.querySelectorAll(".mobile-nav a");
 
     if (toggle && mobileWrap) {
 
