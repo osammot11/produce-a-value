@@ -633,7 +633,6 @@ button {
 }
 
 .page-hero-brutal,
-.contact-brutal,
 .legal-brutal-shell {
     max-width: 1400px;
     margin: 0 auto;
@@ -647,7 +646,6 @@ button {
 }
 
 .page-hero-brutal-main,
-.contact-brutal-intro,
 .legal-brutal-heading {
     padding: 28px;
     background: #111111;
@@ -984,14 +982,7 @@ button {
     letter-spacing: 0.1em;
 }
 
-.contact-brutal {
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 24px;
-    align-items: start;
-}
-
-.contact-brutal-direct {
+.contact-direct {
     margin-top: 34px;
     padding: 20px;
     background: #ffe600;
@@ -1000,64 +991,15 @@ button {
     box-shadow: 6px 6px 0 #f5efe4;
 }
 
-.contact-brutal-direct span {
-    display: block;
+.contact-direct .label {
     margin-bottom: 8px;
-    font-size: 0.74rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
 }
 
-.contact-brutal-direct a {
+.contact-direct a {
     font-size: clamp(1.4rem, 3vw, 2.4rem);
     line-height: 1;
     font-weight: 900;
     letter-spacing: -0.05em;
-}
-
-.contact-brutal-form {
-    display: grid;
-    gap: 18px;
-    padding: 26px;
-    background: #f5efe4;
-    border: 2px solid #111111;
-    box-shadow: 10px 10px 0 #111111;
-}
-
-.contact-brutal-form label {
-    display: grid;
-    gap: 8px;
-    font-size: 0.78rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-}
-
-.contact-brutal-form input,
-.contact-brutal-form select,
-.contact-brutal-form textarea {
-    width: 100%;
-    border: 2px solid #111111;
-    background: #efe8dc;
-    color: #111111;
-    padding: 15px 16px;
-    font: inherit;
-    font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: 0;
-    text-transform: none;
-    box-shadow: 4px 4px 0 #111111;
-}
-
-.contact-brutal-form textarea {
-    resize: vertical;
-}
-
-.contact-brutal-submit {
-    width: 100%;
-    min-height: 60px;
-    margin-top: 8px;
 }
 
 .form-honeypot {
@@ -1161,7 +1103,7 @@ button {
     font-weight: 700;
 }
 
-.contact-success-brutal {
+.form-success {
     background: #8b7cff;
 }
 
@@ -1506,7 +1448,6 @@ button {
     .split-hero,
     .page-hero-brutal,
     .process-brutal,
-    .contact-brutal,
     .legal-brutal-shell {
         grid-template-columns: 1fr;
     }
@@ -1566,7 +1507,6 @@ button {
     }
 
     .page-hero-brutal-main,
-    .contact-brutal-intro,
     .legal-brutal-heading,
     .process-brutal-heading {
         box-shadow: 8px 8px 0 #ff5a36;
