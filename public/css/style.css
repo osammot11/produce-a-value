@@ -1516,7 +1516,7 @@ button {
     }
 
     .heading-hero {
-        font-size: clamp(2.4rem, 12vw, 4.4rem);
+        font-size: clamp(2.4rem, 7vw, 4.4rem);
     }
 
     .copy-hero {
