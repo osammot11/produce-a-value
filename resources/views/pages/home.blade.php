@@ -12,10 +12,14 @@
                 <div class="panel-dark panel-dark-large">
                     <p class="kicker kicker-large">Performance Marketing Agency</p>
 
-                    <h1 class="heading-hero">
+                    <h1 class="heading-hero desktop-only">
                         Migliora i tuoi<br>
                         risultati o non ci<br>
                         paghi un centesimo.
+                    </h1>
+
+                    <h1 class="heading-hero mobile-only">
+                        Migliora i tuoi risultati o non ci paghi un centesimo.
                     </h1>
 
                     <p class="copy-light copy-hero">
@@ -77,7 +81,7 @@
 
                     <article class="card card-stack card-metric card-orange">
                         <span class="label">Next move</span>
-                        <strong class="metric-value">90d</strong>
+                        <strong class="metric-value">Audit</strong>
                         <p class="card-copy">L'audit serve a decidere cosa può muovere i numeri nei prossimi 90 giorni.</p>
                     </article>
                 </div>

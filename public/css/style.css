@@ -1203,7 +1203,18 @@ button {
 
 /* RESPONSIVE */
 
+@media (min-width: 1020px) {
+    .mobile-only {
+        display: none;
+    }
+}
+
 @media (max-width: 1020px) {
+
+    .desktop-only {
+        display: none;
+    }
+
     .navbar {
         grid-template-columns: 1fr auto;
         align-items: center;
