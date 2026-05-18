@@ -23,7 +23,7 @@
 
     <label>Servizio
         <select name="service" required>
-            @foreach (['Landing Page', 'Conversion Rate', 'Creative Performance', 'Funnel Audit'] as $service)
+            @foreach (['Landing Page', 'Conversion Rate', 'Creative Performance', 'Website Creation', 'Funnel Audit'] as $service)
                 <option value="{{ $service }}" @selected(old('service', $caseStudy->service) === $service)>{{ $service }}</option>
             @endforeach
         </select>
