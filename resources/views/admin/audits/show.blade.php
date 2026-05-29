@@ -1,15 +1,18 @@
 @extends('layouts.admin')
 
-@section('title', $audit->company . ' | Audit Admin')
+@section('title', ($audit->brand_name ?: $audit->company) . ' | Audit Admin')
 
 @section('content')
     <main class="admin-brutal">
         <section class="admin-detail-hero">
             <div>
                 <p class="page-brutal-kicker">Audit #{{ $audit->id }}</p>
-                <h1>{{ $audit->company }}</h1>
+                <h1>{{ $audit->brand_name ?: $audit->company }}</h1>
                 <p>
                     {{ $audit->name }} · <a href="mailto:{{ $audit->email }}">{{ $audit->email }}</a>
+                    @if ($audit->phone)
+                        · <a href="tel:{{ $audit->phone }}">{{ $audit->phone }}</a>
+                    @endif
                     · <span class="admin-badge">{{ $statusOptions[$audit->crm_status] ?? $audit->crm_status }}</span>
                 </p>
             </div>
@@ -49,42 +52,39 @@
             </article>
 
             <article class="admin-detail-panel">
-                <h2>Business basics</h2>
+                <h2>RADAR progetto</h2>
                 <dl>
-                    <dt>Sito</dt><dd>{{ $audit->website ?: 'Non indicato' }}</dd>
-                    <dt>Ruolo</dt><dd>{{ $audit->role ?: 'Non indicato' }}</dd>
-                    <dt>Tipo business</dt><dd>{{ $audit->business_type }}</dd>
-                    <dt>Mercato</dt><dd>{{ $audit->market ?: 'Non indicato' }}</dd>
-                    <dt>Ticket medio</dt><dd>{{ $audit->average_order_value ?: 'Non indicato' }}</dd>
+                    <dt>Brand</dt><dd>{{ $audit->brand_name ?: $audit->company }}</dd>
+                    <dt>Ecommerce</dt><dd>{{ $audit->ecommerce_url ?: $audit->website ?: 'Non indicato' }}</dd>
+                    <dt>Storico</dt><dd>{{ $audit->online_since ?: 'Non indicato' }}</dd>
+                    <dt>Prodotto e target</dt><dd>{{ $audit->product_audience ?: 'Non indicato' }}</dd>
                 </dl>
             </article>
 
             <article class="admin-detail-panel">
-                <h2>Traffico e problema</h2>
+                <h2>Numeri ecommerce</h2>
                 <dl>
+                    <dt>Revenue</dt><dd>{{ $audit->monthly_revenue_range ?: $audit->monthly_revenue ?: 'Non indicato' }}</dd>
+                    <dt>Spesa ads</dt><dd>{{ $audit->monthly_ads_spend_range ?: $audit->monthly_ad_budget ?: 'Non indicato' }}</dd>
+                    <dt>AOV</dt><dd>{{ $audit->aov_range ?: $audit->average_order_value ?: 'Non indicato' }}</dd>
+                    <dt>Ordini</dt><dd>{{ $audit->monthly_orders_range ?: $audit->monthly_sales ?: 'Non indicato' }}</dd>
+                </dl>
+            </article>
+
+            <article class="admin-detail-panel">
+                <h2>Performance e canali</h2>
+                <dl>
+                    <dt>Redditività ads</dt><dd>{{ $audit->ads_profitability ?: 'Non indicato' }}</dd>
+                    <dt>Fidelizzazione</dt><dd>{{ $audit->repeat_purchase_rate ?: 'Non indicato' }}</dd>
                     <dt>Canali</dt><dd>{{ $audit->channels ? implode(', ', $audit->channels) : 'Non indicati' }}</dd>
-                    <dt>Budget ads</dt><dd>{{ $audit->monthly_ad_budget ?: 'Non indicato' }}</dd>
-                    <dt>Problema</dt><dd>{{ $audit->main_problem }}</dd>
                 </dl>
             </article>
 
             <article class="admin-detail-panel">
-                <h2>Numeri</h2>
+                <h2>Strategia e criticità</h2>
                 <dl>
-                    <dt>Revenue mensile</dt><dd>{{ $audit->monthly_revenue ?: 'Non indicato' }}</dd>
-                    <dt>Conversion rate</dt><dd>{{ $audit->conversion_rate ?: 'Non indicato' }}</dd>
-                    <dt>Lead/vendite</dt><dd>{{ $audit->monthly_sales ?: 'Non indicato' }}</dd>
-                    <dt>LTV</dt><dd>{{ $audit->ltv ?: 'Non indicato' }}</dd>
-                </dl>
-            </article>
-
-            <article class="admin-detail-panel">
-                <h2>Fit</h2>
-                <dl>
-                    <dt>Budget progetto</dt><dd>{{ $audit->project_budget }}</dd>
-                    <dt>Timing</dt><dd>{{ $audit->timeline }}</dd>
-                    <dt>Decision maker</dt><dd>{{ $audit->decision_maker }}</dd>
-                    <dt>Pronto ad agire</dt><dd>{{ $audit->ready_to_act ? 'Sì' : 'Non ancora' }}</dd>
+                    <dt>Strategia attuale</dt><dd>{{ $audit->current_strategy ?: 'Non indicato' }}</dd>
+                    <dt>Collo di bottiglia</dt><dd>{{ $audit->bottleneck ?: $audit->main_problem }}</dd>
                 </dl>
             </article>
 
@@ -94,8 +94,8 @@
             </article>
 
             <article class="admin-detail-panel admin-detail-panel-wide">
-                <h2>Note</h2>
-                <p>{{ $audit->notes ?: 'Nessuna nota extra.' }}</p>
+                <h2>Ostacolo principale</h2>
+                <p>{{ $audit->biggest_obstacle ?: $audit->notes ?: 'Nessun ostacolo indicato.' }}</p>
             </article>
         </section>
     </main>

@@ -79,30 +79,41 @@ Route::post('/audit', function (Request $request) {
     $validated = $request->validate([
         'name' => ['required', 'string', 'max:120'],
         'email' => ['required', 'email', 'max:160'],
-        'company' => ['required', 'string', 'max:160'],
-        'website' => ['nullable', 'string', 'max:180'],
-        'role' => ['nullable', 'string', 'max:120'],
-        'business_type' => ['required', 'string', 'max:80'],
-        'market' => ['nullable', 'string', 'max:160'],
-        'average_order_value' => ['nullable', 'string', 'max:80'],
-        'channels' => ['nullable', 'array'],
+        'phone' => ['required', 'string', 'max:40'],
+        'brand_name' => ['required', 'string', 'max:160'],
+        'ecommerce_url' => ['required', 'url', 'max:180'],
+        'online_since' => ['required', 'string', 'max:80'],
+        'product_audience' => ['required', 'string', 'max:1200'],
+        'monthly_revenue_range' => ['required', 'string', 'max:80'],
+        'monthly_ads_spend_range' => ['required', 'string', 'max:80'],
+        'aov_range' => ['required', 'string', 'max:80'],
+        'ads_profitability' => ['required', 'string', 'max:120'],
+        'monthly_orders_range' => ['required', 'string', 'max:80'],
+        'repeat_purchase_rate' => ['required', 'string', 'max:120'],
+        'channels' => ['required', 'array', 'min:1'],
         'channels.*' => ['string', 'max:80'],
-        'monthly_ad_budget' => ['nullable', 'string', 'max:80'],
-        'main_problem' => ['required', 'string', 'max:120'],
-        'monthly_revenue' => ['nullable', 'string', 'max:80'],
-        'conversion_rate' => ['nullable', 'string', 'max:80'],
-        'monthly_sales' => ['nullable', 'string', 'max:80'],
-        'ltv' => ['nullable', 'string', 'max:80'],
+        'current_strategy' => ['required', 'string', 'max:160'],
+        'bottleneck' => ['required', 'string', 'max:160'],
         'goal_90_days' => ['required', 'string', 'max:1000'],
-        'project_budget' => ['required', 'string', 'max:80'],
-        'timeline' => ['required', 'string', 'max:80'],
-        'decision_maker' => ['required', 'string', 'max:80'],
-        'ready_to_act' => ['required', 'boolean'],
-        'notes' => ['nullable', 'string', 'max:1000'],
+        'biggest_obstacle' => ['required', 'string', 'max:1000'],
         'privacy_consent' => ['accepted'],
     ]);
 
     unset($validated['privacy_consent']);
+
+    $validated['company'] = $validated['brand_name'];
+    $validated['website'] = $validated['ecommerce_url'];
+    $validated['business_type'] = 'Ecommerce';
+    $validated['average_order_value'] = $validated['aov_range'];
+    $validated['monthly_ad_budget'] = $validated['monthly_ads_spend_range'];
+    $validated['main_problem'] = $validated['bottleneck'];
+    $validated['monthly_revenue'] = $validated['monthly_revenue_range'];
+    $validated['monthly_sales'] = $validated['monthly_orders_range'];
+    $validated['notes'] = $validated['biggest_obstacle'];
+    $validated['project_budget'] = 'RADAR strategico';
+    $validated['timeline'] = 'Prossimi 90 giorni';
+    $validated['decision_maker'] = 'Non richiesto nel RADAR';
+    $validated['ready_to_act'] = true;
 
     $audit = AuditSubmission::create($validated);
 

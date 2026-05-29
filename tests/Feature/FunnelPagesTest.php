@@ -41,25 +41,22 @@ class FunnelPagesTest extends TestCase
         $response = $this->post('/audit', [
             'name' => 'Mario Rossi',
             'email' => 'mario@example.com',
-            'company' => 'Rossi Commerce',
-            'website' => 'https://example.com',
-            'role' => 'Founder',
-            'business_type' => 'Ecommerce',
-            'market' => 'Italia',
-            'average_order_value' => '80 euro',
-            'channels' => ['Meta Ads', 'Email'],
-            'monthly_ad_budget' => '2K - 10K',
-            'main_problem' => 'Conversion rate basso',
-            'monthly_revenue' => '50K',
-            'conversion_rate' => '1.2%',
-            'monthly_sales' => '600',
-            'ltv' => '180 euro',
+            'phone' => '+39 333 1234567',
+            'brand_name' => 'Rossi Commerce',
+            'ecommerce_url' => 'https://example.com',
+            'online_since' => '1-2 anni',
+            'product_audience' => 'Vendiamo accessori premium a clienti ecommerce in Italia.',
+            'monthly_revenue_range' => '30 - 70k',
+            'monthly_ads_spend_range' => '5000 - 15.000€',
+            'aov_range' => '60 - 100€',
+            'ads_profitability' => 'Profittevoli ma instabili',
+            'monthly_orders_range' => '300 - 1000',
+            'repeat_purchase_rate' => 'Qualcuno torna, poco strutturato',
+            'channels' => ['Meta Ads', 'Email marketing/Automazioni'],
+            'current_strategy' => 'Abbiamo traffico, ma non converte',
+            'bottleneck' => 'Struttura del funnel',
             'goal_90_days' => 'Aumentare vendite e conversion rate senza alzare subito il budget ads.',
-            'project_budget' => '8K - 20K',
-            'timeline' => 'Entro 30 giorni',
-            'decision_maker' => 'Sì',
-            'ready_to_act' => '1',
-            'notes' => 'Serve una diagnosi del funnel.',
+            'biggest_obstacle' => 'Serve una diagnosi del funnel.',
             'privacy_consent' => '1',
         ]);
 
@@ -67,14 +64,50 @@ class FunnelPagesTest extends TestCase
 
         $this->assertDatabaseHas('audit_submissions', [
             'email' => 'mario@example.com',
+            'phone' => '+39 333 1234567',
             'company' => 'Rossi Commerce',
-            'main_problem' => 'Conversion rate basso',
+            'brand_name' => 'Rossi Commerce',
+            'main_problem' => 'Struttura del funnel',
+            'bottleneck' => 'Struttura del funnel',
+            'monthly_revenue_range' => '30 - 70k',
+            'monthly_ads_spend_range' => '5000 - 15.000€',
         ]);
 
         Mail::assertSent(AuditSubmissionReceived::class, function (AuditSubmissionReceived $mail) {
             return $mail->hasTo('giovannonicommerciale@gmail.com')
                 && $mail->audit->email === 'mario@example.com';
         });
+    }
+
+    public function test_audit_radar_page_shows_new_flow_and_requires_final_contact_data(): void
+    {
+        $this->get('/audit')
+            ->assertOk()
+            ->assertSee('RADAR strategico')
+            ->assertSee('Come si chiama il tuo brand?')
+            ->assertSee('Stiamo leggendo i segnali del tuo ecommerce.')
+            ->assertSee('Telefono');
+
+        $response = $this->post('/audit', [
+            'brand_name' => 'No Contact Brand',
+            'ecommerce_url' => 'https://example.com',
+            'online_since' => '6-12 mesi',
+            'product_audience' => 'Vendiamo prodotti ecommerce a un target specifico.',
+            'monthly_revenue_range' => '10 - 30k',
+            'monthly_ads_spend_range' => '1000 - 5000€',
+            'aov_range' => '30 - 60€',
+            'ads_profitability' => 'Break-even',
+            'monthly_orders_range' => '100 - 300',
+            'repeat_purchase_rate' => 'Quasi mai',
+            'current_strategy' => 'Non abbiamo una strategia chiara',
+            'bottleneck' => 'Acquisizione clienti',
+            'goal_90_days' => 'Capire dove intervenire nei prossimi 90 giorni.',
+            'biggest_obstacle' => 'Non sappiamo quale leva muovere per prima.',
+            'name' => 'Mario Rossi',
+            'email' => 'mario@example.com',
+        ]);
+
+        $response->assertSessionHasErrors(['phone', 'channels', 'privacy_consent']);
     }
 
     public function test_resource_lead_is_validated_and_stored(): void

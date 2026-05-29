@@ -61,9 +61,13 @@
             @forelse ($audits as $audit)
                 <a class="admin-record-card" href="{{ route('admin.audits.show', $audit) }}">
                     <span>{{ $audit->created_at->format('d/m/Y H:i') }} · {{ $statusOptions[$audit->crm_status] ?? $audit->crm_status }}</span>
-                    <strong>{{ $audit->company }}</strong>
-                    <p>{{ $audit->name }} · {{ $audit->email }}</p>
-                    <em>{{ $audit->business_type }} · {{ $audit->main_problem }} · {{ $audit->project_budget }}</em>
+                    <strong>{{ $audit->brand_name ?: $audit->company }}</strong>
+                    <p>{{ $audit->name }} · {{ $audit->email }}{{ $audit->phone ? ' · '.$audit->phone : '' }}</p>
+                    <em>
+                        {{ $audit->monthly_revenue_range ?: $audit->monthly_revenue ?: 'Revenue non indicata' }}
+                        · {{ $audit->bottleneck ?: $audit->main_problem }}
+                        · {{ $audit->monthly_ads_spend_range ?: $audit->monthly_ad_budget ?: $audit->project_budget }}
+                    </em>
                     @if ($audit->internal_notes)
                         <small class="admin-note-flag">Note interne presenti</small>
                     @endif

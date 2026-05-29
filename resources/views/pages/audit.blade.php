@@ -1,22 +1,49 @@
 @extends('layouts.app')
 
-@section('title', 'Richiedi Audit | Produce a Value')
+@section('title', 'RADAR Strategico | Produce a Value')
 
 @section('content')
+    @php
+        $options = [
+            'online_since' => ['Meno di 6 mesi', '6-12 mesi', '1-2 anni', 'Più di 2 anni'],
+            'monthly_revenue_range' => ['< 10k', '10 - 30k', '30 - 70k', '70 - 150k', '150k +'],
+            'monthly_ads_spend_range' => ['0€', '< 1000€', '1000 - 5000€', '5000 - 15.000€', '15.000€ +'],
+            'aov_range' => ['< 30€', '30 - 60€', '60 - 100€', '100€ +', 'Non conosco il mio AOV'],
+            'ads_profitability' => ['Profittevoli e scalabili', 'Profittevoli ma instabili', 'Break-even', 'In perdita', 'Non facciamo ads strutturate'],
+            'monthly_orders_range' => ['< 100', '100 - 300', '300 - 1000', '1000+'],
+            'repeat_purchase_rate' => ['Sì, in modo costante', 'Qualcuno torna, poco strutturato', 'Quasi mai', 'Non lo so/non monitoriamo'],
+            'channels' => ['Meta Ads', 'Google Ads', 'TikTok Ads', 'Email marketing/Automazioni', 'Influencer/Creators', 'Altro'],
+            'current_strategy' => [
+                'Cresciamo ma in modo disordinato',
+                'Funziona, ma dipende troppo dalle ads',
+                'Vendiamo, ma i margini sono il problema',
+                'Abbiamo traffico, ma non converte',
+                'Non abbiamo una strategia chiara',
+            ],
+            'bottleneck' => [
+                'Acquisizione clienti',
+                'Margini',
+                'Retention / clienti che non tornano',
+                'Struttura del funnel',
+                'Troppe cose da fare, struttura non chiara',
+            ],
+        ];
+    @endphp
+
     <main>
         <section class="section section-hero">
             <div class="shell split">
                 <div class="panel-dark panel-dark-large sticky-panel">
-                    <p class="kicker kicker-large">Audit gratuito</p>
-                    <h1 class="heading-hero">Scopri dove il tuo funnel sta perdendo soldi.</h1>
+                    <p class="kicker kicker-large">RADAR strategico</p>
+                    <h1 class="heading-hero">Scopri cosa blocca davvero la crescita del tuo ecommerce.</h1>
                     <p class="copy-light copy-hero">
-                        Rispondi alle domande. Noi useremo i dati per capire se possiamo aiutarti e dove intervenire
-                        prima: traffico, creatività, landing, conversion rate o offerta.
+                        Rispondi al RADAR. Useremo le risposte per leggere numeri, canali, strategia e colli di bottiglia
+                        prima di proporti la prossima mossa.
                     </p>
 
                     <div class="card card-process card-yellow callout">
-                        <span class="label">8 step</span>
-                        <strong class="card-title">Zero call inutili. Solo dati, contesto e prossima mossa.</strong>
+                        <span class="label">16 step</span>
+                        <strong class="card-title">Prima diagnosi, poi contatto. Zero form generici.</strong>
                     </div>
                 </div>
 
@@ -26,181 +53,212 @@
                     @if ($errors->any())
                         <div class="form-error">
                             <strong>Ci sono dati da sistemare.</strong>
-                            <p>Controlla i campi evidenziati e completa il form.</p>
+                            <p>Controlla i campi evidenziati e completa il RADAR.</p>
                         </div>
                     @endif
 
                     <div class="progress" aria-label="Avanzamento form">
-                        <span data-progress-label>Step 1 di 8</span>
+                        <span data-progress-label>Step 1 di 16</span>
                         <div><i data-progress-bar></i></div>
                     </div>
 
                     <section class="step is-active" data-step>
-                        <span class="step-index">01 / Business basics</span>
-                        <h2>Partiamo dalle coordinate.</h2>
-
-                        <div class="field-grid">
-                            <label>Nome
-                                <input type="text" name="name" value="{{ old('name') }}" data-summary="Nome" required>
-                            </label>
-                            <label>Email
-                                <input type="email" name="email" value="{{ old('email') }}" data-summary="Email" required>
-                            </label>
-                            <label>Azienda
-                                <input type="text" name="company" value="{{ old('company') }}" data-summary="Azienda" required>
-                            </label>
-                            <label>Sito web
-                                <input type="text" name="website" value="{{ old('website') }}" placeholder="https://..." data-summary="Sito">
-                            </label>
-                            <label>Ruolo
-                                <input type="text" name="role" value="{{ old('role') }}" data-summary="Ruolo">
-                            </label>
-                        </div>
+                        <span class="step-index">01 / Progetto</span>
+                        <h2>Come si chiama il tuo brand?</h2>
+                        <label class="wide-field">Brand
+                            <input type="text" name="brand_name" value="{{ old('brand_name') }}" data-summary="Brand" required>
+                        </label>
                     </section>
 
                     <section class="step" data-step>
-                        <span class="step-index">02 / Business type</span>
-                        <h2>Che macchina stai cercando di far crescere?</h2>
-
-                        <div class="field-grid">
-                            <label>Tipo business
-                                <select name="business_type" data-summary="Tipo business" required>
-                                    <option value="">Seleziona</option>
-                                    <option value="Ecommerce" @selected(old('business_type') === 'Ecommerce')>Ecommerce</option>
-                                    <option value="Startup SaaS" @selected(old('business_type') === 'Startup SaaS')>Startup SaaS</option>
-                                    <option value="Lead generation" @selected(old('business_type') === 'Lead generation')>Lead generation</option>
-                                    <option value="Altro" @selected(old('business_type') === 'Altro')>Altro</option>
-                                </select>
-                            </label>
-                            <label>Mercato
-                                <input type="text" name="market" value="{{ old('market') }}" placeholder="Italia, Europa, global..." data-summary="Mercato">
-                            </label>
-                            <label>Ticket medio / AOV
-                                <input type="text" name="average_order_value" value="{{ old('average_order_value') }}" placeholder="Es. 80 euro, 2K, 15K..." data-summary="Ticket medio">
-                            </label>
-                        </div>
+                        <span class="step-index">02 / Vetrina</span>
+                        <h2>Link al tuo ecommerce.</h2>
+                        <label class="wide-field">URL ecommerce
+                            <input type="url" name="ecommerce_url" value="{{ old('ecommerce_url') }}" placeholder="https://..." data-summary="Ecommerce" required>
+                        </label>
                     </section>
 
                     <section class="step" data-step>
-                        <span class="step-index">03 / Traffico</span>
-                        <h2>Da dove arrivano oggi clienti e vendite?</h2>
+                        <span class="step-index">03 / Storico</span>
+                        <h2>Da quanto siete online?</h2>
+                        <label class="wide-field">Storico
+                            <select name="online_since" data-summary="Storico online" required>
+                                <option value="">Seleziona</option>
+                                @foreach ($options['online_since'] as $option)
+                                    <option value="{{ $option }}" @selected(old('online_since') === $option)>{{ $option }}</option>
+                                @endforeach
+                            </select>
+                        </label>
+                    </section>
 
-                        <div class="check-grid" data-summary-group="Canali">
-                            @foreach (['Meta Ads', 'Google Ads', 'SEO', 'Email', 'Organic social', 'Marketplace'] as $channel)
+                    <section class="step" data-step>
+                        <span class="step-index">04 / Identità</span>
+                        <h2>Cosa vendi e a chi?</h2>
+                        <label class="wide-field">Prodotto e target
+                            <textarea name="product_audience" rows="7" data-summary="Prodotto e target" required>{{ old('product_audience') }}</textarea>
+                        </label>
+                    </section>
+
+                    <section class="step" data-step>
+                        <span class="step-index">05 / Revenue</span>
+                        <h2>Fatturato mensile medio.</h2>
+                        <label class="wide-field">Revenue mensile
+                            <select name="monthly_revenue_range" data-summary="Revenue mensile" required>
+                                <option value="">Seleziona</option>
+                                @foreach ($options['monthly_revenue_range'] as $option)
+                                    <option value="{{ $option }}" @selected(old('monthly_revenue_range') === $option)>{{ $option }}</option>
+                                @endforeach
+                            </select>
+                        </label>
+                    </section>
+
+                    <section class="step" data-step>
+                        <span class="step-index">06 / Advertising</span>
+                        <h2>Spesa mensile ads.</h2>
+                        <label class="wide-field">Budget ads mensile
+                            <select name="monthly_ads_spend_range" data-summary="Spesa ads" required>
+                                <option value="">Seleziona</option>
+                                @foreach ($options['monthly_ads_spend_range'] as $option)
+                                    <option value="{{ $option }}" @selected(old('monthly_ads_spend_range') === $option)>{{ $option }}</option>
+                                @endforeach
+                            </select>
+                        </label>
+                    </section>
+
+                    <section class="step" data-step>
+                        <span class="step-index">07 / Scontrino</span>
+                        <h2>Scontrino medio (AOV).</h2>
+                        <label class="wide-field">AOV
+                            <select name="aov_range" data-summary="AOV" required>
+                                <option value="">Seleziona</option>
+                                @foreach ($options['aov_range'] as $option)
+                                    <option value="{{ $option }}" @selected(old('aov_range') === $option)>{{ $option }}</option>
+                                @endforeach
+                            </select>
+                        </label>
+                    </section>
+
+                    <section class="step" data-step>
+                        <span class="step-index">08 / Performance</span>
+                        <h2>Redditività delle ads.</h2>
+                        <label class="wide-field">Performance ads
+                            <select name="ads_profitability" data-summary="Redditività ads" required>
+                                <option value="">Seleziona</option>
+                                @foreach ($options['ads_profitability'] as $option)
+                                    <option value="{{ $option }}" @selected(old('ads_profitability') === $option)>{{ $option }}</option>
+                                @endforeach
+                            </select>
+                        </label>
+                    </section>
+
+                    <section class="step" data-step>
+                        <span class="step-index">09 / Volume</span>
+                        <h2>Ordini al mese.</h2>
+                        <label class="wide-field">Ordini mensili
+                            <select name="monthly_orders_range" data-summary="Ordini mensili" required>
+                                <option value="">Seleziona</option>
+                                @foreach ($options['monthly_orders_range'] as $option)
+                                    <option value="{{ $option }}" @selected(old('monthly_orders_range') === $option)>{{ $option }}</option>
+                                @endforeach
+                            </select>
+                        </label>
+                    </section>
+
+                    <section class="step" data-step>
+                        <span class="step-index">10 / Fidelizzazione</span>
+                        <h2>I clienti tornano a comprare?</h2>
+                        <label class="wide-field">Retention
+                            <select name="repeat_purchase_rate" data-summary="Fidelizzazione" required>
+                                <option value="">Seleziona</option>
+                                @foreach ($options['repeat_purchase_rate'] as $option)
+                                    <option value="{{ $option }}" @selected(old('repeat_purchase_rate') === $option)>{{ $option }}</option>
+                                @endforeach
+                            </select>
+                        </label>
+                    </section>
+
+                    <section class="step" data-step>
+                        <span class="step-index">11 / Canali</span>
+                        <h2>Canali attivi con continuità.</h2>
+                        <div class="check-grid" data-required-checkbox-group="Canali">
+                            @foreach ($options['channels'] as $channel)
                                 <label>
                                     <input type="checkbox" name="channels[]" value="{{ $channel }}" @checked(in_array($channel, old('channels', [])))>
                                     <span>{{ $channel }}</span>
                                 </label>
                             @endforeach
                         </div>
+                    </section>
 
-                        <label class="wide-field">Budget ads mensile
-                            <select name="monthly_ad_budget" data-summary="Budget ads">
+                    <section class="step" data-step>
+                        <span class="step-index">12 / Direzione</span>
+                        <h2>La tua strategia attuale.</h2>
+                        <label class="wide-field">Strategia
+                            <select name="current_strategy" data-summary="Strategia attuale" required>
                                 <option value="">Seleziona</option>
-                                <option value="Sotto 2K" @selected(old('monthly_ad_budget') === 'Sotto 2K')>Sotto 2K</option>
-                                <option value="2K - 10K" @selected(old('monthly_ad_budget') === '2K - 10K')>2K - 10K</option>
-                                <option value="10K - 50K" @selected(old('monthly_ad_budget') === '10K - 50K')>10K - 50K</option>
-                                <option value="50K+" @selected(old('monthly_ad_budget') === '50K+')>50K+</option>
+                                @foreach ($options['current_strategy'] as $option)
+                                    <option value="{{ $option }}" @selected(old('current_strategy') === $option)>{{ $option }}</option>
+                                @endforeach
                             </select>
                         </label>
                     </section>
 
                     <section class="step" data-step>
-                        <span class="step-index">04 / Problema</span>
-                        <h2>Qual è il collo di bottiglia più doloroso?</h2>
-
-                        <label class="wide-field">Problema principale
-                            <select name="main_problem" data-summary="Problema principale" required>
+                        <span class="step-index">13 / Criticità</span>
+                        <h2>Il tuo collo di bottiglia.</h2>
+                        <label class="wide-field">Collo di bottiglia
+                            <select name="bottleneck" data-summary="Collo di bottiglia" required>
                                 <option value="">Seleziona</option>
-                                <option value="Poche vendite" @selected(old('main_problem') === 'Poche vendite')>Poche vendite</option>
-                                <option value="Conversion rate basso" @selected(old('main_problem') === 'Conversion rate basso')>Conversion rate basso</option>
-                                <option value="Creatività che non performano" @selected(old('main_problem') === 'Creatività che non performano')>Creatività che non performano</option>
-                                <option value="Funnel confuso" @selected(old('main_problem') === 'Funnel confuso')>Funnel confuso</option>
-                                <option value="Tracking scarso" @selected(old('main_problem') === 'Tracking scarso')>Tracking scarso</option>
+                                @foreach ($options['bottleneck'] as $option)
+                                    <option value="{{ $option }}" @selected(old('bottleneck') === $option)>{{ $option }}</option>
+                                @endforeach
                             </select>
                         </label>
                     </section>
 
                     <section class="step" data-step>
-                        <span class="step-index">05 / Numeri</span>
-                        <h2>Dammi il quadro, anche se non è perfetto.</h2>
-
-                        <div class="field-grid">
-                            <label>Revenue mensile
-                                <input type="text" name="monthly_revenue" value="{{ old('monthly_revenue') }}" data-summary="Revenue mensile">
-                            </label>
-                            <label>Conversion rate
-                                <input type="text" name="conversion_rate" value="{{ old('conversion_rate') }}" data-summary="Conversion rate">
-                            </label>
-                            <label>Lead / vendite mensili
-                                <input type="text" name="monthly_sales" value="{{ old('monthly_sales') }}" data-summary="Lead o vendite">
-                            </label>
-                            <label>LTV
-                                <input type="text" name="ltv" value="{{ old('ltv') }}" data-summary="LTV">
-                            </label>
-                        </div>
-                    </section>
-
-                    <section class="step" data-step>
-                        <span class="step-index">06 / Obiettivo</span>
-                        <h2>Cosa deve succedere nei prossimi 90 giorni?</h2>
-
+                        <span class="step-index">14 / Obiettivo</span>
+                        <h2>Obiettivo per i prossimi 90 giorni.</h2>
                         <label class="wide-field">Obiettivo
                             <textarea name="goal_90_days" rows="7" data-summary="Obiettivo 90 giorni" required>{{ old('goal_90_days') }}</textarea>
                         </label>
                     </section>
 
                     <section class="step" data-step>
-                        <span class="step-index">07 / Fit</span>
-                        <h2>Capire il fit ci evita perdite di tempo.</h2>
+                        <span class="step-index">15 / Ostacolo</span>
+                        <h2>Cosa ti blocca di più oggi?</h2>
+                        <label class="wide-field">Ostacolo principale
+                            <textarea name="biggest_obstacle" rows="7" data-summary="Ostacolo" required>{{ old('biggest_obstacle') }}</textarea>
+                        </label>
+                    </section>
 
-                        <div class="field-grid">
-                            <label>Budget progetto
-                                <select name="project_budget" data-summary="Budget progetto" required>
-                                    <option value="">Seleziona</option>
-                                    <option value="Sotto 3K" @selected(old('project_budget') === 'Sotto 3K')>Sotto 3K</option>
-                                    <option value="3K - 8K" @selected(old('project_budget') === '3K - 8K')>3K - 8K</option>
-                                    <option value="8K - 20K" @selected(old('project_budget') === '8K - 20K')>8K - 20K</option>
-                                    <option value="20K+" @selected(old('project_budget') === '20K+')>20K+</option>
-                                </select>
-                            </label>
-                            <label>Timing
-                                <select name="timeline" data-summary="Timing" required>
-                                    <option value="">Seleziona</option>
-                                    <option value="Subito" @selected(old('timeline') === 'Subito')>Subito</option>
-                                    <option value="Entro 30 giorni" @selected(old('timeline') === 'Entro 30 giorni')>Entro 30 giorni</option>
-                                    <option value="1-3 mesi" @selected(old('timeline') === '1-3 mesi')>1-3 mesi</option>
-                                    <option value="Sto esplorando" @selected(old('timeline') === 'Sto esplorando')>Sto esplorando</option>
-                                </select>
-                            </label>
-                            <label>Sei decision maker?
-                                <select name="decision_maker" data-summary="Decision maker" required>
-                                    <option value="">Seleziona</option>
-                                    <option value="Sì" @selected(old('decision_maker') === 'Sì')>Sì</option>
-                                    <option value="No, ma influenzo la decisione" @selected(old('decision_maker') === 'No, ma influenzo la decisione')>No, ma influenzo la decisione</option>
-                                    <option value="No" @selected(old('decision_maker') === 'No')>No</option>
-                                </select>
-                            </label>
-                            <label>Disponibile a intervenire subito?
-                                <select name="ready_to_act" data-summary="Pronto ad agire" required>
-                                    <option value="">Seleziona</option>
-                                    <option value="1" @selected(old('ready_to_act') === '1')>Sì</option>
-                                    <option value="0" @selected(old('ready_to_act') === '0')>Non ancora</option>
-                                </select>
-                            </label>
+                    <section class="step" data-step data-loading-step>
+                        <span class="step-index">RADAR / Elaborazione</span>
+                        <div class="loading-panel" aria-live="polite">
+                            <h2>Stiamo leggendo i segnali del tuo ecommerce.</h2>
+                            <p>Analisi di revenue, canali, margini, retention e collo di bottiglia in corso.</p>
+                            <div class="loading-bars" aria-hidden="true">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
                         </div>
                     </section>
 
                     <section class="step" data-step>
-                        <span class="step-index">08 / Review</span>
-                        <h2>Ultimo controllo.</h2>
+                        <span class="step-index">16 / Contatti</span>
+                        <h2>Inserisci i tuoi dati per ricevere il report operativo personalizzato.</h2>
 
-                        <label class="wide-field">Note extra
-                            <textarea name="notes" rows="5" data-summary="Note">{{ old('notes') }}</textarea>
-                        </label>
-
-                        <div class="review-list" data-review-list>
-                            <p>Il riepilogo si aggiorna automaticamente mentre compili il form.</p>
+                        <div class="field-grid">
+                            <label>Nome completo
+                                <input type="text" name="name" value="{{ old('name') }}" data-summary="Nome" required>
+                            </label>
+                            <label>Email
+                                <input type="email" name="email" value="{{ old('email') }}" data-summary="Email" required>
+                            </label>
+                            <label>Telefono
+                                <input type="tel" name="phone" value="{{ old('phone') }}" data-summary="Telefono" required>
+                            </label>
                         </div>
 
                         <label class="privacy-check">
@@ -212,7 +270,7 @@
                     <div class="form-actions">
                         <button class="button button-prev" type="button" data-prev-step>Indietro</button>
                         <button class="button button-next" type="button" data-next-step>Avanti</button>
-                        <button class="button button-submit" type="submit" data-submit-step>Richiedi audit</button>
+                        <button class="button button-submit" type="submit" data-submit-step>Ricevi report</button>
                     </div>
                 </form>
             </div>

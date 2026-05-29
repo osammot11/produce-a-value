@@ -76,8 +76,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const submitButton = multistepForm.querySelector("[data-submit-step]");
         const progressLabel = multistepForm.querySelector("[data-progress-label]");
         const progressBar = multistepForm.querySelector("[data-progress-bar]");
-        const reviewList = multistepForm.querySelector("[data-review-list]");
+        const countedSteps = steps.filter(function (step) {
+            return !step.hasAttribute("data-loading-step");
+        });
         let currentStep = 0;
+        let loadingTimer = null;
 
         function stepFields(step) {
             return Array.from(step.querySelectorAll("input, select, textarea"));
@@ -91,60 +94,40 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
 
-        function updateReview() {
-            if (!reviewList) return;
-
-            const rows = [];
-            const fields = Array.from(multistepForm.querySelectorAll("[data-summary]"));
-
-            fields.forEach(function (field) {
-                const label = field.getAttribute("data-summary");
-                let value = field.value;
-
-                if (field.tagName === "SELECT" && field.selectedOptions.length) {
-                    value = field.selectedOptions[0].text;
-                }
-
-                if (value) {
-                    rows.push({ label, value });
-                }
-            });
-
-            const checkedChannels = Array.from(multistepForm.querySelectorAll('input[name="channels[]"]:checked'))
-                .map(function (field) {
-                    return field.value;
-                });
-
-            if (checkedChannels.length) {
-                rows.push({ label: "Canali", value: checkedChannels.join(", ") });
+        function renderStep() {
+            if (loadingTimer) {
+                window.clearTimeout(loadingTimer);
+                loadingTimer = null;
             }
 
-            reviewList.innerHTML = rows.length
-                ? rows.map(function (row) {
-                    return "<div><span>" + row.label + "</span><strong>" + row.value + "</strong></div>";
-                }).join("")
-                : "<p>Il riepilogo si aggiorna automaticamente mentre compili il form.</p>";
-        }
-
-        function renderStep() {
             steps.forEach(function (step, index) {
                 step.classList.toggle("is-active", index === currentStep);
             });
 
+            const currentStepElement = steps[currentStep];
+            const isLoadingStep = currentStepElement.hasAttribute("data-loading-step");
+            const progressStep = countedSteps.indexOf(currentStepElement) + 1;
+
             if (progressLabel) {
-                progressLabel.textContent = "Step " + (currentStep + 1) + " di " + steps.length;
+                progressLabel.textContent = isLoadingStep
+                    ? "Elaborazione RADAR"
+                    : "Step " + progressStep + " di " + countedSteps.length;
             }
 
             if (progressBar) {
-                progressBar.style.width = (((currentStep + 1) / steps.length) * 100) + "%";
+                const progressWidth = isLoadingStep
+                    ? ((countedSteps.length - 1) / countedSteps.length) * 100
+                    : (progressStep / countedSteps.length) * 100;
+
+                progressBar.style.width = progressWidth + "%";
             }
 
             if (prevButton) {
-                prevButton.style.visibility = currentStep === 0 ? "hidden" : "visible";
+                prevButton.style.visibility = currentStep === 0 || isLoadingStep ? "hidden" : "visible";
             }
 
             if (nextButton) {
-                nextButton.style.display = currentStep === steps.length - 1 ? "none" : "inline-flex";
+                nextButton.style.display = currentStep === steps.length - 1 || isLoadingStep ? "none" : "inline-flex";
             }
 
             if (submitButton) {
@@ -152,11 +135,30 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             setStepFieldsState();
-            updateReview();
+
+            if (isLoadingStep) {
+                loadingTimer = window.setTimeout(function () {
+                    currentStep = Math.min(currentStep + 1, steps.length - 1);
+                    renderStep();
+                }, 1800);
+            }
         }
 
         function validateCurrentStep() {
-            const fields = stepFields(steps[currentStep]);
+            const currentStepElement = steps[currentStep];
+            const fields = stepFields(currentStepElement);
+
+            const checkboxGroups = Array.from(currentStepElement.querySelectorAll("[data-required-checkbox-group]"));
+
+            for (const group of checkboxGroups) {
+                const hasCheckedOption = Boolean(group.querySelector('input[type="checkbox"]:checked'));
+
+                if (!hasCheckedOption) {
+                    const groupName = group.getAttribute("data-required-checkbox-group") || "opzione";
+                    window.alert("Seleziona almeno una voce per: " + groupName + ".");
+                    return false;
+                }
+            }
 
             for (const field of fields) {
                 if (!field.checkValidity()) {
@@ -180,12 +182,14 @@ document.addEventListener("DOMContentLoaded", function () {
         if (prevButton) {
             prevButton.addEventListener("click", function () {
                 currentStep = Math.max(currentStep - 1, 0);
+
+                if (steps[currentStep].hasAttribute("data-loading-step")) {
+                    currentStep = Math.max(currentStep - 1, 0);
+                }
+
                 renderStep();
             });
         }
-
-        multistepForm.addEventListener("input", updateReview);
-        multistepForm.addEventListener("change", updateReview);
 
         multistepForm.addEventListener("submit", function (event) {
             if (!validateCurrentStep()) {

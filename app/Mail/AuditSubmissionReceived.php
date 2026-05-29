@@ -15,7 +15,7 @@ class AuditSubmissionReceived extends Mailable
     public function build(): static
     {
         return $this
-            ->subject('Nuova richiesta audit - '.$this->audit->company)
+            ->subject('Nuovo RADAR strategico - '.($this->audit->brand_name ?: $this->audit->company))
             ->view('emails.audit-submission-received');
     }
 }
