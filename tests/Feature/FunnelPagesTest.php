@@ -2,10 +2,12 @@
 
 namespace Tests\Feature;
 
-use App\Models\CaseStudy;
 use App\Mail\AuditSubmissionReceived;
 use App\Mail\ContactSubmissionReceived;
+use App\Models\AuditSubmission;
+use App\Models\CaseStudy;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use Tests\TestCase;
 
@@ -114,6 +116,65 @@ class FunnelPagesTest extends TestCase
         ]);
 
         $response->assertSessionHasErrors(['phone', 'channels', 'privacy_consent']);
+    }
+
+    public function test_call_booking_sends_audit_metadata_as_strings(): void
+    {
+        Http::fake([
+            'api.cal.com/v2/bookings' => Http::response([
+                'data' => [
+                    'id' => 987,
+                    'uid' => 'booking_uid',
+                    'status' => 'accepted',
+                    'start' => '2026-06-01T09:00:00.000Z',
+                    'end' => '2026-06-01T09:30:00.000Z',
+                ],
+            ], 201),
+        ]);
+
+        config([
+            'services.cal.api_key' => 'cal_test_key',
+            'services.cal.event_type_id' => 3237371,
+        ]);
+
+        $audit = AuditSubmission::create([
+            'name' => 'Mario Rossi',
+            'email' => 'mario@example.com',
+            'phone' => '+39 333 1234567',
+            'company' => 'Rossi Commerce',
+            'business_type' => 'Ecommerce',
+            'main_problem' => 'Conversion rate basso',
+            'goal_90_days' => 'Aumentare conversioni.',
+            'project_budget' => 'RADAR strategico',
+            'timeline' => 'Prossimi 90 giorni',
+            'decision_maker' => 'Sì',
+            'ready_to_act' => true,
+            'radar_profile' => 'Growth con attrito',
+            'radar_priority' => 'Conversione e funnel',
+        ]);
+
+        $response = $this->postJson('/audit/book-call', [
+            'audit_id' => $audit->id,
+            'start' => '2026-06-01T09:00:00.000Z',
+            'name' => 'Mario Rossi',
+            'email' => 'mario@example.com',
+            'phone' => '+39 333 1234567',
+            'timeZone' => 'Europe/Rome',
+        ]);
+
+        $response->assertCreated();
+
+        Http::assertSent(function ($request) use ($audit) {
+            return $request->url() === 'https://api.cal.com/v2/bookings'
+                && $request['metadata']['audit_submission_id'] === (string) $audit->id
+                && is_string($request['metadata']['audit_submission_id']);
+        });
+
+        $this->assertDatabaseHas('audit_submissions', [
+            'id' => $audit->id,
+            'cal_booking_uid' => 'booking_uid',
+            'cal_booking_status' => 'accepted',
+        ]);
     }
 
     public function test_resource_lead_is_validated_and_stored(): void

@@ -71,7 +71,7 @@ class CalBookingController extends Controller
             ],
             'metadata' => array_filter([
                 'source' => 'produceavalue_radar',
-                'audit_submission_id' => $audit?->id,
+                'audit_submission_id' => $audit ? (string) $audit->id : null,
                 'radar_profile' => $audit?->radar_profile,
                 'radar_priority' => $audit?->radar_priority,
             ]),
