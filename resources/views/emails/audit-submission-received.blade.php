@@ -15,6 +15,26 @@
 
 <hr>
 
+<h2>Diagnosi RADAR</h2>
+
+<p><strong>Score:</strong> {{ is_null($audit->radar_score) ? '-' : $audit->radar_score.'/100' }}</p>
+<p><strong>Profilo:</strong> {{ $audit->radar_profile ?: '-' }}</p>
+<p><strong>Priorità:</strong> {{ $audit->radar_priority ?: '-' }}</p>
+
+@if ($audit->radar_summary)
+    <p>{{ $audit->radar_summary }}</p>
+@endif
+
+@if ($audit->radar_recommendations)
+    <ul>
+        @foreach ($audit->radar_recommendations as $recommendation)
+            <li>{{ $recommendation }}</li>
+        @endforeach
+    </ul>
+@endif
+
+<hr>
+
 <p><strong>Cosa vende e a chi:</strong></p>
 <p>{{ $audit->product_audience ?: '-' }}</p>
 

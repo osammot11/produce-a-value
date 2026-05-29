@@ -43,7 +43,7 @@ class FunnelPagesTest extends TestCase
             'email' => 'mario@example.com',
             'phone' => '+39 333 1234567',
             'brand_name' => 'Rossi Commerce',
-            'ecommerce_url' => 'https://example.com',
+            'ecommerce_url' => 'example.com',
             'online_since' => '1-2 anni',
             'product_audience' => 'Vendiamo accessori premium a clienti ecommerce in Italia.',
             'monthly_revenue_range' => '30 - 70k',
@@ -61,16 +61,22 @@ class FunnelPagesTest extends TestCase
         ]);
 
         $response->assertRedirect('/audit/richiesto');
+        $response->assertSessionHas('radar_result.priority', 'Conversione e funnel');
 
         $this->assertDatabaseHas('audit_submissions', [
             'email' => 'mario@example.com',
             'phone' => '+39 333 1234567',
             'company' => 'Rossi Commerce',
             'brand_name' => 'Rossi Commerce',
+            'website' => 'https://example.com',
+            'ecommerce_url' => 'https://example.com',
             'main_problem' => 'Struttura del funnel',
             'bottleneck' => 'Struttura del funnel',
             'monthly_revenue_range' => '30 - 70k',
             'monthly_ads_spend_range' => '5000 - 15.000€',
+            'radar_score' => 56,
+            'radar_profile' => 'Growth con attrito',
+            'radar_priority' => 'Conversione e funnel',
         ]);
 
         Mail::assertSent(AuditSubmissionReceived::class, function (AuditSubmissionReceived $mail) {

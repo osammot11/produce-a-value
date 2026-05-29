@@ -1,13 +1,15 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminCaseStudyController;
+use App\Http\Controllers\CalBookingController;
+use App\Mail\AuditSubmissionReceived;
+use App\Mail\ContactSubmissionReceived;
 use App\Models\AuditSubmission;
 use App\Models\CaseStudy;
 use App\Models\ContactSubmission;
 use App\Models\ResourceLead;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\AdminCaseStudyController;
-use App\Mail\AuditSubmissionReceived;
-use App\Mail\ContactSubmissionReceived;
+use App\Services\RadarAuditAnalyzer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
@@ -15,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('pages.home');
-});
+})->name('home');
 
 Route::view('/servizi', 'pages.servizi')->name('servizi');
 Route::view('/servizi/landing-page', 'pages.services.landing-page')->name('services.landing-page');
@@ -75,13 +77,23 @@ Route::post('/contatti', function (Request $request) {
     return redirect()->route('contatti')->with('status', 'Richiesta inviata. Ti ricontatteremo se c\'è fit.');
 })->middleware('throttle:4,1')->name('contatti.store');
 Route::view('/audit', 'pages.audit')->name('audit');
-Route::post('/audit', function (Request $request) {
+Route::post('/audit', function (Request $request, RadarAuditAnalyzer $radarAuditAnalyzer) {
+    if ($request->filled('ecommerce_url')) {
+        $ecommerceUrl = trim((string) $request->input('ecommerce_url'));
+
+        if (! preg_match('#^https?://#i', $ecommerceUrl)) {
+            $ecommerceUrl = 'https://'.$ecommerceUrl;
+        }
+
+        $request->merge(['ecommerce_url' => $ecommerceUrl]);
+    }
+
     $validated = $request->validate([
         'name' => ['required', 'string', 'max:120'],
         'email' => ['required', 'email', 'max:160'],
         'phone' => ['required', 'string', 'max:40'],
         'brand_name' => ['required', 'string', 'max:160'],
-        'ecommerce_url' => ['required', 'url', 'max:180'],
+        'ecommerce_url' => ['required', 'url:http,https', 'max:180'],
         'online_since' => ['required', 'string', 'max:80'],
         'product_audience' => ['required', 'string', 'max:1200'],
         'monthly_revenue_range' => ['required', 'string', 'max:80'],
@@ -114,6 +126,7 @@ Route::post('/audit', function (Request $request) {
     $validated['timeline'] = 'Prossimi 90 giorni';
     $validated['decision_maker'] = 'Non richiesto nel RADAR';
     $validated['ready_to_act'] = true;
+    $validated = array_merge($validated, $radarAuditAnalyzer->analyze($validated));
 
     $audit = AuditSubmission::create($validated);
 
@@ -128,9 +141,25 @@ Route::post('/audit', function (Request $request) {
         }
     }
 
-    return redirect()->route('audit.thanks');
+    return redirect()->route('audit.thanks')->with('radar_result', [
+        'score' => $audit->radar_score,
+        'scores' => $audit->radar_scores,
+        'profile' => $audit->radar_profile,
+        'priority' => $audit->radar_priority,
+        'summary' => $audit->radar_summary,
+        'recommendations' => $audit->radar_recommendations,
+        'audit' => [
+            'id' => $audit->id,
+            'name' => $audit->name,
+            'email' => $audit->email,
+            'phone' => $audit->phone,
+        ],
+    ]);
 })->name('audit.store');
 Route::view('/audit/richiesto', 'pages.audit-thanks')->name('audit.thanks');
+Route::get('/audit/slots', [CalBookingController::class, 'slots'])->name('audit.slots');
+Route::post('/audit/book-call', [CalBookingController::class, 'book'])->name('audit.book-call');
+Route::view('/audit/call-prenotata', 'pages.audit-call-thanks')->name('audit.call-thanks');
 Route::view('/risorsa', 'pages.risorsa')->name('risorsa');
 Route::post('/risorsa', function (Request $request) {
     $validated = $request->validate([

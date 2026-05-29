@@ -51,6 +51,58 @@
                 </form>
             </article>
 
+            @if ($audit->radar_profile || $audit->radar_priority || $audit->radar_summary)
+                <article class="admin-detail-panel admin-detail-panel-wide">
+                    <h2>Diagnosi RADAR</h2>
+
+                    <div class="admin-radar-strip">
+                        <div>
+                            <span>Score</span>
+                            <strong>{{ is_null($audit->radar_score) ? '-' : $audit->radar_score.'/100' }}</strong>
+                        </div>
+                        <div>
+                            <span>Profilo</span>
+                            <strong>{{ $audit->radar_profile ?: 'Non calcolato' }}</strong>
+                        </div>
+                        <div>
+                            <span>Priorità</span>
+                            <strong>{{ $audit->radar_priority ?: 'Non calcolata' }}</strong>
+                        </div>
+                    </div>
+
+                    @if ($audit->radar_summary)
+                        <p class="admin-radar-summary">{{ $audit->radar_summary }}</p>
+                    @endif
+
+                    @if ($audit->radar_recommendations)
+                        <ul class="admin-radar-list">
+                            @foreach ($audit->radar_recommendations as $recommendation)
+                                <li>{{ $recommendation }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
+
+                    @if ($audit->radar_scores)
+                        <div class="admin-radar-scores" aria-label="Score RADAR per area">
+                            @foreach ($audit->radar_scores as $area => $score)
+                                <span>{{ ucfirst($area) }} · {{ $score }}/100</span>
+                            @endforeach
+                        </div>
+                    @endif
+                </article>
+            @endif
+
+            @if ($audit->cal_booking_uid)
+                <article class="admin-detail-panel admin-detail-panel-wide">
+                    <h2>Call prenotata</h2>
+                    <dl>
+                        <dt>Quando</dt><dd>{{ $audit->cal_booking_start_at?->format('d/m/Y H:i') ?: 'Non indicato' }}</dd>
+                        <dt>Status</dt><dd>{{ $audit->cal_booking_status ?: 'Non indicato' }}</dd>
+                        <dt>UID Cal.com</dt><dd>{{ $audit->cal_booking_uid }}</dd>
+                    </dl>
+                </article>
+            @endif
+
             <article class="admin-detail-panel">
                 <h2>RADAR progetto</h2>
                 <dl>

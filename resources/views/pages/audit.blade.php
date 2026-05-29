@@ -74,21 +74,21 @@
                         <span class="step-index">02 / Vetrina</span>
                         <h2>Link al tuo ecommerce.</h2>
                         <label class="wide-field">URL ecommerce
-                            <input type="url" name="ecommerce_url" value="{{ old('ecommerce_url') }}" placeholder="https://..." data-summary="Ecommerce" required>
+                            <input type="text" name="ecommerce_url" value="{{ old('ecommerce_url') }}" placeholder="miodominio.com" inputmode="url" data-summary="Ecommerce" required>
                         </label>
                     </section>
 
                     <section class="step" data-step>
                         <span class="step-index">03 / Storico</span>
                         <h2>Da quanto siete online?</h2>
-                        <label class="wide-field">Storico
-                            <select name="online_since" data-summary="Storico online" required>
-                                <option value="">Seleziona</option>
-                                @foreach ($options['online_since'] as $option)
-                                    <option value="{{ $option }}" @selected(old('online_since') === $option)>{{ $option }}</option>
-                                @endforeach
-                            </select>
-                        </label>
+                        <div class="check-grid check-grid-stack">
+                            @foreach ($options['online_since'] as $option)
+                                <label>
+                                    <input type="radio" name="online_since" value="{{ $option }}" data-summary="Storico online" required @checked(old('online_since') === $option)>
+                                    <span>{{ $option }}</span>
+                                </label>
+                            @endforeach
+                        </div>
                     </section>
 
                     <section class="step" data-step>
@@ -102,85 +102,85 @@
                     <section class="step" data-step>
                         <span class="step-index">05 / Revenue</span>
                         <h2>Fatturato mensile medio.</h2>
-                        <label class="wide-field">Revenue mensile
-                            <select name="monthly_revenue_range" data-summary="Revenue mensile" required>
-                                <option value="">Seleziona</option>
-                                @foreach ($options['monthly_revenue_range'] as $option)
-                                    <option value="{{ $option }}" @selected(old('monthly_revenue_range') === $option)>{{ $option }}</option>
-                                @endforeach
-                            </select>
-                        </label>
+                        <div class="check-grid check-grid-stack">
+                            @foreach ($options['monthly_revenue_range'] as $option)
+                                <label>
+                                    <input type="radio" name="monthly_revenue_range" value="{{ $option }}" data-summary="Revenue mensile" required @checked(old('monthly_revenue_range') === $option)>
+                                    <span>{{ $option }}</span>
+                                </label>
+                            @endforeach
+                        </div>
                     </section>
 
                     <section class="step" data-step>
                         <span class="step-index">06 / Advertising</span>
                         <h2>Spesa mensile ads.</h2>
-                        <label class="wide-field">Budget ads mensile
-                            <select name="monthly_ads_spend_range" data-summary="Spesa ads" required>
-                                <option value="">Seleziona</option>
-                                @foreach ($options['monthly_ads_spend_range'] as $option)
-                                    <option value="{{ $option }}" @selected(old('monthly_ads_spend_range') === $option)>{{ $option }}</option>
-                                @endforeach
-                            </select>
-                        </label>
+                        <div class="check-grid check-grid-stack">
+                            @foreach ($options['monthly_ads_spend_range'] as $option)
+                                <label>
+                                    <input type="radio" name="monthly_ads_spend_range" value="{{ $option }}" data-summary="Spesa ads" required @checked(old('monthly_ads_spend_range') === $option)>
+                                    <span>{{ $option }}</span>
+                                </label>
+                            @endforeach
+                        </div>
                     </section>
 
                     <section class="step" data-step>
                         <span class="step-index">07 / Scontrino</span>
                         <h2>Scontrino medio (AOV).</h2>
-                        <label class="wide-field">AOV
-                            <select name="aov_range" data-summary="AOV" required>
-                                <option value="">Seleziona</option>
-                                @foreach ($options['aov_range'] as $option)
-                                    <option value="{{ $option }}" @selected(old('aov_range') === $option)>{{ $option }}</option>
-                                @endforeach
-                            </select>
-                        </label>
+                        <div class="check-grid check-grid-stack">
+                            @foreach ($options['aov_range'] as $option)
+                                <label>
+                                    <input type="radio" name="aov_range" value="{{ $option }}" data-summary="AOV" required @checked(old('aov_range') === $option)>
+                                    <span>{{ $option }}</span>
+                                </label>
+                            @endforeach
+                        </div>
                     </section>
 
                     <section class="step" data-step>
                         <span class="step-index">08 / Performance</span>
                         <h2>Redditività delle ads.</h2>
-                        <label class="wide-field">Performance ads
-                            <select name="ads_profitability" data-summary="Redditività ads" required>
-                                <option value="">Seleziona</option>
-                                @foreach ($options['ads_profitability'] as $option)
-                                    <option value="{{ $option }}" @selected(old('ads_profitability') === $option)>{{ $option }}</option>
-                                @endforeach
-                            </select>
-                        </label>
+                        <div class="check-grid check-grid-stack">
+                            @foreach ($options['ads_profitability'] as $option)
+                                <label>
+                                    <input type="radio" name="ads_profitability" value="{{ $option }}" data-summary="Redditività ads" required @checked(old('ads_profitability') === $option)>
+                                    <span>{{ $option }}</span>
+                                </label>
+                            @endforeach
+                        </div>
                     </section>
 
                     <section class="step" data-step>
                         <span class="step-index">09 / Volume</span>
                         <h2>Ordini al mese.</h2>
-                        <label class="wide-field">Ordini mensili
-                            <select name="monthly_orders_range" data-summary="Ordini mensili" required>
-                                <option value="">Seleziona</option>
-                                @foreach ($options['monthly_orders_range'] as $option)
-                                    <option value="{{ $option }}" @selected(old('monthly_orders_range') === $option)>{{ $option }}</option>
-                                @endforeach
-                            </select>
-                        </label>
+                        <div class="check-grid check-grid-stack">
+                            @foreach ($options['monthly_orders_range'] as $option)
+                                <label>
+                                    <input type="radio" name="monthly_orders_range" value="{{ $option }}" data-summary="Ordini mensili" required @checked(old('monthly_orders_range') === $option)>
+                                    <span>{{ $option }}</span>
+                                </label>
+                            @endforeach
+                        </div>
                     </section>
 
                     <section class="step" data-step>
                         <span class="step-index">10 / Fidelizzazione</span>
                         <h2>I clienti tornano a comprare?</h2>
-                        <label class="wide-field">Retention
-                            <select name="repeat_purchase_rate" data-summary="Fidelizzazione" required>
-                                <option value="">Seleziona</option>
-                                @foreach ($options['repeat_purchase_rate'] as $option)
-                                    <option value="{{ $option }}" @selected(old('repeat_purchase_rate') === $option)>{{ $option }}</option>
-                                @endforeach
-                            </select>
-                        </label>
+                        <div class="check-grid check-grid-stack">
+                            @foreach ($options['repeat_purchase_rate'] as $option)
+                                <label>
+                                    <input type="radio" name="repeat_purchase_rate" value="{{ $option }}" data-summary="Fidelizzazione" required @checked(old('repeat_purchase_rate') === $option)>
+                                    <span>{{ $option }}</span>
+                                </label>
+                            @endforeach
+                        </div>
                     </section>
 
                     <section class="step" data-step>
                         <span class="step-index">11 / Canali</span>
                         <h2>Canali attivi con continuità.</h2>
-                        <div class="check-grid" data-required-checkbox-group="Canali">
+                        <div class="check-grid check-grid-stack" data-required-checkbox-group="Canali">
                             @foreach ($options['channels'] as $channel)
                                 <label>
                                     <input type="checkbox" name="channels[]" value="{{ $channel }}" @checked(in_array($channel, old('channels', [])))>
@@ -193,27 +193,27 @@
                     <section class="step" data-step>
                         <span class="step-index">12 / Direzione</span>
                         <h2>La tua strategia attuale.</h2>
-                        <label class="wide-field">Strategia
-                            <select name="current_strategy" data-summary="Strategia attuale" required>
-                                <option value="">Seleziona</option>
-                                @foreach ($options['current_strategy'] as $option)
-                                    <option value="{{ $option }}" @selected(old('current_strategy') === $option)>{{ $option }}</option>
-                                @endforeach
-                            </select>
-                        </label>
+                        <div class="check-grid check-grid-stack">
+                            @foreach ($options['current_strategy'] as $option)
+                                <label>
+                                    <input type="radio" name="current_strategy" value="{{ $option }}" data-summary="Strategia attuale" required @checked(old('current_strategy') === $option)>
+                                    <span>{{ $option }}</span>
+                                </label>
+                            @endforeach
+                        </div>
                     </section>
 
                     <section class="step" data-step>
                         <span class="step-index">13 / Criticità</span>
                         <h2>Il tuo collo di bottiglia.</h2>
-                        <label class="wide-field">Collo di bottiglia
-                            <select name="bottleneck" data-summary="Collo di bottiglia" required>
-                                <option value="">Seleziona</option>
-                                @foreach ($options['bottleneck'] as $option)
-                                    <option value="{{ $option }}" @selected(old('bottleneck') === $option)>{{ $option }}</option>
-                                @endforeach
-                            </select>
-                        </label>
+                        <div class="check-grid check-grid-stack">
+                            @foreach ($options['bottleneck'] as $option)
+                                <label>
+                                    <input type="radio" name="bottleneck" value="{{ $option }}" data-summary="Collo di bottiglia" required @checked(old('bottleneck') === $option)>
+                                    <span>{{ $option }}</span>
+                                </label>
+                            @endforeach
+                        </div>
                     </section>
 
                     <section class="step" data-step>

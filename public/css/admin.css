@@ -423,6 +423,64 @@ a.admin-record-card:hover {
     color: var(--admin-muted);
 }
 
+.admin-radar-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.admin-radar-strip div {
+    padding: 16px;
+    background: var(--admin-surface-soft);
+    border: 1px solid var(--admin-border);
+    border-radius: 12px;
+}
+
+.admin-radar-strip span,
+.admin-radar-scores span {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--admin-muted);
+    font-size: 0.72rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.admin-radar-strip strong {
+    display: block;
+    font-size: 1.15rem;
+    line-height: 1.2;
+}
+
+.admin-radar-summary {
+    max-width: 900px;
+    margin-top: 18px;
+}
+
+.admin-radar-list {
+    margin: 18px 0 0;
+    padding-left: 20px;
+    color: var(--admin-muted);
+    line-height: 1.65;
+}
+
+.admin-radar-scores {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 18px;
+}
+
+.admin-radar-scores span {
+    margin: 0;
+    padding: 8px 10px;
+    background: var(--admin-yellow);
+    color: var(--admin-text);
+    border-radius: 999px;
+}
+
 .admin-pagination-brutal {
     margin-top: 22px;
     display: flex;
@@ -575,6 +633,10 @@ a.admin-record-card:hover {
     }
 
     .admin-detail-panel dl {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-radar-strip {
         grid-template-columns: 1fr;
     }
 }

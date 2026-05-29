@@ -504,6 +504,270 @@ button {
     text-align: center;
 }
 
+.call-thanks {
+    max-width: 860px;
+    min-height: 68vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 34px;
+    background: #111111;
+    color: #f5efe4;
+    border: 2px solid #111111;
+    box-shadow: 10px 10px 0 #ff5a36;
+}
+
+.radar-analysis {
+    display: grid;
+    gap: 22px;
+}
+
+.radar-analysis-main {
+    max-width: none;
+}
+
+.radar-score-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.radar-next-actions .check-list {
+    margin-top: 22px;
+}
+
+.cal-section-heading {
+    margin-bottom: 22px;
+}
+
+.cal-section-heading .heading-section {
+    max-width: 980px;
+}
+
+.cal-booking {
+    padding: 22px;
+}
+
+.cal-booking-progress {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 22px;
+}
+
+.cal-booking-progress span {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 10px;
+    background: transparent;
+    border: 2px solid #111111;
+    color: #111111;
+    font-size: 0.74rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.cal-booking-progress span.is-active {
+    background: #ffe600;
+}
+
+.cal-booking-steps {
+    display: grid;
+}
+
+.cal-booking-step {
+    display: none;
+}
+
+.cal-booking-step.is-active {
+    display: grid;
+}
+
+.cal-booking-form {
+    gap: 22px;
+}
+
+.cal-booking-panel {
+    display: grid;
+    align-content: start;
+    gap: 16px;
+}
+
+.cal-booking-step:not(.is-active) {
+    display: none;
+}
+
+.cal-booking-panel h3 {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 0.92;
+    font-weight: 900;
+    letter-spacing: -0.06em;
+    text-transform: uppercase;
+}
+
+.cal-slot-status,
+.cal-booking-message {
+    margin: 0;
+    font-size: 0.94rem;
+    line-height: 1.55;
+    color: rgba(17, 17, 17, 0.74);
+}
+
+.cal-days,
+.cal-slots {
+    display: grid;
+    gap: 10px;
+}
+
+.cal-days {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.cal-slots {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.cal-day,
+.cal-slot {
+    min-height: 58px;
+    padding: 12px;
+    background: transparent;
+    border: 2px solid #111111;
+    color: #111111;
+    box-shadow: 4px 4px 0 #111111;
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 900;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+}
+
+.cal-day:hover,
+.cal-slot:hover,
+.cal-day.is-active,
+.cal-slot.is-active {
+    background: #ffe600;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #111111;
+}
+
+.cal-slot {
+    width: 100%;
+}
+
+.cal-back-button {
+    width: fit-content;
+    background: transparent;
+    color: #111111;
+    border-color: #111111;
+}
+
+.cal-back-button:hover {
+    background: #111111;
+    color: #f5efe4;
+    box-shadow: 8px 8px 0 #8b7cff;
+}
+
+.cal-booking-form label {
+    display: grid;
+    gap: 8px;
+    font-size: 0.78rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+}
+
+.cal-booking-form input,
+.cal-booking-form textarea {
+    width: 100%;
+    border: 2px solid #111111;
+    background: #efe8dc;
+    color: #111111;
+    padding: 15px 16px;
+    font: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: none;
+    box-shadow: 4px 4px 0 #111111;
+}
+
+.cal-booking-form textarea {
+    resize: vertical;
+}
+
+.cal-booking-form.is-submitting label,
+.cal-booking-form.is-submitting .cal-back-button,
+.cal-booking-form.is-submitting .button-submit {
+    opacity: 0.42;
+    pointer-events: none;
+}
+
+.cal-booking-loader {
+    display: none;
+    grid-template-columns: repeat(4, 38px) 1fr;
+    gap: 10px;
+    align-items: center;
+    padding: 16px;
+    background: #111111;
+    color: #f5efe4;
+    border: 2px solid #111111;
+    box-shadow: 6px 6px 0 #ff5a36;
+}
+
+.cal-booking-form.is-submitting .cal-booking-loader {
+    display: grid;
+}
+
+.cal-booking-loader span {
+    display: block;
+    width: 38px;
+    height: 38px;
+    background: #ffe600;
+    border: 2px solid #f5efe4;
+    animation: booking-loader 0.9s infinite ease-in-out;
+}
+
+.cal-booking-loader span:nth-child(2) {
+    background: #8b7cff;
+    animation-delay: 0.08s;
+}
+
+.cal-booking-loader span:nth-child(3) {
+    background: #ff5a36;
+    animation-delay: 0.16s;
+}
+
+.cal-booking-loader span:nth-child(4) {
+    background: #f5efe4;
+    animation-delay: 0.24s;
+}
+
+.cal-booking-loader strong {
+    font-size: 0.82rem;
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+@keyframes booking-loader {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    45% {
+        transform: translateY(-8px) rotate(8deg);
+    }
+}
+
 /* SHARED CTA */
 
 .actions {
@@ -996,6 +1260,11 @@ button {
     gap: 14px;
 }
 
+.check-grid-stack {
+    grid-template-columns: 1fr;
+    margin-top: 18px;
+}
+
 .check-grid label,
 .privacy-check {
     display: flex;
@@ -1006,6 +1275,16 @@ button {
     border: 2px solid #111111;
     box-shadow: 4px 4px 0 #111111;
     cursor: pointer;
+}
+
+.check-grid-stack label {
+    background: transparent;
+}
+
+.check-grid label:has(input:checked) {
+    background: #ffe600;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #111111;
 }
 
 .check-grid input,
@@ -1310,6 +1589,7 @@ button {
     }
 
     .card-grid-three,
+    .radar-score-grid,
     .proof-grid {
         grid-template-columns: 1fr;
     }
@@ -1355,6 +1635,21 @@ button {
 
     .form-actions {
         flex-direction: column;
+    }
+
+    .cal-booking-grid,
+    .cal-booking-progress,
+    .cal-days,
+    .cal-slots {
+        grid-template-columns: 1fr;
+    }
+
+    .cal-booking-loader {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .cal-booking-loader strong {
+        grid-column: 1 / -1;
     }
 
     .button-prev,

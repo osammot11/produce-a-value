@@ -37,6 +37,18 @@ class AuditSubmission extends Model
         'current_strategy',
         'goal_90_days',
         'biggest_obstacle',
+        'radar_score',
+        'radar_scores',
+        'radar_profile',
+        'radar_priority',
+        'radar_summary',
+        'radar_recommendations',
+        'cal_booking_id',
+        'cal_booking_uid',
+        'cal_booking_status',
+        'cal_booking_start_at',
+        'cal_booking_end_at',
+        'cal_booking_payload',
         'project_budget',
         'timeline',
         'decision_maker',
@@ -57,6 +69,11 @@ class AuditSubmission extends Model
     {
         return [
             'channels' => 'array',
+            'radar_scores' => 'array',
+            'radar_recommendations' => 'array',
+            'cal_booking_start_at' => 'datetime',
+            'cal_booking_end_at' => 'datetime',
+            'cal_booking_payload' => 'array',
             'ready_to_act' => 'boolean',
         ];
     }

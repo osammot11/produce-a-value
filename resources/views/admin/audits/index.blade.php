@@ -68,8 +68,22 @@
                         · {{ $audit->bottleneck ?: $audit->main_problem }}
                         · {{ $audit->monthly_ads_spend_range ?: $audit->monthly_ad_budget ?: $audit->project_budget }}
                     </em>
+                    @if ($audit->radar_profile || $audit->radar_priority)
+                        <small class="admin-note-flag">
+                            {{ $audit->radar_profile ?: 'RADAR' }}
+                            @if ($audit->radar_priority)
+                                · {{ $audit->radar_priority }}
+                            @endif
+                            @if (! is_null($audit->radar_score))
+                                · {{ $audit->radar_score }}/100
+                            @endif
+                        </small>
+                    @endif
                     @if ($audit->internal_notes)
                         <small class="admin-note-flag">Note interne presenti</small>
+                    @endif
+                    @if ($audit->cal_booking_uid)
+                        <small class="admin-note-flag">Call prenotata · {{ $audit->cal_booking_start_at?->format('d/m/Y H:i') }}</small>
                     @endif
                 </a>
             @empty
