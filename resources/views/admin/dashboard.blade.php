@@ -14,6 +14,10 @@
                 <span>Case study</span>
                 <strong>{{ $caseStudyCount }}</strong>
             </a>
+            <a href="{{ route('admin.quotes.index') }}" class="admin-stat-card admin-stat-card-violet">
+                <span>Preventivi</span>
+                <strong>{{ $quoteCount }}</strong>
+            </a>
             <a href="{{ route('admin.audits.index') }}" class="admin-stat-card admin-stat-card-yellow">
                 <span>Audit richiesti</span>
                 <strong>{{ $auditCount }}</strong>
@@ -22,13 +26,24 @@
                 <span>Lead risorsa</span>
                 <strong>{{ $resourceLeadCount }}</strong>
             </a>
-            <a href="{{ route('admin.contacts.index') }}" class="admin-stat-card admin-stat-card-orange">
-                <span>Contatti</span>
-                <strong>{{ $contactCount }}</strong>
-            </a>
         </section>
 
         <section class="admin-dashboard-grid">
+            <article class="admin-list-panel">
+                <div class="admin-panel-top">
+                    <h2>Ultimi preventivi</h2>
+                    <a href="{{ route('admin.quotes.index') }}">Vedi tutti</a>
+                </div>
+                @forelse ($latestQuotes as $quote)
+                    <a class="admin-row-link" href="{{ route('admin.quotes.show', $quote) }}">
+                        <strong>{{ $quote->title ?: 'Preventivo per '.$quote->client_name }}</strong>
+                        <span>{{ $quote->client_company ?: $quote->client_name }} · {{ \App\Models\Quote::formatMoney($quote->total_cents) }} · {{ $quote->status }}</span>
+                    </a>
+                @empty
+                    <p class="admin-empty-brutal">Nessun preventivo ancora.</p>
+                @endforelse
+            </article>
+
             <article class="admin-list-panel">
                 <div class="admin-panel-top">
                     <h2>Ultimi case study</h2>

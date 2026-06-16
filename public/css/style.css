@@ -1517,6 +1517,120 @@ button {
     background: #fff06a;
 }
 
+/* QUOTES */
+
+.quote-shell {
+    display: grid;
+    gap: 24px;
+}
+
+.quote-hero {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.quote-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.quote-actions form {
+    display: contents;
+}
+
+.quote-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.quote-box h2,
+.quote-grid h2 {
+    margin: 12px 0;
+    font-size: clamp(1.5rem, 3vw, 2.4rem);
+    line-height: 0.95;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+}
+
+.quote-box p,
+.quote-grid p {
+    margin: 8px 0 0;
+    color: rgba(17, 17, 17, 0.76);
+    line-height: 1.55;
+}
+
+.quote-table {
+    display: grid;
+    margin-top: 22px;
+    border-top: 2px solid #111111;
+}
+
+.quote-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 18px;
+    padding: 18px 0;
+    border-bottom: 2px solid #111111;
+}
+
+.quote-row strong,
+.quote-row b,
+.quote-total strong {
+    font-size: 1.05rem;
+    font-weight: 900;
+}
+
+.quote-total {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px 18px;
+    max-width: 420px;
+    margin: 28px 0 0 auto;
+    padding: 18px;
+    background: #111111;
+    color: #f5efe4;
+}
+
+.quote-total span {
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.quote-total strong:last-child {
+    color: #ffe600;
+    font-size: 1.6rem;
+}
+
+.quote-richtext {
+    margin-top: 18px;
+    line-height: 1.65;
+}
+
+.quote-richtext h2,
+.quote-richtext h3 {
+    margin: 24px 0 10px;
+    font-size: 1.4rem;
+    line-height: 1.05;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.quote-richtext p,
+.quote-richtext ul,
+.quote-richtext ol {
+    max-width: 860px;
+}
+
+.quote-login {
+    align-self: start;
+}
+
 /* RESPONSIVE */
 
 @media (min-width: 1020px) {
@@ -1640,8 +1754,21 @@ button {
     .cal-booking-grid,
     .cal-booking-progress,
     .cal-days,
-    .cal-slots {
+    .cal-slots,
+    .quote-grid,
+    .quote-row {
         grid-template-columns: 1fr;
+    }
+
+    .quote-hero,
+    .quote-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .quote-total {
+        max-width: none;
+        margin-left: 0;
     }
 
     .cal-booking-loader {
@@ -1677,4 +1804,36 @@ button {
         flex-direction: column;
     }
 
+}
+
+@media print {
+    .site-header,
+    .site-footer,
+    .quote-actions {
+        display: none !important;
+    }
+
+    body {
+        background: #ffffff;
+        color: #111111;
+    }
+
+    .section {
+        padding: 0;
+    }
+
+    .shell {
+        max-width: none;
+    }
+
+    .panel-dark,
+    .card,
+    .form-panel {
+        box-shadow: none !important;
+    }
+
+    .quote-box,
+    .quote-grid article {
+        break-inside: avoid;
+    }
 }

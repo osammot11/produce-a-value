@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminCaseStudyController;
+use App\Http\Controllers\AdminQuoteController;
 use App\Http\Controllers\CalBookingController;
+use App\Http\Controllers\QuoteController;
 use App\Mail\AuditSubmissionReceived;
 use App\Mail\ContactSubmissionReceived;
 use App\Models\AuditSubmission;
@@ -179,6 +181,11 @@ Route::view('/risorsa/ricevuta', 'pages.risorsa-thanks')->name('risorsa.thanks')
 Route::view('/privacy-policy', 'pages.privacy-policy')->name('privacy-policy');
 Route::view('/cookie-policy', 'pages.cookie-policy')->name('cookie-policy');
 
+Route::get('/preventivi/{quote:slug}', [QuoteController::class, 'show'])->name('quotes.show');
+Route::post('/preventivi/{quote:slug}/accesso', [QuoteController::class, 'access'])->middleware('throttle:10,1')->name('quotes.access');
+Route::get('/preventivi/{quote:slug}/pdf', [QuoteController::class, 'pdf'])->name('quotes.pdf');
+Route::post('/preventivi/{quote:slug}/logout', [QuoteController::class, 'logout'])->name('quotes.logout');
+
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/login', [AdminController::class, 'login'])->name('login');
     Route::post('/login', [AdminController::class, 'authenticate'])->name('authenticate');
@@ -192,6 +199,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::put('/audit/{auditSubmission}/crm', [AdminController::class, 'updateAuditCrm'])->name('audits.crm.update');
         Route::get('/risorse', [AdminController::class, 'resourceLeads'])->name('resource-leads.index');
         Route::get('/contatti', [AdminController::class, 'contacts'])->name('contacts.index');
+        Route::resource('preventivi', AdminQuoteController::class)
+            ->parameters(['preventivi' => 'quote'])
+            ->names('quotes');
         Route::resource('case-study', AdminCaseStudyController::class)
             ->parameters(['case-study' => 'caseStudy'])
             ->names('case-studies');

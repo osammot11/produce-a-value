@@ -19,6 +19,7 @@
         @if (session('admin_authenticated'))
             <nav class="admin-brutal-nav" aria-label="Navigazione admin">
                 <a href="{{ route('admin.dashboard') }}">Dashboard</a>
+                <a href="{{ route('admin.quotes.index') }}">Preventivi</a>
                 <a href="{{ route('admin.case-studies.index') }}">Case study</a>
                 <a href="{{ route('admin.audits.index') }}">Audit</a>
                 <a href="{{ route('admin.resource-leads.index') }}">Risorse</a>
@@ -34,6 +35,8 @@
     </header>
 
     @yield('content')
+
+    <script src="{{ asset('js/admin.js') }}"></script>
 </body>
 
 </html>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\AuditSubmission;
 use App\Models\CaseStudy;
 use App\Models\ContactSubmission;
+use App\Models\Quote;
 use App\Models\ResourceLead;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -62,10 +63,12 @@ class AdminController extends Controller
             'resourceLeadCount' => ResourceLead::count(),
             'contactCount' => ContactSubmission::count(),
             'caseStudyCount' => CaseStudy::count(),
+            'quoteCount' => Quote::count(),
             'latestAudits' => AuditSubmission::latest()->take(5)->get(),
             'latestLeads' => ResourceLead::latest()->take(5)->get(),
             'latestContacts' => ContactSubmission::latest()->take(5)->get(),
             'latestCaseStudies' => CaseStudy::latest()->take(5)->get(),
+            'latestQuotes' => Quote::latest()->take(5)->get(),
         ]);
     }
 
