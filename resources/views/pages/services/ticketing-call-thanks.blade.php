@@ -16,9 +16,6 @@
                     Ti abbiamo inviato conferma e link via email. Porta numeri dell’ultima edizione, sistema attuale e
                     dubbi principali: useremo la call per capire se Marathon System è adatto al tuo evento.
                 </p>
-                <div class="cta-group">
-                    <a href="{{ route('services.ticketing-custom') }}" class="btn">Rivedi Marathon System</a>
-                </div>
             </div>
         </section>
     </main>
