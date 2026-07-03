@@ -47,6 +47,13 @@
 
                 <article class="card card-stack card-service card-dark">
                     <span class="label">04</span>
+                    <h2 class="card-title card-title-large">Ticketing custom</h2>
+                    <p class="card-copy">Sistemi proprietari per iscrizioni, pagamenti, ticket PDF, admin e checkout eventi.</p>
+                    <a href="{{ route('services.ticketing-custom') }}" class="link-button">Approfondisci</a>
+                </article>
+
+                <article class="card card-stack card-service card-cream">
+                    <span class="label">05</span>
                     <h2 class="card-title card-title-large">Funnel audit</h2>
                     <p class="card-copy">Diagnosi brutale su offerta, pagina, traffico, tracking e priorità dei prossimi 90 giorni.</p>
                     <a href="{{ route('audit') }}" class="link-button">Richiedi audit</a>

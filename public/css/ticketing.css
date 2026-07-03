@@ -1,0 +1,880 @@
+.ticketing-page {
+    --ticket-bg: #efe8dc;
+    --ticket-bg-alt: #efe8dc;
+    --ticket-surface: #fffaf0;
+    --ticket-text: #111111;
+    --ticket-muted: rgba(17, 17, 17, 0.68);
+    --ticket-border: #111111;
+    --ticket-yellow: #ffe600;
+    --ticket-violet: #8b7cff;
+    --ticket-orange: #ff5a36;
+    --ticket-shadow: 8px 8px 0 #111111;
+    --ticket-max: 1100px;
+    background: var(--ticket-bg);
+    color: var(--ticket-text);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+small {
+    margin: 0;
+}
+
+.ticketing-page .container {
+    width: 100%;
+    max-width: var(--ticket-max);
+    margin: 0 auto;
+    padding: 0 22px;
+}
+
+.ticketing-page .section {
+    padding: clamp(72px, 9vw, 120px) 0;
+}
+
+.ticketing-page .section-alt {
+    background: var(--ticket-bg-alt);
+    border-top: 2px solid var(--ticket-border);
+    border-bottom: 2px solid var(--ticket-border);
+}
+
+.ticketing-page .section-surface {
+    background: var(--ticket-surface);
+    border-top: 2px solid var(--ticket-border);
+    border-bottom: 2px solid var(--ticket-border);
+}
+
+.ticketing-page .hero {
+    min-height: calc(100vh - 120px);
+    display: grid;
+    align-items: center;
+}
+
+.ticketing-page .eyebrow {
+    display: inline-block;
+    width: fit-content;
+    margin: 0 0 18px;
+    padding-bottom: 5px;
+    border-bottom: 3px solid var(--ticket-orange);
+    color: var(--ticket-text);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.ticketing-page h1,
+.ticketing-page h2,
+.ticketing-page h3,
+.ticketing-page h4 {
+    color: var(--ticket-text);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    letter-spacing: -0.06em;
+    line-height: 0.95;
+}
+
+.ticketing-page h1 {
+    font-size: clamp(3.2rem, 8vw, 7rem);
+    text-transform: uppercase;
+}
+
+.ticketing-page h2 em,
+.ticketing-page .mechanism-statement em,
+.ticketing-page .accent {
+    color: var(--ticket-orange);
+    font-style: normal;
+}
+
+.ticketing-page h2 {
+    margin-bottom: 26px;
+    font-size: clamp(2.4rem, 6vw, 5rem);
+    text-transform: uppercase;
+}
+
+.ticketing-page h3 {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+}
+
+.ticketing-page h4 {
+    font-size: 1.08rem;
+    letter-spacing: 0;
+    line-height: 1.15;
+}
+
+.ticketing-page p {
+    color: var(--ticket-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.ticketing-page strong {
+    color: var(--ticket-text);
+    font-weight: 900;
+}
+
+.ticketing-page .subheadline {
+    margin-top: 28px;
+    font-size: clamp(1.12rem, 2vw, 1.35rem);
+    line-height: 1.55;
+}
+
+.ticketing-page .cta-group {
+    display: grid;
+    gap: 14px;
+    justify-items: start;
+    margin-top: 34px;
+}
+
+.ticketing-page .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 58px;
+    padding: 0 28px;
+    background: var(--ticket-yellow);
+    color: var(--ticket-text);
+    border: 2px solid var(--ticket-border);
+    box-shadow: 6px 6px 0 var(--ticket-border);
+    font-size: 0.88rem;
+    font-weight: 900;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    transition:
+        transform 0.16s ease,
+        box-shadow 0.16s ease,
+        background 0.16s ease;
+}
+
+.ticketing-page .btn:hover {
+    background: #fff06a;
+    border-bottom-color: var(--ticket-border);
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0 var(--ticket-orange);
+}
+
+.ticketing-page .microcopy,
+.ticketing-page .small-copy,
+.ticketing-page .form-note {
+    max-width: 520px;
+    font-size: 0.92rem;
+}
+
+.ticketing-page .proof-chips {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-top: 56px;
+}
+
+.ticketing-page .chip,
+.ticketing-page .pain-card,
+.ticketing-page .case-study,
+.ticketing-page .metric,
+.ticketing-page .bonus-card,
+.ticketing-page .price-reveal,
+.ticketing-page .guarantee-box,
+.ticketing-page .scarcity-alert,
+.ticketing-page .qual-box,
+.ticketing-page .ticket-faq-item {
+    background: var(--ticket-surface);
+    border: 2px solid var(--ticket-border);
+    box-shadow: var(--ticket-shadow);
+}
+
+.ticketing-page .chip {
+    min-height: 116px;
+    padding: 16px;
+    color: var(--ticket-muted);
+    font-size: 0.92rem;
+    line-height: 1.45;
+}
+
+.ticketing-page .chip strong {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--ticket-orange);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.ticketing-page .lead-text {
+    font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+}
+
+.ticketing-page .highlight-box {
+    margin-top: 30px;
+    padding: 26px;
+    background: var(--ticket-yellow);
+    border: 2px solid var(--ticket-border);
+    box-shadow: var(--ticket-shadow);
+}
+
+.ticketing-page .highlight-box p {
+    margin: 0;
+    color: var(--ticket-text);
+    font-size: clamp(1.25rem, 2.6vw, 2rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+}
+
+.ticketing-page .pain-grid,
+.ticketing-page .bonus-grid,
+.ticketing-page .metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.ticketing-page .pain-card,
+.ticketing-page .bonus-card {
+    min-height: 210px;
+    padding: 22px;
+}
+
+.ticketing-page .pain-card h4,
+.ticketing-page .bonus-card h4,
+.ticketing-page .qual-box h4,
+.ticketing-page .ticket-faq-item h4 {
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.ticketing-page .pain-card h4,
+.ticketing-page .qual-box.no h4 {
+    color: var(--ticket-orange);
+}
+
+.ticketing-page .pain-card p,
+.ticketing-page .bonus-card p,
+.ticketing-page .ticket-faq-item p {
+    margin: 0;
+    font-size: 0.96rem;
+}
+
+.ticketing-page .center-callout,
+.ticketing-page .max-center {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.ticketing-page .center-callout {
+    margin-top: 52px;
+    color: var(--ticket-text);
+}
+
+.ticketing-page .solution-list,
+.ticketing-page .fascinations,
+.ticketing-page .offer-list,
+.ticketing-page .guarantee-list,
+.ticketing-page .qual-box ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ticketing-page .solution-list {
+    margin-top: 30px;
+}
+
+.ticketing-page .solution-list li {
+    padding: 28px 0;
+    border-bottom: 2px solid var(--ticket-border);
+}
+
+.ticketing-page .solution-list h4 {
+    margin-bottom: 10px;
+    font-size: clamp(1.25rem, 2vw, 1.65rem);
+    text-transform: uppercase;
+}
+
+.ticketing-page .mechanism-statement {
+    max-width: 900px;
+    margin-bottom: 28px;
+    font-size: clamp(2.4rem, 6vw, 5rem);
+}
+
+.ticketing-page .table-wrap {
+    overflow-x: auto;
+}
+
+.ticketing-page .comparison-table,
+.ticketing-page .value-table,
+.ticketing-page .math-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 36px;
+    background: var(--ticket-surface);
+    border: 2px solid var(--ticket-border);
+    box-shadow: var(--ticket-shadow);
+}
+
+.ticketing-page th,
+.ticketing-page td {
+    padding: 16px 18px;
+    border-bottom: 2px solid var(--ticket-border);
+    text-align: left;
+    vertical-align: top;
+}
+
+.ticketing-page th {
+    background: var(--ticket-text);
+    color: var(--ticket-bg);
+    font-size: 0.76rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.ticketing-page td {
+    color: var(--ticket-muted);
+    font-size: 0.96rem;
+}
+
+.ticketing-page td:first-child {
+    color: var(--ticket-text);
+    font-weight: 900;
+}
+
+.ticketing-page .col-us,
+.ticketing-page .savings {
+    color: var(--ticket-orange);
+    font-weight: 900;
+}
+
+.ticketing-page .case-study {
+    margin-top: 34px;
+    padding: 30px;
+}
+
+.ticketing-page .case-study-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 26px;
+}
+
+.ticketing-page .case-study-header h3 {
+    margin: 0;
+}
+
+.ticketing-page .case-study-tag {
+    padding: 8px 12px;
+    background: var(--ticket-orange);
+    color: var(--ticket-bg);
+    border: 2px solid var(--ticket-border);
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.ticketing-page .metric {
+    min-height: 150px;
+    display: grid;
+    place-items: center;
+    padding: 18px;
+    text-align: center;
+    box-shadow: 5px 5px 0 var(--ticket-border);
+}
+
+.ticketing-page .metric-number {
+    display: block;
+    color: var(--ticket-orange);
+    font-size: clamp(2.1rem, 5vw, 4rem);
+    font-weight: 900;
+    letter-spacing: -0.08em;
+    line-height: 0.9;
+}
+
+.ticketing-page .metric-label {
+    display: block;
+    margin-top: 8px;
+    color: var(--ticket-text);
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.ticketing-page blockquote {
+    margin: 30px 0 0;
+    padding: 24px;
+    background: var(--ticket-bg-alt);
+    border: 2px solid var(--ticket-border);
+    box-shadow: 6px 6px 0 var(--ticket-violet);
+    color: var(--ticket-text);
+    font-size: clamp(1.15rem, 2.2vw, 1.55rem);
+    font-weight: 900;
+    line-height: 1.25;
+    letter-spacing: -0.03em;
+}
+
+.ticketing-page blockquote cite {
+    display: block;
+    margin-top: 14px;
+    color: var(--ticket-muted);
+    font-size: 0.9rem;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0;
+}
+
+.ticketing-page .benefits-list {
+    counter-reset: benefit;
+    list-style: none;
+    padding: 0;
+}
+
+.ticketing-page .benefits-list li {
+    position: relative;
+    min-height: 120px;
+    padding: 0 0 32px 72px;
+    margin-bottom: 28px;
+    border-bottom: 2px solid var(--ticket-border);
+}
+
+.ticketing-page .benefits-list li::before {
+    counter-increment: benefit;
+    content: counter(benefit, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--ticket-orange);
+    font-size: 2.2rem;
+    font-weight: 900;
+    letter-spacing: -0.08em;
+}
+
+.ticketing-page .benefits-list h4 {
+    margin-bottom: 8px;
+    font-size: clamp(1.25rem, 2vw, 1.7rem);
+    text-transform: uppercase;
+}
+
+.ticketing-page .fascinations li,
+.ticketing-page .guarantee-list li,
+.ticketing-page .qual-box li {
+    position: relative;
+    padding: 12px 0 12px 30px;
+    border-bottom: 1px solid rgba(17, 17, 17, 0.18);
+    color: var(--ticket-muted);
+    line-height: 1.55;
+}
+
+.ticketing-page .fascinations li::before,
+.ticketing-page .guarantee-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--ticket-orange);
+    font-weight: 900;
+}
+
+.ticketing-page .offer-list {
+    margin-top: 28px;
+}
+
+.ticketing-page .offer-list li {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    gap: 18px;
+    padding: 20px 0;
+    border-bottom: 2px solid var(--ticket-border);
+}
+
+.ticketing-page .offer-list span {
+    color: var(--ticket-orange);
+    font-size: 1.25rem;
+    font-weight: 900;
+    letter-spacing: -0.06em;
+}
+
+.ticketing-page .offer-list h4 {
+    margin-bottom: 6px;
+    font-size: 1.12rem;
+    text-transform: uppercase;
+}
+
+.ticketing-page .offer-list p {
+    margin: 0;
+    font-size: 0.96rem;
+}
+
+.ticketing-page .bonus-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.ticketing-page .bonus-card {
+    min-height: 260px;
+    position: relative;
+    padding-top: 38px;
+}
+
+.ticketing-page .bonus-card::before {
+    content: "BONUS";
+    position: absolute;
+    top: -13px;
+    left: 18px;
+    padding: 5px 10px;
+    background: var(--ticket-orange);
+    color: var(--ticket-bg);
+    border: 2px solid var(--ticket-border);
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+}
+
+.ticketing-page .value-table td:last-child,
+.ticketing-page .math-table td:last-child {
+    text-align: right;
+    color: var(--ticket-text);
+    font-weight: 900;
+}
+
+.ticketing-page .value-table tr.total td {
+    background: var(--ticket-yellow);
+    color: var(--ticket-text);
+    font-size: 1.15rem;
+    font-weight: 900;
+}
+
+.ticketing-page .price-reveal {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: clamp(30px, 6vw, 56px);
+    text-align: center;
+}
+
+.ticketing-page .price-reveal .eyebrow {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ticketing-page .price-big {
+    color: var(--ticket-text);
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 900;
+    letter-spacing: -0.09em;
+    line-height: 0.9;
+}
+
+.ticketing-page .price-big span {
+    color: var(--ticket-orange);
+}
+
+.ticketing-page .price-note {
+    margin: 22px auto 0;
+}
+
+.ticketing-page .math-table {
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ticketing-page .guarantee-box {
+    padding: 30px;
+}
+
+.ticketing-page .guarantee-box h3 {
+    margin-bottom: 18px;
+    color: var(--ticket-orange);
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.ticketing-page .scarcity-alert {
+    max-width: 780px;
+    margin: 28px auto;
+    padding: 26px;
+    text-align: center;
+    box-shadow: 8px 8px 0 var(--ticket-orange);
+}
+
+.ticketing-page .scarcity-alert p {
+    margin: 0;
+    color: var(--ticket-text);
+    font-size: 1.18rem;
+}
+
+.ticketing-page .qual-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    margin-top: 32px;
+}
+
+.ticketing-page .qual-box {
+    padding: 26px;
+}
+
+.ticketing-page .qual-box.yes {
+    box-shadow: 8px 8px 0 var(--ticket-yellow);
+}
+
+.ticketing-page .qual-box.no {
+    box-shadow: 8px 8px 0 var(--ticket-orange);
+}
+
+.ticketing-page .qual-box.yes h4 {
+    color: #786b00;
+}
+
+.ticketing-page .qual-box li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--ticket-orange);
+}
+
+.ticketing-page .form-section {
+    background: var(--ticket-bg-alt);
+    border-top: 2px solid var(--ticket-border);
+    border-bottom: 2px solid var(--ticket-border);
+}
+
+.ticketing-page .qualification-form {
+    max-width: 680px;
+    margin: 38px auto 0;
+}
+
+.ticketing-page .form-row {
+    margin-bottom: 18px;
+}
+
+.ticketing-page .form-row label {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--ticket-text);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.ticketing-page .form-row input,
+.ticketing-page .form-row select,
+.ticketing-page .form-row textarea {
+    width: 100%;
+    padding: 15px 16px;
+    background: var(--ticket-surface);
+    color: var(--ticket-text);
+    border: 2px solid var(--ticket-border);
+    border-radius: 0;
+    box-shadow: 4px 4px 0 var(--ticket-border);
+    font: inherit;
+    font-size: 1rem;
+    outline: none;
+}
+
+.ticketing-page .form-row input:focus,
+.ticketing-page .form-row select:focus,
+.ticketing-page .form-row textarea:focus {
+    box-shadow: 6px 6px 0 var(--ticket-violet);
+}
+
+.ticketing-page .form-row textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.ticketing-page .form-error {
+    max-width: 680px;
+    margin: 26px auto 0;
+    padding: 18px;
+    background: var(--ticket-orange);
+    color: var(--ticket-text);
+    border: 2px solid var(--ticket-border);
+    box-shadow: var(--ticket-shadow);
+}
+
+.ticketing-page .form-error p,
+.ticketing-page .form-error strong {
+    margin: 0;
+    color: var(--ticket-text);
+}
+
+.ticketing-page .ticket-faq-item {
+    padding: 22px;
+    margin-top: 16px;
+    box-shadow: 5px 5px 0 var(--ticket-border);
+}
+
+.ticketing-page .cal-box {
+    padding: 18px;
+    background: var(--ticket-surface);
+    border: 2px solid var(--ticket-border);
+    box-shadow: var(--ticket-shadow);
+}
+
+.ticketing-page .cal-box.cal-booking {
+    display: grid;
+}
+
+.ticketing-page .cal-box .cal-booking-progress,
+.ticketing-page .cal-box .cal-booking-steps {
+    width: 100%;
+}
+
+.ticketing-page .faq-container {
+    max-width: 860px;
+}
+
+.ticketing-page .ps-section {
+    background: var(--ticket-yellow);
+    border-top: 2px solid var(--ticket-border);
+}
+
+.ticketing-page .ps-text {
+    color: var(--ticket-text);
+    font-size: clamp(1.3rem, 3vw, 2.2rem);
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -0.05em;
+}
+
+.ticketing-page .text-center {
+    text-align: center;
+}
+
+.ticketing-page .text-center .btn,
+.ticketing-page .ps-section .btn {
+    margin-top: 26px;
+}
+
+.ticketing-page .form-honeypot {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* margini */
+
+.top-margin-small {
+    margin-top: 0.5rem;
+}
+
+.top-margin-mid {
+    margin-top: 1rem;
+}
+
+.top-margin-large {
+    margin-top: 1.5rem;
+}
+
+.top-margin-xl {
+    margin-top: 2.5rem;
+}
+
+.top-margin {
+    margin-top: 4rem;
+}
+
+/* STACK SYSTEM */
+
+.stack-small>*+* {
+    margin-top: 0.5rem;
+}
+
+.stack-mid>*+* {
+    margin-top: 1rem;
+}
+
+.stack-large>*+* {
+    margin-top: 1.5rem;
+}
+
+.stack-xl>*+* {
+    margin-top: 2.5rem;
+}
+
+.stack-xxl>*+* {
+    margin-top: 4rem;
+}
+
+.stack-3xl>*+* {
+    margin-top: 7rem;
+}
+
+.ticketing-page .white-color {
+    color: var(--ticket-surface);
+}
+
+.ticketing-page .logo {
+    color: var(--ticket-surface);
+    margin: 0;
+}
+
+@media (max-width: 980px) {
+
+    .ticketing-page .proof-chips,
+    .ticketing-page .pain-grid,
+    .ticketing-page .metrics,
+    .ticketing-page .bonus-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 720px) {
+    .ticketing-page .section {
+        padding: 64px 0;
+    }
+
+    .ticketing-page .hero {
+        min-height: auto;
+    }
+
+    .ticketing-page h1 {
+        font-size: clamp(2.6rem, 14vw, 4.5rem);
+    }
+
+    .ticketing-page h2,
+    .ticketing-page .mechanism-statement {
+        font-size: clamp(2rem, 11vw, 3.3rem);
+    }
+
+    .ticketing-page .proof-chips,
+    .ticketing-page .pain-grid,
+    .ticketing-page .metrics,
+    .ticketing-page .bonus-grid,
+    .ticketing-page .qual-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ticketing-page .offer-list li {
+        grid-template-columns: 1fr;
+    }
+
+    .ticketing-page .benefits-list li {
+        padding-left: 0;
+        padding-top: 54px;
+    }
+
+    .ticketing-page th,
+    .ticketing-page td {
+        padding: 12px 10px;
+        font-size: 0.82rem;
+    }
+
+    .ticketing-page .btn {
+        width: 100%;
+        padding-left: 16px;
+        padding-right: 16px;
+        text-align: center;
+    }
+}

@@ -25,6 +25,66 @@ Route::view('/servizi', 'pages.servizi')->name('servizi');
 Route::view('/servizi/landing-page', 'pages.services.landing-page')->name('services.landing-page');
 Route::view('/servizi/conversion-rate', 'pages.services.conversion-rate')->name('services.conversion-rate');
 Route::view('/servizi/creative-performance', 'pages.services.creative-performance')->name('services.creative-performance');
+Route::get('/servizi/ticketing-custom', function (Request $request) {
+    $request->session()->put('ticketing_form_started_at', now()->timestamp);
+
+    return view('pages.services.ticketing-custom');
+})->name('services.ticketing-custom');
+Route::post('/servizi/ticketing-custom', function (Request $request) {
+    $startedAt = (int) $request->session()->get('ticketing_form_started_at', 0);
+    $submittedTooFast = $startedAt === 0 || now()->timestamp - $startedAt < 3;
+    $honeypotFilled = filled($request->input('company_website'));
+
+    if ($submittedTooFast || $honeypotFilled) {
+        return redirect()->route('services.ticketing-custom.thanks');
+    }
+
+    $validated = $request->validate([
+        'name' => ['required', 'string', 'max:120'],
+        'email' => ['required', 'email', 'max:160'],
+        'event_name' => ['required', 'string', 'max:160'],
+        'event_type' => ['nullable', 'string', 'max:120'],
+        'current_system' => ['nullable', 'string', 'max:160'],
+        'annual_tickets' => ['nullable', 'string', 'max:80'],
+        'launch_timing' => ['nullable', 'string', 'max:120'],
+        'message' => ['nullable', 'string', 'max:1200'],
+    ]);
+
+    $contact = ContactSubmission::create([
+        'name' => $validated['name'],
+        'email' => $validated['email'],
+        'budget' => 'Ticketing custom',
+        'message' => implode("\n", array_filter([
+            'Richiesta demo gratuita Marathon System.',
+            'Evento: '.$validated['event_name'],
+            'Tipo evento: '.($validated['event_type'] ?? 'Non indicato'),
+            'Sistema attuale: '.($validated['current_system'] ?? 'Non indicato'),
+            'Iscritti/biglietti annui: '.($validated['annual_tickets'] ?? 'Non indicato'),
+            'Timing apertura iscrizioni: '.($validated['launch_timing'] ?? 'Non indicato'),
+            'Note: '.($validated['message'] ?? 'Nessuna nota'),
+        ])),
+        'ip_address' => $request->ip(),
+        'user_agent' => mb_substr((string) $request->userAgent(), 0, 1000),
+    ]);
+    $request->session()->forget('ticketing_form_started_at');
+
+    if ($recipient = config('lead-notifications.email')) {
+        try {
+            Mail::to($recipient)->send(new ContactSubmissionReceived($contact));
+        } catch (Throwable $exception) {
+            Log::warning('Ticketing notification email failed.', [
+                'contact_submission_id' => $contact->id,
+                'error' => $exception->getMessage(),
+            ]);
+        }
+    }
+
+    return redirect()->route('services.ticketing-custom.thanks');
+})->middleware('throttle:4,1')->name('services.ticketing-custom.store');
+Route::view('/servizi/ticketing-custom/richiesta-inviata', 'pages.services.ticketing-thanks')->name('services.ticketing-custom.thanks');
+Route::get('/servizi/ticketing-custom/slots', [CalBookingController::class, 'slots'])->name('services.ticketing-custom.slots');
+Route::post('/servizi/ticketing-custom/book-call', [CalBookingController::class, 'book'])->name('services.ticketing-custom.book-call');
+Route::view('/servizi/ticketing-custom/call-prenotata', 'pages.services.ticketing-call-thanks')->name('services.ticketing-custom.call-thanks');
 Route::get('/work', function () {
     return view('pages.work', [
         'caseStudies' => CaseStudy::published()->latest('published_at')->get(),

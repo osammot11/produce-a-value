@@ -12,8 +12,7 @@
 </head>
 
 <body>
-    @include('partials.header')
-
+    @include('partials.header-landing')
     @yield('content')
 
     @include('partials.footer')

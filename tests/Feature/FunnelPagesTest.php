@@ -25,6 +25,9 @@ class FunnelPagesTest extends TestCase
             '/servizi/landing-page',
             '/servizi/conversion-rate',
             '/servizi/creative-performance',
+            '/servizi/ticketing-custom',
+            '/servizi/ticketing-custom/richiesta-inviata',
+            '/servizi/ticketing-custom/call-prenotata',
             '/work',
             '/manifesto',
             '/contatti',
@@ -260,6 +263,94 @@ class FunnelPagesTest extends TestCase
         $this->assertDatabaseMissing('contact_submissions', [
             'email' => 'fast@example.com',
         ]);
+    }
+
+    public function test_ticketing_landing_stores_demo_request_and_sends_notification(): void
+    {
+        Mail::fake();
+        config(['lead-notifications.email' => 'giovannonicommerciale@gmail.com']);
+
+        $this->get('/servizi/ticketing-custom')
+            ->assertOk()
+            ->assertSee('Marathon System by Produce a Value')
+            ->assertSee('Richiedi il tuo sito demo gratuito');
+
+        $response = $this
+            ->withSession(['ticketing_form_started_at' => now()->subSeconds(10)->timestamp])
+            ->withServerVariables([
+                'REMOTE_ADDR' => '203.0.113.20',
+                'HTTP_USER_AGENT' => 'PAV Ticketing Test Browser',
+            ])
+            ->post('/servizi/ticketing-custom', [
+                'name' => 'Roberto Cervelli',
+                'email' => 'roberto@example.com',
+                'event_name' => 'Francigena Tuscany Marathon',
+                'event_type' => 'Maratona',
+                'current_system' => 'WooCommerce',
+                'annual_tickets' => '1000+',
+                'launch_timing' => 'Tra 2 mesi',
+                'message' => 'Vogliamo ridurre commissioni e lavoro manuale.',
+            ]);
+
+        $response->assertRedirect('/servizi/ticketing-custom/richiesta-inviata');
+
+        $this->assertDatabaseHas('contact_submissions', [
+            'email' => 'roberto@example.com',
+            'budget' => 'Ticketing custom',
+            'ip_address' => '203.0.113.20',
+            'user_agent' => 'PAV Ticketing Test Browser',
+        ]);
+
+        Mail::assertSent(ContactSubmissionReceived::class, function (ContactSubmissionReceived $mail) {
+            return $mail->hasTo('giovannonicommerciale@gmail.com')
+                && $mail->contact->email === 'roberto@example.com'
+                && str_contains($mail->contact->message, 'Francigena Tuscany Marathon');
+        });
+
+        $this->get('/servizi/ticketing-custom/richiesta-inviata')
+            ->assertOk()
+            ->assertSee('data-cal-booking', false)
+            ->assertSee('Giorno')
+            ->assertSee('Orario')
+            ->assertSee('Dettagli')
+            ->assertDontSee('app.cal.com/embed');
+    }
+
+    public function test_ticketing_call_booking_sends_ticketing_source_metadata(): void
+    {
+        Http::fake([
+            'api.cal.com/v2/bookings' => Http::response([
+                'data' => [
+                    'id' => 654,
+                    'uid' => 'ticketing_booking_uid',
+                    'status' => 'accepted',
+                    'start' => '2026-07-10T09:00:00.000Z',
+                    'end' => '2026-07-10T09:30:00.000Z',
+                ],
+            ], 201),
+        ]);
+
+        config([
+            'services.cal.api_key' => 'cal_test_key',
+            'services.cal.event_type_id' => 3237371,
+        ]);
+
+        $response = $this->postJson('/servizi/ticketing-custom/book-call', [
+            'source' => 'produceavalue_ticketing',
+            'start' => '2026-07-10T09:00:00.000Z',
+            'name' => 'Roberto Cervelli',
+            'email' => 'roberto@example.com',
+            'phone' => '+39 333 1234567',
+            'notes' => 'Evento: Francigena Tuscany Marathon',
+            'timeZone' => 'Europe/Rome',
+        ]);
+
+        $response->assertCreated();
+
+        Http::assertSent(function ($request) {
+            return $request->url() === 'https://api.cal.com/v2/bookings'
+                && $request['metadata']['source'] === 'produceavalue_ticketing';
+        });
     }
 
     public function test_work_page_is_a_proof_hub_with_published_case_studies(): void

@@ -50,6 +50,7 @@ class CalBookingController extends Controller
             'email' => ['required', 'email', 'max:160'],
             'phone' => ['required', 'string', 'max:40'],
             'notes' => ['nullable', 'string', 'max:1000'],
+            'source' => ['nullable', 'string', 'max:80'],
             'timeZone' => ['nullable', 'string', 'max:80'],
         ]);
 
@@ -70,7 +71,7 @@ class CalBookingController extends Controller
                 'notes' => $validated['notes'] ?? '',
             ],
             'metadata' => array_filter([
-                'source' => 'produceavalue_radar',
+                'source' => $validated['source'] ?? 'produceavalue_radar',
                 'audit_submission_id' => $audit ? (string) $audit->id : null,
                 'radar_profile' => $audit?->radar_profile,
                 'radar_priority' => $audit?->radar_priority,
