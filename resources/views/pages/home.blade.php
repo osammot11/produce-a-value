@@ -7,8 +7,7 @@
     <main>
 
         <section class="section section-hero">
-            <div class="shell split split-hero">
-
+            <div class="shell">
                 <div class="panel-dark panel-dark-large">
                     <p class="kicker kicker-large">Performance Marketing Agency</p>
 
@@ -30,24 +29,6 @@
                         <a href="{{ route('audit') }}" class="button mobile-fullwidth">Richiedi audit</a>
                     </div>
                 </div>
-
-                <div class="step-grid">
-                    <div class="card card-stack card-step card-cream">
-                        <span class="label">Step 01</span>
-                        <span class="card-title">Offerta irrinunciabile</span>
-                    </div>
-
-                    <div class="card card-stack card-step card-violet">
-                        <span class="label">Step 02</span>
-                        <span class="card-title">Funneling perfetto</span>
-                    </div>
-
-                    <div class="card card-stack card-step card-orange">
-                        <span class="label">Step 03</span>
-                        <span class="card-title">Campagne da urlo</span>
-                    </div>
-                </div>
-
             </div>
         </section>
 
