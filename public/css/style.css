@@ -18,6 +18,26 @@ button {
     font: inherit;
 }
 
+/* GRID */
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.grid-4,
+.grid-4-1 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
 /* HEADER */
 
 .site-header {
@@ -767,6 +787,7 @@ button {
 }
 
 @keyframes booking-loader {
+
     0%,
     100% {
         transform: translateY(0) rotate(0deg);
@@ -1368,6 +1389,7 @@ button {
 }
 
 @keyframes radar-scan {
+
     0%,
     100% {
         transform: scaleX(0.72);
@@ -1662,38 +1684,42 @@ button {
 .top-margin-small {
     margin-top: 0.5rem;
 }
+
 .top-margin-mid {
     margin-top: 1rem;
 }
+
 .top-margin-large {
     margin-top: 1.5rem;
 }
+
 .top-margin-xl {
     margin-top: 2.5rem;
 }
+
 .top-margin {
     margin-top: 4rem;
 }
 
 /* STACK SYSTEM */
 
-.stack-small > * + * {
+.stack-small>*+* {
     margin-top: 0.5rem;
 }
 
-.stack-mid > * + * {
+.stack-mid>*+* {
     margin-top: 1rem;
 }
 
-.stack-large > * + * {
+.stack-large>*+* {
     margin-top: 1.5rem;
 }
 
-.stack-xl > * + * {
+.stack-xl>*+* {
     margin-top: 2.5rem;
 }
 
-.stack-xxl > * + * {
+.stack-xxl>*+* {
     margin-top: 4rem;
 }
 
@@ -1732,6 +1758,22 @@ button {
 }
 
 @media (max-width: 980px) {
+
+    /* GRID */
+    .grid-2,
+    .grid-3,
+    .grid-4-1 {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+    }
+
+    .grid-4 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
     .mobile-fullwidth {
         width: 100%;
         box-sizing: border-box;
@@ -1870,6 +1912,7 @@ button {
 }
 
 @media print {
+
     .site-header,
     .site-footer,
     .quote-actions {

@@ -23,38 +23,38 @@
         </section>
 
         <section class="section">
-            <div class="shell card-grid card-grid-four">
+            <div class="shell grid-4-1">
                 <article class="card card-stack card-service card-yellow">
                     <span class="label">01</span>
-                    <h2 class="card-title card-title-large">Landing pages</h2>
+                    <h2 class="card-title">Landing pages</h2>
                     <p class="card-copy">Pagine per campagne, lanci e funnel dove estetica e conversione lavorano insieme.</p>
                     <a href="{{ route('services.landing-page') }}" class="link-button">Approfondisci</a>
                 </article>
 
                 <article class="card card-stack card-service card-violet">
                     <span class="label">02</span>
-                    <h2 class="card-title card-title-large">Conversion rate</h2>
+                    <h2 class="card-title">Conversion rate</h2>
                     <p class="card-copy">Audit, CRO e ottimizzazione per spremere più valore dal traffico che hai già.</p>
                     <a href="{{ route('services.conversion-rate') }}" class="link-button">Approfondisci</a>
                 </article>
 
                 <article class="card card-stack card-service card-orange">
                     <span class="label">03</span>
-                    <h2 class="card-title card-title-large">Creative performance</h2>
+                    <h2 class="card-title">Creative performance</h2>
                     <p class="card-copy">Creatività, angle e asset per campagne che devono generare apprendimento e vendite.</p>
                     <a href="{{ route('services.creative-performance') }}" class="link-button">Approfondisci</a>
                 </article>
 
                 <article class="card card-stack card-service card-dark">
                     <span class="label">04</span>
-                    <h2 class="card-title card-title-large">Ticketing custom</h2>
+                    <h2 class="card-title">Ticketing custom</h2>
                     <p class="card-copy">Sistemi proprietari per iscrizioni, pagamenti, ticket PDF, admin e checkout eventi.</p>
                     <a href="{{ route('services.ticketing-custom') }}" class="link-button">Approfondisci</a>
                 </article>
 
                 <article class="card card-stack card-service card-cream">
                     <span class="label">05</span>
-                    <h2 class="card-title card-title-large">Funnel audit</h2>
+                    <h2 class="card-title">Funnel audit</h2>
                     <p class="card-copy">Diagnosi brutale su offerta, pagina, traffico, tracking e priorità dei prossimi 90 giorni.</p>
                     <a href="{{ route('audit') }}" class="link-button">Richiedi audit</a>
                 </article>
