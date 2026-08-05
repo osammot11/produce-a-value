@@ -12,13 +12,13 @@
                     <p class="kicker kicker-large">Performance Marketing Agency</p>
 
                     <h1 class="heading-hero desktop-only">
-                        Migliora i tuoi<br>
-                        risultati o non ci<br>
+                        Raggiungiamo i tuoi<br>
+                        obiettivi o non ci<br>
                         paghi un centesimo.
                     </h1>
 
                     <h1 class="heading-hero mobile-only">
-                        Migliora i tuoi risultati o non ci paghi un centesimo.
+                        Raggiungiamo i tuoi obiettivi o non ci paghi un centesimo.
                     </h1>
 
                     <p class="copy-light copy-hero">
