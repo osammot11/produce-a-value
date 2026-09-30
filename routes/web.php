@@ -17,7 +17,9 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+Route::get('/', function (Request $request) {
+    $request->session()->put('ticketing_form_started_at', now()->timestamp);
+
     return view('pages.home');
 })->name('home');
 

@@ -13,7 +13,7 @@
                 <p class="eyebrow">Attenzione ASD, organizzatori di maratone, trail e corse</p>
                 <h2>Come aumentare le iscrizioni della tua maratona <em>senza spendere di più in pubblicità</em>, pagando fino al 60% in meno di commissioni</h2>
                 <p class="subheadline">
-                    Marathon System by Produce a Value è una piattaforma di iscrizione <strong>custom</strong> per maratone,
+                    <strong>Marathon System</strong> è una piattaforma di iscrizione <strong>custom</strong> per maratone,
                     corse e trail che gestisce sito, checkout, pagamenti, ticket PDF, email automatiche, dati partecipanti,
                     gruppi, dashboard admin e tracking pubblicitario da <strong>un unico sistema proprietario</strong>.
                 </p>
@@ -330,11 +330,11 @@
                     <div class="price-big">€900 <span>+ €700/anno</span></div>
                     <p class="price-note">Setup una tantum + mantenimento, assistenza e infrastruttura annuale.<br>Il prezzo di partenza è circa il <strong>22% del valore percepito</strong> del sistema.</p>
                     <p class="price-note">Pagamento <strong>50/50</strong>: 50% all’avvio, 50% prima del go-live.<br>Per la demo gratuita non serve nessun acconto.</p>
-                    <a href="#form" class="btn">Richiedi la demo gratuita</a>
+                    <a href="#form" class="btn top-margin-large">Richiedi la demo gratuita</a>
                 </div>
 
               <div class="stack-large">
-                <h3 class="text-center">Il conto che ti convince</h3>
+                <h3 class="text-center">Il conto che forse non hai mai fatto...</h3>
                 <p class="text-center max-center top-margin-large">Se oggi paghi una commissione media di €2,15 per biglietto e con un’integrazione diretta scendi a €0,67, il risparmio è di <strong>€1,48 per iscrizione</strong>.</p>
                 <table class="math-table">
                     <thead>
@@ -358,15 +358,15 @@
         <section class="section">
             <div class="container">
                 <h2>Prima vedi la demo. Poi decidi.</h2>
-                <p>Sappiamo che affidare il sistema iscrizioni della tua maratona a qualcuno è una decisione delicata. Per questo riduciamo il rischio in più modi.</p>
+                <p>Sappiamo che affidare il sistema iscrizioni della tua maratona a qualcuno è una decisione delicata. Per questo <strong>il rischio ce lo assumiamo noi.</strong></p>
                 <div class="guarantee-box top-margin-large">
                     <h3>La nostra inversione del rischio</h3>
                     <ul class="guarantee-list">
-                        <li><strong>Demo funzionante prima dell’acconto</strong>: se il tuo evento è qualificato, ti mostriamo una demo concreta del sistema prima che tu debba pagare.</li>
+                        <li><strong>Demo funzionante prima dell’acconto</strong>: se il tuo evento è qualificato, ti mostriamo una demo concreta del sistema prima che tu debba pagare, senza impegno.</li>
                         <li><strong>Pagamento 50/50</strong>: non paghi tutto in anticipo. Il saldo viene versato prima del go-live.</li>
                         <li><strong>Ambiente staging prima della pubblicazione</strong>: puoi vedere e testare il sistema in un ambiente separato.</li>
                         <li><strong>Test completo prima del lancio</strong>: controlliamo flusso iscrizione, pagamenti, email, ticket, admin, export e funzioni principali.</li>
-                        <li><strong>Garanzia consegna</strong>: se il sistema non rispetta specifiche e tempistiche stabilite per causa nostra, ti rimborsiamo il 100% dell’importo pagato.</li>
+                        <li><strong>Garanzia sulla consegna</strong>: se il sistema non rispetta specifiche e tempistiche stabilite per causa nostra, ti rimborsiamo il 100% dell’importo pagato.</li>
                         <li><strong>Supporto prioritario nei giorni critici</strong>: nei momenti più delicati sai a chi rivolgerti.</li>
                     </ul>
                 </div>
@@ -406,7 +406,7 @@
                             <li>Vuoi solo “un sito economico”</li>
                             <li>Vendi meno di 100 biglietti l’anno</li>
                             <li>Vuoi assistenza gratuita infinita</li>
-                            <li>Vuoi modifiche illimitate fuori scope</li>
+                            <li>Vuoi modifiche illimitate fuori standard</li>
                             <li>Vuoi gestire campagne ads incluse nel prezzo</li>
                             <li>Hai bisogno di andare live domani</li>
                             <li>Non hai un referente chiaro per approvare materiali e decisioni</li>
@@ -481,7 +481,7 @@
                     ['“E se i pagamenti non arrivano?”', 'L’integrazione avviene direttamente con provider di pagamento riconosciuti come Stripe e PayPal. Prima del go-live vengono eseguiti test sul flusso di pagamento.'],
                     ['“E se non so usare il portale admin?”', 'Il portale viene progettato per essere usabile dalla segreteria evento, non da programmatori. Includiamo formazione admin e assistenza annuale.'],
                     ['“Perché costa così poco rispetto a un sistema custom classico?”', 'Perché non ripartiamo da zero. Abbiamo già costruito e testato una base proprietaria su un evento reale.'],
-                    ['“Il prezzo è fisso?”', 'Il sistema parte da €900 di setup + €700/anno. Funzioni altamente personalizzate o richieste fuori scope vengono preventivate separatamente prima dell’avvio.'],
+                    ['“Il prezzo è fisso?”', 'Il sistema parte da €900 di setup + €700/anno. Funzioni altamente personalizzate o richieste fuori standard vengono preventivate separatamente prima dell’avvio.'],
                     ['“Quanto tempo serve?”', 'Per progetti standard, normalmente 25-30 giorni. Per progetti molto personalizzati, fino a 75 giorni.'],
                 ] as [$question, $answer])
                     <div class="ticket-faq-item">

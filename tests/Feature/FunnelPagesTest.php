@@ -38,6 +38,38 @@ class FunnelPagesTest extends TestCase
         }
     }
 
+    public function test_home_ticketing_form_is_saved_and_visible_in_admin(): void
+    {
+        Mail::fake();
+
+        $this->get('/')
+            ->assertOk()
+            ->assertSee('action="'.route('services.ticketing-custom.store').'"', false);
+
+        $this->travel(4)->seconds();
+
+        $this->post('/servizi/ticketing-custom', [
+            'name' => 'Giulia Bianchi',
+            'email' => 'giulia@example.com',
+            'event_name' => 'Maratona di Firenze',
+            'annual_tickets' => '500-1000',
+            'launch_timing' => '2026-11-01',
+            'message' => 'Vorrei semplificare le iscrizioni.',
+        ])->assertRedirect('/servizi/ticketing-custom/richiesta-inviata');
+
+        $this->assertDatabaseHas('contact_submissions', [
+            'name' => 'Giulia Bianchi',
+            'email' => 'giulia@example.com',
+            'budget' => 'Ticketing custom',
+        ]);
+
+        $this->withSession(['admin_authenticated' => true])
+            ->get('/admin/contatti')
+            ->assertOk()
+            ->assertSee('Giulia Bianchi')
+            ->assertSee('Maratona di Firenze');
+    }
+
     public function test_audit_submission_is_validated_and_stored(): void
     {
         Mail::fake();
