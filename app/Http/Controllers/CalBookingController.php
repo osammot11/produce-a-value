@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AuditSubmission;
 use App\Services\CalComService;
+use App\Services\MetaConversions;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -41,7 +42,7 @@ class CalBookingController extends Controller
         }
     }
 
-    public function book(Request $request, CalComService $calComService): JsonResponse
+    public function book(Request $request, CalComService $calComService, MetaConversions $metaConversions): JsonResponse
     {
         $validated = $request->validate([
             'audit_id' => ['nullable', 'integer', 'exists:audit_submissions,id'],
@@ -101,6 +102,16 @@ class CalBookingController extends Controller
                 'cal_booking_payload' => $booking,
             ]);
         }
+
+        $isTicketing = $request->routeIs('services.ticketing-custom.book-call');
+        $metaConversions->record(
+            $request,
+            'Schedule',
+            $isTicketing ? 'ticketing_call' : 'radar_call',
+            $isTicketing ? route('services.ticketing-custom.thanks') : route('audit.thanks'),
+            $validated['email'],
+            $validated['phone'],
+        );
 
         return response()->json([
             'booking' => [

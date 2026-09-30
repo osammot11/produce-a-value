@@ -17,6 +17,7 @@
     @yield('content')
 
     @include('partials.footer')
+    @include('partials.meta-tracking')
 
     <script src="{{ asset('js/app.js') }}"></script>
     @stack('scripts')

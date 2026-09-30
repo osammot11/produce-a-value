@@ -11,8 +11,10 @@ use App\Models\AuditSubmission;
 use App\Models\CaseStudy;
 use App\Models\ContactSubmission;
 use App\Models\ResourceLead;
+use App\Services\MetaConversions;
 use App\Services\RadarAuditAnalyzer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +25,26 @@ Route::get('/', function (Request $request) {
     return view('pages.home');
 })->name('home');
 
+Route::post('/privacy/marketing-consent', function (Request $request) {
+    $validated = $request->validate([
+        'decision' => ['required', 'in:accepted,rejected'],
+    ]);
+
+    Cookie::queue(Cookie::make(
+        MetaConversions::CONSENT_COOKIE,
+        $validated['decision'],
+        60 * 24 * 180,
+        '/',
+        null,
+        $request->isSecure(),
+        true,
+        false,
+        'lax',
+    ));
+
+    return response()->json(['decision' => $validated['decision']]);
+})->middleware('throttle:20,1')->name('marketing-consent.store');
+
 Route::view('/servizi', 'pages.servizi')->name('servizi');
 Route::view('/servizi/landing-page', 'pages.services.landing-page')->name('services.landing-page');
 Route::view('/servizi/conversion-rate', 'pages.services.conversion-rate')->name('services.conversion-rate');
@@ -32,7 +54,7 @@ Route::get('/servizi/ticketing-custom', function (Request $request) {
 
     return view('pages.services.ticketing-custom');
 })->name('services.ticketing-custom');
-Route::post('/servizi/ticketing-custom', function (Request $request) {
+Route::post('/servizi/ticketing-custom', function (Request $request, MetaConversions $metaConversions) {
     $startedAt = (int) $request->session()->get('ticketing_form_started_at', 0);
     $submittedTooFast = $startedAt === 0 || now()->timestamp - $startedAt < 3;
     $honeypotFilled = filled($request->input('company_website'));
@@ -70,6 +92,14 @@ Route::post('/servizi/ticketing-custom', function (Request $request) {
     ]);
     $request->session()->forget('ticketing_form_started_at');
 
+    $metaConversions->record(
+        $request,
+        'Lead',
+        'ticketing_demo',
+        route('services.ticketing-custom'),
+        $contact->email,
+    );
+
     if ($recipient = config('lead-notifications.email')) {
         try {
             Mail::to($recipient)->send(new ContactSubmissionReceived($contact));
@@ -105,7 +135,7 @@ Route::get('/contatti', function (Request $request) {
 
     return view('pages.contatti');
 })->name('contatti');
-Route::post('/contatti', function (Request $request) {
+Route::post('/contatti', function (Request $request, MetaConversions $metaConversions) {
     $startedAt = (int) $request->session()->get('contact_form_started_at', 0);
     $submittedTooFast = $startedAt === 0 || now()->timestamp - $startedAt < 3;
     $honeypotFilled = filled($request->input('company_website'));
@@ -127,6 +157,8 @@ Route::post('/contatti', function (Request $request) {
     $contact = ContactSubmission::create($validated);
     $request->session()->forget('contact_form_started_at');
 
+    $metaConversions->record($request, 'Lead', 'contact', route('contatti'), $contact->email);
+
     if ($recipient = config('lead-notifications.email')) {
         try {
             Mail::to($recipient)->send(new ContactSubmissionReceived($contact));
@@ -141,7 +173,7 @@ Route::post('/contatti', function (Request $request) {
     return redirect()->route('contatti')->with('status', 'Richiesta inviata. Ti ricontatteremo se c\'è fit.');
 })->middleware('throttle:4,1')->name('contatti.store');
 Route::view('/audit', 'pages.audit')->name('audit');
-Route::post('/audit', function (Request $request, RadarAuditAnalyzer $radarAuditAnalyzer) {
+Route::post('/audit', function (Request $request, RadarAuditAnalyzer $radarAuditAnalyzer, MetaConversions $metaConversions) {
     if ($request->filled('ecommerce_url')) {
         $ecommerceUrl = trim((string) $request->input('ecommerce_url'));
 
@@ -194,6 +226,8 @@ Route::post('/audit', function (Request $request, RadarAuditAnalyzer $radarAudit
 
     $audit = AuditSubmission::create($validated);
 
+    $metaConversions->record($request, 'Lead', 'radar_audit', route('audit'), $audit->email, $audit->phone);
+
     if ($recipient = config('lead-notifications.email')) {
         try {
             Mail::to($recipient)->send(new AuditSubmissionReceived($audit));
@@ -225,7 +259,7 @@ Route::get('/audit/slots', [CalBookingController::class, 'slots'])->name('audit.
 Route::post('/audit/book-call', [CalBookingController::class, 'book'])->name('audit.book-call');
 Route::view('/audit/call-prenotata', 'pages.audit-call-thanks')->name('audit.call-thanks');
 Route::view('/risorsa', 'pages.risorsa')->name('risorsa');
-Route::post('/risorsa', function (Request $request) {
+Route::post('/risorsa', function (Request $request, MetaConversions $metaConversions) {
     $validated = $request->validate([
         'name' => ['nullable', 'string', 'max:120'],
         'email' => ['required', 'email', 'max:160'],
@@ -235,7 +269,9 @@ Route::post('/risorsa', function (Request $request) {
 
     unset($validated['privacy_consent']);
 
-    ResourceLead::create($validated);
+    $lead = ResourceLead::create($validated);
+
+    $metaConversions->record($request, 'Lead', 'resource', route('risorsa'), $lead->email);
 
     return redirect()->route('risorsa.thanks');
 })->name('risorsa.store');

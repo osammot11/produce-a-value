@@ -17,10 +17,10 @@
                     <p>Produce a Value tratterà i dati personali raccolti tramite il sito secondo la normativa applicabile.</p>
 
                     <h2>Dati raccolti</h2>
-                    <p>Potranno essere raccolti dati di contatto, informazioni inviate tramite form audit, richieste risorsa e dati tecnici di navigazione.</p>
+                    <p>Potranno essere raccolti dati di contatto, informazioni inviate tramite form audit, richieste risorsa e dati tecnici di navigazione. Con il consenso marketing, il sito usa anche Meta Pixel e Conversions API come descritto nella <a href="{{ route('cookie-policy') }}">Cookie Policy</a>.</p>
 
                     <h2>Finalità</h2>
-                    <p>I dati saranno usati per rispondere alle richieste, gestire contatti commerciali e migliorare il sito.</p>
+                    <p>I dati saranno usati per rispondere alle richieste e gestire i contatti commerciali. Se acconsenti al tracciamento marketing, gli eventi di visita e conversione saranno condivisi con Meta per misurare le campagne pubblicitarie.</p>
 
                     <h2>Diritti</h2>
                     <p>Gli utenti potranno richiedere accesso, rettifica, cancellazione o limitazione del trattamento.</p>

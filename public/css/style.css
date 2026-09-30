@@ -1421,6 +1421,112 @@ button {
 
 /* FOOTER */
 
+.consent-banner {
+    position: fixed;
+    z-index: 1000;
+    right: 18px;
+    bottom: 18px;
+    left: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    max-width: 1040px;
+    max-height: calc(100dvh - 36px);
+    margin: 0 auto;
+    padding: 20px 24px;
+    overflow-y: auto;
+    border: 2px solid #111111;
+    background: #f5efe4;
+    box-shadow: 8px 8px 0 #111111;
+}
+
+.consent-banner[hidden],
+.consent-error[hidden] {
+    display: none;
+}
+
+.consent-copy {
+    max-width: 650px;
+}
+
+.consent-copy strong {
+    font-size: 1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.consent-copy p {
+    margin: 6px 0 0;
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+.consent-copy a {
+    text-decoration: underline;
+}
+
+.consent-error {
+    color: #a82011;
+}
+
+.consent-actions {
+    display: flex;
+    flex-shrink: 0;
+    gap: 10px;
+}
+
+.consent-actions button {
+    min-width: 100px;
+    min-height: 44px;
+    padding: 8px 16px;
+    border: 2px solid #111111;
+    background: transparent;
+    color: #111111;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.consent-actions .consent-accept {
+    background: #ffe600;
+}
+
+.consent-actions button:disabled {
+    cursor: wait;
+    opacity: 0.6;
+}
+
+.footer-cookie-settings {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    font-weight: inherit;
+    text-transform: inherit;
+    cursor: pointer;
+}
+
+.footer-cookie-settings:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 680px) {
+    .consent-banner {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+        padding: 16px;
+    }
+
+    .consent-actions button {
+        flex: 1;
+    }
+}
+
 .site-footer {
     padding: 48px 18px 28px;
 }

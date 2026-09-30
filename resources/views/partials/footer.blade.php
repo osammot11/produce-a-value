@@ -33,6 +33,10 @@
                 <a href="{{ route('privacy-policy') }}">Privacy</a>
                 /
                 <a href="{{ route('cookie-policy') }}">Cookie</a>
+                @if (config('services.meta.enabled') && config('services.meta.pixel_id'))
+                    /
+                    <button type="button" class="footer-cookie-settings" data-cookie-settings>Preferenze cookie</button>
+                @endif
             </span>
         </div>
 

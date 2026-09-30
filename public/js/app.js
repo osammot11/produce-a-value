@@ -432,6 +432,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 try {
                     const response = await fetch(bookUrl, {
                         method: "POST",
+                        credentials: "same-origin",
                         headers: {
                             "Accept": "application/json",
                             "X-CSRF-TOKEN": csrfToken(),

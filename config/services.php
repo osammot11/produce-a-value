@@ -34,6 +34,14 @@ return [
         'slot_lookahead_days' => env('CAL_SLOT_LOOKAHEAD_DAYS', 21),
     ],
 
+    'meta' => [
+        'enabled' => env('META_TRACKING_ENABLED', false),
+        'pixel_id' => env('META_PIXEL_ID'),
+        'capi_access_token' => env('META_CAPI_ACCESS_TOKEN'),
+        'test_event_code' => env('META_TEST_EVENT_CODE'),
+        'api_version' => env('META_API_VERSION', 'v26.0'),
+    ],
+
     'ses' => [
         'key' => env('AWS_ACCESS_KEY_ID'),
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
